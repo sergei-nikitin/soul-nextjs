@@ -1,0 +1,145 @@
+@import "../../scss/variables";
+
+.burger {
+  cursor: pointer;
+  width: 35px;
+  height: 30px;
+
+  transition: $transition;
+
+  &:hover * {
+    transition: $transition;
+    stroke: $dark-gray;
+  }
+}
+
+.logoWrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 12px;
+
+    background: url(../../assets/images/Vector-1.png) center no-repeat;
+    background-size: contain;
+  }
+
+  .contur {
+    width: 100%;
+    height: 100%;
+    animation: rotateLogo 10s linear infinite;
+  }
+  @keyframes rotateLogo {
+    0% {
+      transform: rotate(-360deg);
+    }
+  }
+  .letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 12px;
+  }
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+
+  span {
+    font-size: 14px;
+    color: $black;
+    margin-left: 10px;
+  }
+}
+
+// menu
+.menuWrapper {
+  position: absolute;
+  top: 60px;
+  left: -100vw;
+  width: 100vw;
+  height: calc(100vh - 60px);
+  padding: 70px 0 20px 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: url(../../assets/images/mob-menu-bg.png) no-repeat center;
+  // background: url(../../assets/images/mob-menu-bg.png) no-repeat center;
+  z-index: 100;
+  background-size: cover;
+  z-index: 100;
+
+  transition: $transition;
+}
+.menuWrapperActive {
+  left: 0;
+}
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .arrov {
+      margin-top: -5px;
+      margin-left: 10px;
+      transition: $transition;
+    }
+    .rotate {
+      transform: rotate(90deg);
+    }
+  }
+}
+.navLink {
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 62px;
+  color: $dark-gray;
+  margin-bottom: 20px;
+
+  &:hover {
+    color: $black;
+  }
+}
+.activeLink {
+  color: $black;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  transition: $transition;
+}
+
+.tel {
+  font-size: 38px;
+  color: #838383;
+  transition: $transition;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+.socLinks {
+  margin-top: 20px;
+  a {
+    margin: 10px;
+  }
+}

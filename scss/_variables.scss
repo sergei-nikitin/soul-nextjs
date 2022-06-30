@@ -1,0 +1,43 @@
+$gold: #bb9c13;
+// $gold: #fdcf04;
+// $gray: #f3f2f2;
+$gray: rgba(131, 131, 131, 0.7);
+$dark-gray: #525252;
+$black: #0f0f0f;
+$roz: #ffdfd4;
+$yellow: #ffd100;
+$blue: #0082d1;
+
+$outline-section: 2px solid rgb(2, 145, 255);
+$outline: 2px solid rgb(255, 255, 0);
+$letter-spacing: 0.1rem;
+$img-rotate: rotate(8deg);
+
+// section styles
+$section-width: 1920px;
+$section-padding: 60px 0 150px 0;
+
+// container styles
+$max-width: 1730px;
+$padding: 0 25px;
+$margin: 0 auto;
+
+// container for items
+$items-width: 65%;
+// $items-width: 1100px;
+$items-padding: 40px 0;
+
+// breackpoints
+$max: 1920px;
+$descktop-XL: 1728px;
+$descktop-L: 1440px;
+$descktop-S: 1280px;
+
+$tablet-L: 1024px;
+$tablet-S: 834px;
+
+$mob-XL: 569px;
+$mob-L: 428px;
+$mob-S: 375px;
+
+$transition: all 0.2s linear;

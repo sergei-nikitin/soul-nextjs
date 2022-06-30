@@ -1,0 +1,9 @@
+import { MainLayout } from '../components/MainLayout';
+
+export default function Twirl() {
+  return (
+    <MainLayout>
+      <h1>Twirl</h1>
+    </MainLayout>
+  );
+}

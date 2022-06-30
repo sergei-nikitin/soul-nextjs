@@ -1,0 +1,48 @@
+@import "../../scss/variables";
+
+.logoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 105px;
+  height: 102px;
+}
+
+.logo {
+  position: relative;
+}
+
+.contur {
+  width: 85px;
+  height: 85px;
+  animation: rotateLogo 10s linear infinite;
+}
+@keyframes rotateLogo {
+  0% {
+    transform: rotate(-360deg);
+  }
+}
+.letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+  width: 17px;
+  height: 20px;
+}
+.textWrapper {
+  margin-top: 2px;
+  span {
+    margin: 0 2px;
+  }
+}
+.letterSVG {
+  width: 9px;
+  height: 12px;
+}
+.letterSVGi {
+  width: 5px;
+  height: 12px;
+}

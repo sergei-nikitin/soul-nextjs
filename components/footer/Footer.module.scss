@@ -1,0 +1,213 @@
+@import "../../scss/variables";
+
+.footer {
+  width: 100%;
+  border-top: 1px solid $dark-gray;
+}
+
+.main {
+  padding: 25px 15px;
+
+  width: 70%;
+  margin: $margin;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media (min-width: $mob-XL) {
+    width: 80%;
+    padding: 25px 40px;
+  }
+  @media (min-width: $tablet-S) {
+    width: 100%;
+  }
+  @media (min-width: $tablet-S) {
+    padding: 25px 110px;
+  }
+  @media (min-width: $descktop-S) {
+    padding: 25px 180px;
+  }
+  @media (min-width: $descktop-L) {
+    padding: 25px 220px;
+  }
+}
+.subFooter {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-right: 20px;
+  border-top: 1px solid $dark-gray;
+  justify-content: center;
+
+  display: flex;
+
+  @media (min-width: $mob-XL) {
+    justify-content: flex-end;
+  }
+  .textWrapper {
+    // display: inline-block;
+    // margin-left: auto;
+  }
+
+  p {
+    text-align: center;
+    font-family: "inter";
+    font-size: 12px;
+    line-height: 25px;
+    color: $dark-gray;
+
+    @media (min-width: $mob-XL) {
+      margin-left: auto;
+      text-align: left;
+    }
+  }
+}
+
+.logoWrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: $tablet-S) {
+    width: 25%;
+    justify-content: flex-start;
+  }
+}
+
+.nav {
+  // outline: $outline;
+  width: 50%;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $mob-XL) {
+    width: 33%;
+  }
+  @media (min-width: $tablet-S) {
+    width: 25%;
+  }
+  @media (min-width: $descktop-S) {
+    margin-top: 0;
+  }
+
+  li {
+    width: 100%;
+    font-family: "inter";
+    font-size: 12px;
+    line-height: 19px;
+    margin: 4px 0;
+    color: $dark-gray;
+    a,
+    p {
+      font-family: "inter";
+      color: $dark-gray;
+      text-align: left;
+      transition: $transition;
+
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+  li:first-of-type {
+    cursor: default;
+  }
+}
+
+.activeLink {
+  color: $black !important;
+  transition: $transition;
+
+  &::before {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.conectInfo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  width: 100%;
+
+  @media (min-width: $mob-XL) {
+    width: 33%;
+
+    flex-direction: column;
+  }
+  @media (min-width: $tablet-S) {
+    width: 25%;
+  }
+  @media (min-width: $descktop-S) {
+    margin-top: 0;
+  }
+}
+.contacts {
+  width: 50%;
+  p {
+    font-family: "inter";
+    font-size: 12px;
+    line-height: 19px;
+    margin: 4px 0;
+    color: $dark-gray;
+  }
+  .tel {
+    font-size: 16px;
+    line-height: 25px;
+    margin: 4px 0;
+    color: $dark-gray;
+  }
+}
+.socialWrapper {
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  p {
+    font-family: "inter";
+    font-size: 12px;
+    line-height: 19px;
+    margin: 4px 0;
+    color: $dark-gray;
+  }
+}
+.social {
+  display: flex;
+  align-items: center;
+  a {
+    display: flex;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 18px;
+    // margin-top: 15px;
+    color: $dark-gray;
+
+    &:hover {
+      color: $gold;
+    }
+  }
+}
+.icons {
+  transition: $transition;
+  &:hover * {
+    fill: $gold;
+  }
+}
+// test hover
+.ball * {
+  &:hover {
+    fill: rgb(255, 104, 104);
+  }
+}
