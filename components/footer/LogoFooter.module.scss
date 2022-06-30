@@ -6,12 +6,27 @@
   align-items: center;
   justify-content: center;
 
-  width: 105px;
+  width: 125px;
   height: 102px;
 }
 
 .logo {
   position: relative;
+  width: 85px;
+  height: 85px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 17px;
+    height: 20px;
+
+    background: url(../../assets/images/Vector-1.png) center no-repeat;
+    background-size: contain;
+  }
 }
 
 .contur {
@@ -24,14 +39,7 @@
     transform: rotate(-360deg);
   }
 }
-.letter {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -58%);
-  width: 17px;
-  height: 20px;
-}
+
 .textWrapper {
   margin-top: 2px;
   span {

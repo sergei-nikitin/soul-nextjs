@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainLayout } from '../components/MainLayout';
-// import Main from '../components/home/main';
-// import About from '../components/home/about';
+import { Main } from '../components/home/Main';
+import About from '../components/home/about/About';
 // import Twirl from '../components/home/twirl';
 // import Treasure from '../components/home/treasure/Treasure';
 // import Seduction from '../components/home/seduction/Seduction';
@@ -15,15 +15,14 @@ export default function Home() {
   }, []);
   return (
     <MainLayout>
-      <h1>Home</h1>
-      {/* <Main />
+      <Main />
       <About />
-      <Twirl />
-      <Seduction />
-      <Treasure />
-      <Brand />
-      <Ukraine />
-      <Soul /> */}
+      {/* <Twirl /> */}
+      {/* <Seduction /> */}
+      {/* <Treasure /> */}
+      {/* <Brand /> */}
+      {/* <Ukraine /> */}
+      {/* <Soul /> */}
     </MainLayout>
   );
 }

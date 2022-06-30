@@ -18,11 +18,10 @@ import st from './LogoFooter.module.scss';
 export default function LogoFooter() {
   return (
     <>
-      <Link className={st.logoWrapper} href="/">
-        <a>
+      <Link href="/">
+        <a className={st.logoWrapper}>
           <div className={st.logo}>
             <Image className={st.contur} src={contur} alt="logo" />
-            <Image className={st.letter} src={s} alt="logo" />
           </div>
           <div className={st.textWrapper}>
             <Image className={st.letterSVG} src={s} alt="l" />

@@ -1,0 +1,235 @@
+@import "../../../scss/variables";
+@import "../../../scss/variables";
+
+.section {
+  // outline: $outline;
+  max-width: $section-width;
+  width: 100%;
+  padding: 30px 0;
+  margin-top: 40px;
+  @media (min-width: $tablet-L) {
+    margin-top: 80px;
+  }
+}
+.container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  @media (min-width: $mob-L) {
+    padding: 0 30px;
+  }
+  @media (min-width: $mob-XL) {
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  @media (min-width: $tablet-S) {
+    padding: 0 80px;
+  }
+  @media (min-width: $tablet-L) {
+    padding: 0 120px;
+  }
+  @media (min-width: $descktop-L) {
+    padding: 0 180px;
+  }
+}
+.title {
+  width: 100%;
+  font-size: 34px;
+  color: $gold;
+  margin-bottom: 15px;
+  @media (min-width: $mob-XL) {
+    font-size: 44px;
+  }
+  @media (min-width: $tablet-L) {
+    font-size: 64px;
+    line-height: 80px;
+  }
+}
+.fotoWrapper {
+  outline: $outline;
+  // width: 100%;
+  width: 228px;
+  height: 280px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  @media (min-width: $mob-XL) {
+    width: 260px;
+    height: 320px;
+    margin-left: 20px;
+  }
+  @media (min-width: $tablet-S) {
+    margin-left: 10px;
+  }
+  @media (min-width: $tablet-L) {
+    width: 335px;
+    height: 400px;
+    margin-left: 0;
+  }
+  @media (min-width: $descktop-L) {
+    width: 460px;
+    height: 566px;
+  }
+  @media (min-width: $descktop-XL) {
+    width: 550px;
+    height: 570px;
+  }
+}
+.img {
+  transform: $img-rotate;
+  position: relative;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto;
+
+  &::before {
+    content: "IT`S ABOUT";
+    position: absolute;
+    left: -20%;
+    top: -40px;
+    transform: rotate(-8deg);
+    -webkit-text-stroke: 1px rgba(165, 46, 8, 0.4);
+    color: transparent;
+    font-size: 60px;
+    font-family: "Advent Pro";
+
+    @media (min-width: $mob-XL) {
+      width: 260px;
+      left: 85%;
+      top: -50px;
+    }
+    @media (min-width: $tablet-L) {
+      width: 590px;
+      font-size: 130px;
+      top: -90px;
+      left: 90%;
+    }
+    @media (min-width: $descktop-L) {
+      left: 100%;
+      top: -30%;
+    }
+    @media (min-width: $descktop-XL) {
+      left: 130%;
+    }
+  }
+  &::after {
+    content: "LOVE";
+    position: absolute;
+    right: -15%;
+    bottom: -30px;
+    transform: rotate(-8deg);
+    -webkit-text-stroke: 1px rgba(165, 46, 8, 0.4);
+    color: transparent;
+    font-size: 60px;
+    font-family: "Advent Pro";
+    z-index: -1;
+    @media (min-width: $mob-S) {
+      right: -20%;
+    }
+    @media (min-width: $mob-L) {
+      right: -25%;
+    }
+    @media (min-width: $mob-XL) {
+      bottom: 70%;
+    }
+    @media (min-width: $tablet-S) {
+      right: -50%;
+    }
+    @media (min-width: $tablet-L) {
+      font-size: 130px;
+      bottom: 0;
+      right: -100%;
+    }
+    @media (min-width: $descktop-L) {
+      right: -65%;
+      bottom: 80%;
+    }
+  }
+}
+.aboutImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  @media (min-width: $descktop-XL) {
+    border-radius: 25px;
+  }
+  // @media (min-width: $descktop-XL) {
+  //   width: 550px;
+  //   height: 570px;
+  // }
+}
+
+.descrWrapper {
+  width: 65%;
+  margin: 30px auto 0 auto;
+  @media (min-width: $mob-XL) {
+    width: calc(100% - 300px);
+    // padding-left: 20px;
+  }
+  @media (min-width: $tablet-S) {
+    padding-left: 40px;
+  }
+  @media (min-width: $tablet-L) {
+    width: calc(100% - 435px);
+    padding-top: 100px;
+  }
+  @media (min-width: $descktop-L) {
+    width: calc(100% - 480px);
+    padding-top: 120px;
+    padding-left: 40px;
+  }
+  @media (min-width: $descktop-XL) {
+    width: calc(100% - 630px);
+    padding-top: 150px;
+  }
+}
+
+.textBlock {
+  width: 100%;
+  @media (min-width: $tablet-S) {
+    p {
+      width: 80%;
+    }
+  }
+  @media (min-width: $tablet-S) {
+    // padding-left: 40px;
+  }
+  @media (min-width: $descktop-L) {
+    width: 70%;
+  }
+  @media (min-width: $descktop-XL) {
+    padding-left: 10%;
+  }
+
+  p:first-of-type {
+    margin-bottom: 20px;
+    @media (min-width: $tablet-S) {
+      margin-bottom: 40px;
+    }
+  }
+  p:nth-of-type(2) {
+    @media (min-width: $mob-XL) {
+      padding-left: 15px;
+    }
+    @media (min-width: $tablet-S) {
+      padding-left: 0;
+      margin-left: 70px;
+    }
+    @media (min-width: $descktop-L) {
+      padding-left: 0;
+      margin-left: 120px;
+    }
+  }
+}
+
+.linkWrap {
+  display: none;
+  @media (min-width: $tablet-S) {
+    display: flex;
+    justify-content: end;
+    width: 80%;
+    margin: 80px auto 0 auto;
+  }
+}
