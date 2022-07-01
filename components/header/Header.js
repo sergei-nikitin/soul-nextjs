@@ -1,18 +1,18 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 // import { Link,hrefink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addHeaderHeight } from '../../redux/slices/heightSlice';
 
-// import CartPage from '../cart';
-// import letter from '../../assets/images/Vector-1.png';
 import contur from '../../assets/images/Vector.png';
 import cartImage from '../../assets/images/icons/cart.svg';
 import arrov from '../../assets/images/icons/navArrov.svg';
 import s from './Header.module.scss';
 
 export default function Header() {
+  const router = useRouter();
   const header = React.useRef();
   const dispatch = useDispatch();
 
@@ -24,8 +24,6 @@ export default function Header() {
   const { items, totalPrice } = useSelector((state) => state.cart);
   const [cart, setCart] = React.useState(false);
 
-  const setActive = ({ isActive }) =>
-    isActive ? [s.navLink, s.activeLink].join(' ') : s.navLink;
   const [show, setShow] = React.useState(true);
   const [lastScrollY, setLastScrollY] = React.useState(0);
 
@@ -71,32 +69,78 @@ export default function Header() {
 
           <nav className={s.navBlock}>
             <Link href={'/'}>
-              {/* <Link href={'/'} className={setActive}> */}
-              <a className={s.navLink}>home</a>
+              <a
+                className={
+                  router.pathname == '/'
+                    ? [s.navLink, s.activeLink].join(' ')
+                    : s.navLink
+                }>
+                home
+              </a>
             </Link>
             <Link href={'/aboutUs'}>
-              <a className={s.navLink}>about us</a>
+              <a
+                className={
+                  router.pathname == '/aboutUs'
+                    ? [s.navLink, s.activeLink].join(' ')
+                    : s.navLink
+                }>
+                about us
+              </a>
             </Link>
             <div className={s.select}>
               <div className={s.span}></div>
               <Link href={'/collection'}>
-                <a className={s.navLink}>
+                <a
+                  className={
+                    router.pathname == '/collection'
+                      ? [s.navLink, s.activeLink].join(' ')
+                      : s.navLink
+                  }>
                   collection
                   <Image className={s.navArrov} src={arrov} alt="hover" />
                 </a>
               </Link>
               <Link href={'/treasure'}>
-                <a className={s.navLink}>treasure</a>
+                <a
+                  className={
+                    router.pathname == '/treasure'
+                      ? [s.navLink, s.activeLink].join(' ')
+                      : s.navLink
+                  }>
+                  treasure
+                </a>
               </Link>
               <Link href={'/seduction'}>
-                <a className={s.navLink}>seduction</a>
+                <a
+                  className={
+                    router.pathname == '/seduction'
+                      ? [s.navLink, s.activeLink].join(' ')
+                      : s.navLink
+                  }>
+                  seduction
+                </a>
               </Link>
               <Link href={'/twirl'}>
-                <a className={s.navLink}>twirl</a>
+                <a
+                  className={
+                    router.pathname == '/twirl'
+                      ? [s.navLink, s.activeLink].join(' ')
+                      : s.navLink
+                  }>
+                  twirl
+                </a>
               </Link>
             </div>
             <Link href={'/contacts'}>
-              <a className={s.navLink}> contacts</a>
+              <a
+                className={
+                  router.pathname == '/contacts'
+                    ? [s.navLink, s.activeLink].join(' ')
+                    : s.navLink
+                }>
+                contacts
+              </a>
             </Link>
           </nav>
           <Link href={'/cart'}>

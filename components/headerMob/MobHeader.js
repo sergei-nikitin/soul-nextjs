@@ -1,16 +1,16 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 
-import { ReactComponent as Burger } from '../../assets/images/icons/burger-btn.svg';
-import burger from '../../assets/images/icons/burger-btn.svg';
-import close from '../../assets/images/icons/close.svg';
-import { ReactComponent as Close } from '../../assets/images/icons/close.svg';
-import { ReactComponent as Ball } from '../../assets/images/icons/ball.svg';
-import { ReactComponent as Insta } from '../../assets/images/icons/insta.svg';
-import { ReactComponent as Twiter } from '../../assets/images/icons/twiter.svg';
-import { ReactComponent as FaceBook } from '../../assets/images/icons/fb.svg';
+import BurgerIcon from '../icons/BurgerIcon';
+import CloseIcon from '../icons/CloseIcon';
+import BallIcon from '../icons/BallIcon';
+import TwiterIcon from '../icons/TwiterIcon';
+import InstaIcon from '../icons/InstaIcon';
+import FaceBookIcon from '../icons/FaceBookIcon';
+
 import letter from '../../assets/images/Vector-1.png';
 import contur from '../../assets/images/Vector.png';
 import cart from '../../assets/images/icons/cart.svg';
@@ -18,6 +18,7 @@ import arrov from '../../assets/images/icons/collection-arrov.svg';
 import s from './MobHeader.module.scss';
 
 export default function MobHeader() {
+  const router = useRouter();
   const mobHeader = React.useRef();
   const { items } = useSelector((state) => state.cart);
   const [menu, setMenu] = React.useState(false);
@@ -28,11 +29,6 @@ export default function MobHeader() {
     setMenu(!menu);
     setSelectItems(false);
   };
-  const setActive = ({ isActive }) =>
-    isActive ? [s.navLink, s.activeLink].join(' ') : s.Link;
-
-  // const setActiveItem = ({ isActive }) =>
-  //   isActive ? [s.item, s.activeItem].join(' ') : s.item;
 
   const select = () => {
     setRotate(!rotate);
@@ -71,30 +67,14 @@ export default function MobHeader() {
   return (
     <header ref={mobHeader} className={show ? 'mobHeader' : 'mobHeaderHidden'}>
       {menu ? (
-        <Image
-          src={close}
-          alt="icon"
-          onClick={closeMenu}
-          className={s.burger}
-        />
+        <CloseIcon onClick={closeMenu} />
       ) : (
-        <Image
-          src={burger}
-          alt="icon"
-          onClick={closeMenu}
-          className={s.burger}
-        />
+        <BurgerIcon onClick={closeMenu} />
       )}
-      {/* {menu ? (
-        <Close onClick={closeMenu} className={s.burger} />
-      ) : (
-        <Burger onClick={closeMenu} className={s.burger} />
-      )} */}
 
       <Link href={'/'}>
         <a className={s.logoWrapper}>
           <Image className={s.contur} src={contur} alt="logo" />
-          {/* <Image className={s.letter} src={letter} alt="logo" /> */}
         </a>
       </Link>
 
@@ -113,46 +93,101 @@ export default function MobHeader() {
         }>
         <div className={s.linksWrapper}>
           <Link href={'/'}>
-            <a className={s.navLink} onClick={closeMenu}>
+            <a
+              className={
+                router.pathname == '/'
+                  ? [s.navLink, s.activeLink].join(' ')
+                  : s.navLink
+              }
+              onClick={closeMenu}>
               home
             </a>
           </Link>
           <Link href={'/aboutUs'}>
-            <a className={s.navLink} onClick={closeMenu}>
+            <a
+              className={
+                router.pathname == '/aboutUs'
+                  ? [s.navLink, s.activeLink].join(' ')
+                  : s.navLink
+              }
+              onClick={closeMenu}>
               about us
             </a>
           </Link>
-          <span onClick={select} className={s.navLink}>
-            collection
-            <Image
-              className={rotate ? [s.arrov, s.rotate].join(' ') : s.arrov}
-              src={arrov}
-              alt="icon"
-            />
-          </span>
+          <div className={s.collectionWrapper}>
+            <Link href={'/collection'}>
+              <a
+                className={
+                  router.pathname == '/collection'
+                    ? [s.navLink, s.activeLink].join(' ')
+                    : s.navLink
+                }
+                onClick={closeMenu}>
+                collection
+              </a>
+            </Link>
+            <span
+              onClick={select}
+              className={
+                router.pathname == '/collection'
+                  ? [s.navLink, s.activeLink].join(' ')
+                  : s.navLink
+              }>
+              <button className={s.arrowBtn}>
+                <Image
+                  className={rotate ? [s.arrov, s.rotate].join(' ') : s.arrov}
+                  src={arrov}
+                  alt="icon"
+                />
+              </button>
+            </span>
+          </div>
 
           {selectItems && (
             <div className={s.list}>
               <Link href={'/twirl'}>
-                <a className={s.navLink} onClick={closeMenu}>
+                <a
+                  className={
+                    router.pathname == '/twirl'
+                      ? [s.navLink, s.activeLink].join(' ')
+                      : s.navLink
+                  }
+                  onClick={closeMenu}>
                   twirl
                 </a>
               </Link>
               <Link href={'/treasure'}>
-                <a className={s.navLink} onClick={closeMenu}>
+                <a
+                  className={
+                    router.pathname == '/treasure'
+                      ? [s.navLink, s.activeLink].join(' ')
+                      : s.navLink
+                  }
+                  onClick={closeMenu}>
                   treasure
                 </a>
               </Link>
               <Link href={'/seduction'}>
-                <a className={s.navLink} onClick={closeMenu}>
+                <a
+                  className={
+                    router.pathname == '/seduction'
+                      ? [s.navLink, s.activeLink].join(' ')
+                      : s.navLink
+                  }
+                  onClick={closeMenu}>
                   seduction
                 </a>
               </Link>
             </div>
           )}
-
           <Link href={'/contacts'}>
-            <a className={s.navLink} onClick={closeMenu}>
+            <a
+              className={
+                router.pathname == '/contacts'
+                  ? [s.navLink, s.activeLink].join(' ')
+                  : s.navLink
+              }
+              onClick={closeMenu}>
               contacts
             </a>
           </Link>
@@ -162,18 +197,18 @@ export default function MobHeader() {
             +971501871707
           </a>
           <div className={s.socLinks}>
-            {/* <a href="#">
-              <Ball />
+            <a className={s.socialIcon} href="#">
+              <BallIcon />
             </a>
-            <a href="#">
-              <Insta />
+            <a className={s.socialIcon} href="#">
+              <InstaIcon />
             </a>
-            <a href="#">
-              <Twiter />
+            <a className={s.socialIcon} href="#">
+              <TwiterIcon />
             </a>
-            <a href="#">
-              <FaceBook />
-            </a> */}
+            <a className={s.socialIcon} href="#">
+              <FaceBookIcon />
+            </a>
           </div>
         </div>
       </div>

@@ -1,0 +1,38 @@
+@import "../../scss/variables";
+
+.link {
+  display: inline-block;
+  padding: 10px 13px 6px 13px;
+  border-radius: 20px;
+  border: 1px solid #bb9c13;
+  background: $gold;
+  box-shadow: 0px 4px 9px rgba(133, 109, 5, 0.2);
+
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+
+  margin-left: 15px;
+  transition: $transition;
+
+  &:hover {
+    background: #bb7813;
+    border: 1px solid #bb7813;
+  }
+  &:active {
+    background: #8e5c11;
+    border: 1px solid #8e5c11;
+  }
+
+  @media (min-width: $mob-XL) {
+    padding: 12px 20px 8px 20px;
+    margin-left: 20px;
+  }
+  @media (min-width: $descktop-S) {
+    padding: 12px 54px 8px 54px;
+    font-size: 22px;
+  }
+}
