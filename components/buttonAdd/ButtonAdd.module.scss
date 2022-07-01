@@ -1,0 +1,66 @@
+@import "../../scss/variables";
+
+.wrapper {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+
+  background: $gold;
+  border: 1px solid #bb9c13;
+  border-radius: 20px;
+  box-shadow: 0px 4px 9px rgba(133, 109, 5, 0.2);
+
+  transition: $transition;
+
+  &:hover {
+    background: #bb7813;
+    border: 1px solid #bb7813;
+    .btn {
+      background: #bb7813;
+      color: #fff;
+    }
+  }
+  &:active {
+    background: #8e5c11;
+    border: 1px solid #8e5c11;
+    .btn {
+      background: #8e5c11;
+      color: #fff;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 13px 6px 13px;
+  border-radius: 20px;
+  background: #ffdfd4;
+  // background: #fff;
+
+  text-transform: uppercase;
+  text-align: center;
+  color: $gold;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+
+  transition: $transition;
+  @media (min-width: $mob-XL) {
+    padding: 12px 13px 8px 13px;
+  }
+  @media (min-width: $descktop-S) {
+    // padding: 14px 16px 10px 16px;
+    padding: 9px 16px 5px 16px;
+    font-size: 22px;
+  }
+}
+
+.icon {
+  margin: 0 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  path {
+    fill: #fff;
+  }
+}

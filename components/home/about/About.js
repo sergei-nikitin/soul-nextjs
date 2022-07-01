@@ -55,13 +55,12 @@ const About = () => {
           custom={2}
           variants={fotoAnimation}
           className={s.fotoWrapper}>
-          <div className={s.img}>
+          <div className={s.imageWrapper}>
             <Image
               className={s.aboutImg}
               src={img}
               alt="foto"
-              width="550"
-              height="570"
+              placeholder="blur"
             />
           </div>
         </motion.div>
