@@ -26,13 +26,13 @@ body {
   height: 100%;
 }
 
-#root {
+#__next {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.main {
+main {
   flex: 1 1 auto;
 }
 
@@ -254,7 +254,9 @@ button:focus {
 }
 
 .swiper-css-mode > .swiper-wrapper {
-  // overflow-y: hidden;
+  overflow: hidden;
+}
+.swiperCollection.swiper-css-mode > .swiper-wrapper {
   overflow: hidden;
 }
 

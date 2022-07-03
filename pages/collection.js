@@ -7,7 +7,7 @@ export default function Collection() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <MainLayout>
+    <MainLayout title="Collection">
       <SliderCollection />
     </MainLayout>
   );

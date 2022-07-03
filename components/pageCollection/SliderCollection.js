@@ -3,11 +3,14 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Mousewheel, Keyboard } from 'swiper';
 
-import { SliderItem } from './sliderItem/SliderItem';
+// import { SliderItem } from './sliderItem/SliderItem';
+import { SeductionCollsliderItem } from './sliderItem/SeductionCollSliderItem';
+import { TreasureCollsliderItem } from './sliderItem/TreasureCollSliderItem';
+import { TwirlCollSliderItem } from './sliderItem/TwirlCollSliderItem';
 
-import redButle from '../../assets/images/butles/red.png';
-import blueButle from '../../assets/images/butles/blue.png';
-import goldButle from '../../assets/images/butles/white.png';
+// import redButle from '../../assets/images/butles/red.png';
+// import blueButle from '../../assets/images/butles/blue.png';
+// import goldButle from '../../assets/images/butles/white.png';
 import icon from '../../assets/images/icons/sliderArrow.svg';
 import s from './SliderCollection.module.scss';
 
@@ -79,7 +82,27 @@ export const SliderCollection = () => {
         keyboard={true}
         modules={[Mousewheel, Keyboard]}
         className="swiperCollection">
-        {itemsInfo.map((i) => (
+        <SwiperSlide>
+          <SeductionCollsliderItem NextBtn={SlideNextButton} />
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <TreasureCollsliderItem
+            PrevBtn={SlidePrevButton}
+            NextBtn={SlideNextButton}
+          />
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <TwirlCollSliderItem PrevBtn={SlidePrevButton} />
+        </SwiperSlide>
+      </Swiper>
+    </>
+  );
+};
+
+{
+  /* {itemsInfo.map((i) => (
           <SwiperSlide key={i.name}>
             <SliderItem
               id={i.id}
@@ -94,8 +117,5 @@ export const SliderCollection = () => {
               NextBtn={SlideNextButton}
             />
           </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
-  );
-};
+        ))} */
+}

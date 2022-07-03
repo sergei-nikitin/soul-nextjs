@@ -1,0 +1,181 @@
+@import "../../scss/variables";
+
+.cartForm {
+  margin: 30px 0 20px 0;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: $mob-XL) {
+    padding: 0 15px;
+  }
+  @media (min-width: $tablet-S) {
+    width: 40%;
+    padding: 0 0 0 30px;
+    margin: 30px 0;
+  }
+  @media (min-width: $descktop-S) {
+    width: 30%;
+    padding: 0 0 0 30px;
+  }
+}
+
+.formField {
+  position: relative;
+  width: 100%;
+}
+
+.label {
+  position: absolute;
+  top: 25px;
+  left: 0;
+  font-size: 16px;
+  letter-spacing: $letter-spacing;
+  color: $gray;
+  transition: $transition;
+
+  @media (min-width: $descktop-S) {
+    top: 5px;
+    font-size: 40px;
+  }
+}
+.input {
+  // outline: $outline;
+  transition: $transition;
+  width: 100%;
+  padding: 15px 0;
+  margin-bottom: 50px;
+  font-size: 14px;
+  color: $black;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $black;
+
+  &:focus + .label,
+  &:not(:placeholder-shown) + .label {
+    transform: translateY(-45px);
+  }
+  @media (min-width: $descktop-S) {
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+}
+
+.checkBoxWrapper {
+  outline: $outline;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  // justify-content: start;
+
+  height: 30px;
+
+  label {
+    margin-top: -25px;
+  }
+}
+
+.checkboxLabel {
+  cursor: pointer;
+  position: relative;
+  font-family: "inter";
+  font-size: 14px;
+  color: $gray;
+  padding-left: 1.3em;
+  margin-top: -30px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+}
+.checkBox {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  left: 0;
+  border: 1px solid $gray;
+  border-radius: 3px;
+
+  transition: $transition;
+}
+.checkInput {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+.checkInput:checked + .checkBox {
+  background: $gold;
+  border: 1px solid $gold;
+  background-image: url(../../assets/images/icons/check.svg);
+}
+
+.contacts {
+  width: 100%;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+  font-size: 22px;
+  letter-spacing: $letter-spacing;
+  color: $dark-gray;
+}
+
+#textarea {
+  font-size: 30px;
+}
+
+.actions {
+  width: 100%;
+
+  margin-top: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (min-width: $descktop-S) {
+    position: absolute;
+    bottom: 50px;
+    left: 120px;
+    width: calc(100% - 240px);
+  }
+}
+.link {
+  font-size: 16px;
+  color: $black;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 15px;
+    transform: rotate(180deg);
+  }
+}
+.submit {
+  padding: 10px 13px 6px 13px;
+  font-size: 16px;
+  letter-spacing: $letter-spacing;
+  color: #fff;
+  background-color: $gold;
+  box-shadow: 0px 4px 9px rgba(133, 109, 5, 0.2);
+  border-radius: 20px;
+  // border: 1px solid $gold;
+  transition: $transition;
+
+  &:hover {
+    background-color: #bb7813;
+  }
+  &:active {
+    background-color: #8e5c11;
+  }
+  @media (min-width: $mob-XL) {
+    padding: 12px 20px 8px 20px;
+    margin-left: 20px;
+  }
+  @media (min-width: $descktop-S) {
+    padding: 12px 54px 8px 54px;
+    font-size: 22px;
+  }
+}

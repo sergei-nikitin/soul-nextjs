@@ -10,7 +10,7 @@ export default function Contacts() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <MainLayout>
+    <MainLayout title="Contacts">
       <Main />
       <FormSection />
       <Soul />

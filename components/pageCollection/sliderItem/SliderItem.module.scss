@@ -111,6 +111,10 @@
     height: 530px;
   }
 }
+.img * {
+  width: 100% !important;
+  height: 100% !important;
+}
 .navPoints {
   position: relative;
   width: 150px;

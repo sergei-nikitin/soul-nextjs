@@ -19,6 +19,7 @@
     "react-dom": "18.2.0",
     "react-redux": "^8.0.2",
     "sass": "^1.53.0",
+    "shortid": "^2.2.16",
     "swiper": "^8.2.6"
   },
   "devDependencies": {
