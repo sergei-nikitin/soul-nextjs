@@ -2,12 +2,12 @@ import React from 'react';
 import { MainLayout } from '../components/MainLayout';
 import { Main } from '../components/home/Main';
 import About from '../components/home/about/About';
-// import Twirl from '../components/home/twirl';
-// import Treasure from '../components/home/treasure/Treasure';
-// import Seduction from '../components/home/seduction/Seduction';
-// import Brand from '../components/home/brand/Brand';
-// import Ukraine from '../components/home/ukraine';
-// import { Soul } from '../components/home/soul';
+import Twirl from '../components/home/twirl/Twirl';
+import Treasure from '../components/home/treasure/Treasure';
+import Seduction from '../components/home/seduction/Seduction';
+import Brand from '../components/home/brand/Brand';
+import Ukraine from '../components/home/ukraine/Ukraine';
+import { Soul } from '../components/home/soul/Soul';
 
 export default function Home() {
   React.useEffect(() => {
@@ -17,12 +17,12 @@ export default function Home() {
     <MainLayout>
       <Main />
       <About />
-      {/* <Twirl /> */}
-      {/* <Seduction /> */}
-      {/* <Treasure /> */}
-      {/* <Brand /> */}
-      {/* <Ukraine /> */}
-      {/* <Soul /> */}
+      <Twirl />
+      <Seduction />
+      <Treasure />
+      <Brand />
+      <Ukraine />
+      <Soul />
     </MainLayout>
   );
 }

@@ -47,8 +47,6 @@
   }
 }
 .fotoWrapper {
-  outline: $outline;
-  // width: 100%;
   width: 228px;
   height: 280px;
   margin-right: auto;
@@ -76,13 +74,33 @@
     height: 570px;
   }
 }
-.img {
+.imageWrapper {
+  // outline: $outline;
   transform: $img-rotate;
   position: relative;
   display: block;
-  width: 100% !important;
-  height: 100% !important;
   margin: 0 auto;
+
+  width: 228px;
+  height: 280px;
+
+  @media (min-width: $mob-XL) {
+    width: 260px;
+    height: 320px;
+  }
+
+  @media (min-width: $tablet-L) {
+    width: 335px;
+    height: 400px;
+  }
+  @media (min-width: $descktop-L) {
+    width: 460px;
+    height: 566px;
+  }
+  @media (min-width: $descktop-XL) {
+    width: 550px;
+    height: 570px;
+  }
 
   &::before {
     content: "IT`S ABOUT";
@@ -147,10 +165,15 @@
       bottom: 80%;
     }
   }
+
+  span {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 .aboutImg {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 20px;
   @media (min-width: $descktop-XL) {
     border-radius: 25px;
@@ -166,7 +189,7 @@
   margin: 30px auto 0 auto;
   @media (min-width: $mob-XL) {
     width: calc(100% - 300px);
-    // padding-left: 20px;
+    padding-left: 20px;
   }
   @media (min-width: $tablet-S) {
     padding-left: 40px;

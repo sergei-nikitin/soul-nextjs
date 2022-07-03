@@ -1,0 +1,106 @@
+@import "../../scss/variables";
+
+.wrapper {
+  width: 100%;
+  border-radius: 20px;
+  @media (min-width: $tablet-L) {
+    width: 55%;
+    padding-bottom: 30px;
+    background: rgb(255, 255, 255, 0.5);
+  }
+  @media (min-width: $descktop-S) {
+    width: 700px;
+  }
+}
+
+.upperBlock {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 15px 10px 15px;
+
+  border-bottom: 1px solid $dark-gray;
+
+  @media (min-width: $mob-XL) {
+    padding: 25px 20px;
+  }
+  @media (min-width: $tablet-S) {
+    padding: 35px 20px;
+  }
+}
+.title {
+  font-size: 30px;
+  font-weight: 400;
+  color: $gold;
+  @media (min-width: $mob-XL) {
+    font-size: 40px;
+  }
+  @media (min-width: $tablet-S) {
+    font-size: 64px;
+  }
+}
+.clearCart {
+  cursor: pointer;
+
+  @media (min-width: $descktop-S) {
+    position: absolute;
+    right: 120px;
+    top: 120px;
+  }
+}
+.closeIcon {
+  width: 17px;
+  height: 17px;
+  @media (min-width: $mob-XL) {
+    width: 25px;
+    height: 25px;
+  }
+  @media (min-width: $tablet-S) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.itemsWrap {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin-top: 20px;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+
+  p:first-of-type {
+    letter-spacing: $letter-spacing;
+    @media (min-width: $descktop-S) {
+      margin-right: 50px;
+    }
+  }
+  p {
+    font-size: 16px;
+    color: $black;
+  }
+  .totalPrice {
+    color: $gold;
+  }
+  @media (min-width: $mob-XL) {
+    padding: 0 15px;
+    p {
+      font-size: 22px;
+    }
+  }
+  @media (min-width: $descktop-S) {
+    justify-content: end;
+    p {
+      font-size: 40px;
+    }
+  }
+}

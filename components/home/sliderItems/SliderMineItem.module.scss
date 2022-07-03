@@ -141,12 +141,9 @@
   flex-direction: column;
   justify-content: center;
 }
-.img {
-  display: block;
+.imageWrapper {
   width: 200px;
   height: 300px;
-  margin-right: auto;
-  margin-left: auto;
   @media (min-width: $mob-XL) {
     width: 177px;
     height: 261px;
@@ -160,6 +157,25 @@
     height: 590px;
   }
 }
+// .img {
+//   display: block;
+//   width: 200px;
+//   height: 300px;
+//   margin-right: auto;
+//   margin-left: auto;
+//   @media (min-width: $mob-XL) {
+//     width: 177px;
+//     height: 261px;
+//   }
+//   @media (min-width: $tablet-L) {
+//     width: 317px;
+//     height: 470px;
+//   }
+//   @media (min-width: $descktop-XL) {
+//     width: 398px;
+//     height: 590px;
+//   }
+// }
 .navPoints {
   position: relative;
   z-index: 2;

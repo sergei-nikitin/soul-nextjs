@@ -15,7 +15,9 @@ export const SeductionSlide = ({ NextBtn }) => {
         <div className={s.containerForCanvas}>
           {/* containerForCanvas: контейнер для анимации/ position:absolute w:100% h:100% */}
         </div>
-        <Image className={s.img} src={img} alt="img" />
+        <div className={s.imageWrapper}>
+          <Image className={s.img} src={img} alt="img" placeholder="blur" />
+        </div>
 
         <div className={s.navPoints}>
           <span className={s.pointActive}></span>

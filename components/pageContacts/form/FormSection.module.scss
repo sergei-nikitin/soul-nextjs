@@ -1,0 +1,331 @@
+@import "../../../scss/variables";
+
+.section {
+  max-width: $max;
+  width: 100%;
+  margin: $margin;
+  padding-top: 80px;
+
+  @media (min-width: $mob-XL) {
+    padding-top: 115px;
+  }
+  @media (min-width: $descktop-S) {
+    padding-top: 30px;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  padding: 0 15px;
+
+  @media (min-width: $mob-L) {
+    margin-bottom: 80px;
+  }
+  @media (min-width: $mob-XL) {
+    padding: 0 25px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (min-width: $tablet-L) {
+    padding: 0 40px;
+  }
+  @media (min-width: $descktop-S) {
+    padding: 0 120px;
+  }
+  @media (min-width: $descktop-L) {
+    padding: 0 200px;
+  }
+}
+
+.imageWrapper {
+  position: absolute;
+  left: 15px;
+  top: -240px;
+
+  width: 188px;
+  height: 198px;
+
+  @media (min-width: $mob-XL) {
+    left: 25px;
+    top: -302px;
+    width: 256px;
+    height: 264px;
+  }
+  @media (min-width: $tablet-S) {
+    left: 40px;
+    top: -420px;
+    width: 368px;
+    height: 380px;
+  }
+  @media (min-width: $tablet-L) {
+    width: 395px;
+    height: 390px;
+    top: -300px;
+  }
+  @media (min-width: $descktop-S) {
+    left: 150px;
+  }
+  @media (min-width: $descktop-L) {
+    width: 515px;
+    height: 530px;
+    left: 120px;
+    top: -370px;
+  }
+  @media (min-width: $descktop-XL) {
+    width: 535px;
+    height: 530px;
+    left: 180px;
+    top: -370px;
+  }
+}
+.imageWrapper * {
+  width: 100% !important;
+  height: 100% !important;
+}
+.form {
+  width: 100%;
+  padding: 40px 30px 50px 30px;
+  border-radius: 20px;
+  background: #fff4ee;
+
+  text-transform: uppercase;
+  color: $black;
+  letter-spacing: $letter-spacing;
+
+  @media (min-width: $mob-XL) {
+    margin-bottom: 55px;
+  }
+  @media (min-width: $tablet-S) {
+    width: 50%;
+    margin-right: -25px;
+  }
+  @media (min-width: $tablet-S) {
+    width: 60%;
+  }
+  @media (min-width: $tablet-L) {
+    width: 55%;
+    margin-right: 0;
+  }
+  @media (min-width: $descktop-S) {
+    margin-bottom: 80px;
+  }
+  @media (min-width: $descktop-L) {
+    width: 50%;
+  }
+
+  // first and second inputs
+  .inputWrapperSmal,
+  .inputWrapperBig {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .inputWrapperSmal {
+    width: calc(50% - 8px);
+    @media (min-width: $tablet-L) {
+      width: 100%;
+    }
+  }
+  .inputWrapperBig {
+    width: 100%;
+  }
+
+  .label {
+    position: absolute;
+    top: -5px;
+    left: 0;
+
+    font-size: 16px;
+    color: $black;
+
+    transition: $transition;
+  }
+
+  input {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    padding: 10px;
+
+    font-size: 14px;
+    line-height: 18px;
+    font-family: "inter";
+    color: $black;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $gray;
+
+    transition: $transition;
+
+    &::placeholder {
+      color: $gray;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &:focus,
+    &:not(:placeholder-shown) {
+      border-bottom: 1px solid $black;
+    }
+    &:focus + .label,
+    &:not(:placeholder-shown) + .label {
+      color: $gray;
+    }
+  }
+}
+.formTitle {
+  font-size: 22px;
+  margin-bottom: 35px;
+}
+
+.firstInputs {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.submit {
+  display: inline-block;
+  padding: 10px 13px 6px 13px;
+  border-radius: 20px;
+  border: 1px solid #bb9c13;
+  background: $gold;
+  box-shadow: 0px 4px 9px rgba(133, 109, 5, 0.2);
+
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+
+  transition: $transition;
+
+  &:hover {
+    background: #bb7813;
+    border: 1px solid #bb7813;
+  }
+  &:active {
+    background: #8e5c11;
+    border: 1px solid #8e5c11;
+  }
+
+  @media (min-width: $mob-XL) {
+    padding: 12px 20px 8px 20px;
+  }
+  @media (min-width: $descktop-S) {
+    padding: 12px 54px 8px 54px;
+    font-size: 22px;
+  }
+}
+// info block
+.infoWrapperFirst {
+  display: none;
+  @media (min-width: $tablet-S) {
+    display: block;
+    padding-top: 50px;
+  }
+  @media (min-width: $tablet-L) {
+    padding-top: 150px;
+  }
+  @media (min-width: $descktop-S) {
+    padding-left: 80px;
+  }
+  @media (min-width: $descktop-L) {
+    padding-top: 230px;
+  }
+}
+.infoWrapperSecond {
+  margin-top: 65px;
+  margin-bottom: 55px;
+
+  @media (min-width: $mob-XL) {
+    width: 50%;
+  }
+  @media (min-width: $tablet-S) {
+    display: none;
+  }
+}
+
+.infoTitle {
+  text-transform: uppercase;
+  color: $dark-gray;
+  font-weight: 400;
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+.infoName {
+  text-transform: uppercase;
+  color: $dark-gray;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+.infoDescr {
+  display: block;
+  font-family: "inter";
+  font-size: 16px;
+  line-height: 25px;
+  color: $black;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.social {
+  display: none;
+  align-items: center;
+  a {
+    display: flex;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    margin-right: 18px;
+    margin-top: 15px;
+    color: $dark-gray;
+  }
+  @media (min-width: $mob-XL) {
+    display: flex;
+  }
+}
+.icons {
+  transition: $transition;
+  &:hover * {
+    fill: $gold;
+  }
+}
+.mapWrapper {
+  margin-left: -15px;
+  width: calc(100% + 30px);
+  height: 200px;
+
+  @media (min-width: $mob-XL) {
+    width: 50%;
+    height: 395px;
+    margin-right: -25px;
+  }
+  @media (min-width: $tablet-S) {
+    margin-left: -25px;
+    width: calc(100% + 50px);
+    height: 370px;
+  }
+  @media (min-width: $tablet-L) {
+    margin-right: -40px;
+    margin-left: -40px;
+    height: 480px;
+    width: calc(100% + 80px);
+  }
+  @media (min-width: $descktop-S) {
+    width: calc(100% + 240px);
+    margin-left: -120px;
+    margin-right: -120px;
+  }
+  @media (min-width: $descktop-L) {
+    width: calc(100% + 400px);
+    margin-left: -200px;
+    margin-right: -200px;
+  }
+}

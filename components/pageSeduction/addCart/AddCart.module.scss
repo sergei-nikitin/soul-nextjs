@@ -1,0 +1,202 @@
+@import "../../../scss/variables";
+
+.section {
+  max-width: $max;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 200px;
+  margin-bottom: 100px;
+  @media (min-width: $tablet-S) {
+    margin-top: 250px;
+  }
+  @media (min-width: $descktop-S) {
+    margin-top: 350px;
+  }
+}
+
+.container {
+  max-width: $descktop-L;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+
+  @media (min-width: $tablet-L) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.fotoBlock {
+  position: relative;
+  width: 100%;
+  height: 275px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: $mob-L) {
+    height: 336px;
+  }
+  @media (min-width: $tablet-S) {
+    height: 488px;
+  }
+  @media (min-width: $tablet-L) {
+    height: 470px;
+  }
+  @media (min-width: $tablet-L) {
+    width: 40%;
+  }
+  @media (min-width: $descktop-S) {
+    height: 512px;
+  }
+  @media (min-width: $descktop-L) {
+    height: 565px;
+  }
+  @media (min-width: $descktop-L) {
+    height: 520px;
+    width: 685px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -30%;
+    left: 0;
+    border-radius: 20px;
+
+    background: url(../../../assets/images/seduction/bg.png) no-repeat center;
+    background-size: cover;
+    @media (min-width: $descktop-S) {
+      left: -20px;
+    }
+    @media (min-width: $descktop-L) {
+      left: 0;
+    }
+  }
+}
+.butleWrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  @media (min-width: $tablet-L) {
+    width: 110%;
+    height: 110%;
+    transform: translateX(10%);
+  }
+  @media (min-width: $descktop-XL) {
+    transform: translateX(17%);
+  }
+}
+.foto {
+  position: relative;
+  display: block;
+  width: 110%;
+  height: 100%;
+  z-index: 2;
+
+  object-fit: contain;
+
+  @media (min-width: $mob-XL) {
+    transform: translateX(-20%);
+  }
+  @media (min-width: $tablet-L) {
+    transform: translateX(-5%);
+  }
+  @media (min-width: $descktop-XL) {
+    transform: translateX(0);
+  }
+}
+.foto * {
+  width: 90% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+// count and info
+.infoWrapper {
+  @media (min-width: $tablet-L) {
+    width: 45%;
+    padding-right: 50px;
+
+    margin-top: -20%;
+    margin-right: auto;
+    margin-left: 10%;
+  }
+  @media (min-width: $descktop-S) {
+    margin-left: 6%;
+  }
+}
+.nameAndPrice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  text-transform: uppercase;
+  font-size: 34px;
+  color: $gold;
+
+  @media (min-width: $tablet-L) {
+    flex-direction: column;
+    align-items: start;
+    padding: 0;
+
+    font-size: 64px;
+    p:first-of-type {
+      margin-bottom: 20px;
+    }
+  }
+}
+// counter
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 30px 20px;
+  margin: 30px 0 20px 0;
+
+  border-top: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+}
+.btns * {
+  font-size: 30px;
+  margin-right: 15px;
+  @media (min-width: $tablet-L) {
+    font-size: 50px;
+  }
+}
+.btns {
+  display: flex;
+  align-items: center;
+
+  button {
+    width: 40px;
+    height: 40px;
+    @media (min-width: $tablet-L) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.text {
+  font-family: "inter";
+  font-size: 14px;
+  line-height: 18px;
+  color: $black;
+
+  padding: 0 20px;
+  @media (min-width: $tablet-L) {
+    font-size: 16px;
+    line-height: 24px;
+
+    padding: 0;
+  }
+}

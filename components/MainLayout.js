@@ -1,4 +1,3 @@
-// import Link from 'next/link';
 import Head from 'next/head';
 import Header from './header/Header';
 import MobHeader from './headerMob/MobHeader';
