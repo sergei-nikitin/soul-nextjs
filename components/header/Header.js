@@ -142,7 +142,7 @@ export default function Header() {
           </nav>
           <Link href={'/cart'}>
             {totalPrice ? (
-              <div onClick={() => setCart(!cart)} className={s.cartLink}>
+              <div className={s.cartLink}>
                 <Image src={cartImage} alt="cart" />
                 {items && <span>( {items.length} )</span>}
               </div>

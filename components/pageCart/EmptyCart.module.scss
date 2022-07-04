@@ -10,6 +10,9 @@
 .img {
   width: 227px;
   height: 330px;
+
+  display: flex;
+  align-items: center;
 }
 .text {
   text-transform: uppercase;
