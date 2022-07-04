@@ -40,11 +40,9 @@ export default function MobHeader() {
 
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
-      if (window.scrollY > lastScrollY) {
-        // if scroll down hide the navbar
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
         setShow(false);
       } else {
-        // if scroll up show the navbar
         setShow(true);
       }
 
@@ -63,7 +61,7 @@ export default function MobHeader() {
       };
     }
   }, [lastScrollY]);
-  // className={show ? 'mobHeader' : 'mobHeaderHidden'}
+
   return (
     <header ref={mobHeader} className={show ? 'mobHeader' : 'mobHeaderHidden'}>
       {menu ? (

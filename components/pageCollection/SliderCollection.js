@@ -3,14 +3,10 @@ import Image from 'next/image';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Mousewheel, Keyboard } from 'swiper';
 
-// import { SliderItem } from './sliderItem/SliderItem';
 import { SeductionCollsliderItem } from './sliderItem/SeductionCollSliderItem';
 import { TreasureCollsliderItem } from './sliderItem/TreasureCollSliderItem';
 import { TwirlCollSliderItem } from './sliderItem/TwirlCollSliderItem';
 
-// import redButle from '../../assets/images/butles/red.png';
-// import blueButle from '../../assets/images/butles/blue.png';
-// import goldButle from '../../assets/images/butles/white.png';
 import icon from '../../assets/images/icons/sliderArrow.svg';
 import s from './SliderCollection.module.scss';
 
@@ -77,13 +73,16 @@ export const SliderCollection = () => {
   return (
     <>
       <Swiper
-        cssMode={true}
-        mousewheel={true}
-        keyboard={true}
-        modules={[Mousewheel, Keyboard]}
+        // cssMode={true}
+        // mousewheel={true}
+        // keyboard={true}
+        // modules={[Mousewheel, Keyboard]}
         className="swiperCollection">
         <SwiperSlide>
-          <SeductionCollsliderItem NextBtn={SlideNextButton} />
+          <SeductionCollsliderItem
+            NextBtn={SlideNextButton}
+            PrevBtn={SlidePrevButton}
+          />
         </SwiperSlide>
 
         <SwiperSlide>
@@ -94,7 +93,10 @@ export const SliderCollection = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <TwirlCollSliderItem PrevBtn={SlidePrevButton} />
+          <TwirlCollSliderItem
+            NextBtn={SlideNextButton}
+            PrevBtn={SlidePrevButton}
+          />
         </SwiperSlide>
       </Swiper>
     </>

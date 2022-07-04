@@ -51,6 +51,7 @@
   background: transparent;
   border: none;
   border-bottom: 1px solid $black;
+  border-radius: 0;
 
   &:focus + .label,
   &:not(:placeholder-shown) + .label {
@@ -67,7 +68,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  // justify-content: start;
+  // justify-content: flex-start;
 
   height: 30px;
 
