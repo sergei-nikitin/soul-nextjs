@@ -6,6 +6,7 @@
   max-width: $section-width;
   width: 100%;
   padding: 80px 0 30px 0;
+  overflow: hidden;
   @media (min-width: $mob-XL) {
     padding: 120px 0 20px 0;
   }
@@ -149,10 +150,10 @@
 
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 
   @media (min-width: $tablet-S) {
-    justify-content: start;
+    justify-content: flex-start;
   }
 }
 

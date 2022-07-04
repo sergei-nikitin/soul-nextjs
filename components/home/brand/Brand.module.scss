@@ -121,7 +121,7 @@
     margin-top: 60px;
   }
   @media (min-width: $mob-XL) {
-    align-items: start;
+    align-items: flex-start;
   }
   @media (min-width: $tablet-S) {
     padding-left: 20px;

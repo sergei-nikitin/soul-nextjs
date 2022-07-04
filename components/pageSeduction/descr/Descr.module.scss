@@ -78,7 +78,7 @@
       min-height: 300px;
       transform: translateX(-35%);
 
-      align-items: start;
+      align-items: flexstart;
     }
     @media (min-width: $descktop-L) {
       width: 40%;
