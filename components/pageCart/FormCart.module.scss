@@ -143,15 +143,18 @@
   }
 }
 .link {
+  width: 70px;
   font-size: 16px;
   color: $black;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   img {
-    margin-right: 15px;
     transform: rotate(180deg);
+    width: 25px !important;
+    height: 25px !important;
   }
 }
 .submit {

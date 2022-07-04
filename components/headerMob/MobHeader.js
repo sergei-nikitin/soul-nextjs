@@ -20,7 +20,7 @@ import s from './MobHeader.module.scss';
 export default function MobHeader() {
   const router = useRouter();
   const mobHeader = React.useRef();
-  const { items } = useSelector((state) => state.cart);
+  const { items, totalPrice } = useSelector((state) => state.cart);
   const [menu, setMenu] = React.useState(false);
   const [rotate, setRotate] = React.useState(false);
   const [selectItems, setSelectItems] = React.useState(false);
@@ -76,10 +76,10 @@ export default function MobHeader() {
         </a>
       </Link>
 
-      <Link className={s.cart} href={'/cart'}>
-        <a>
-          <Image className={s.cart} src={cart} alt="logo" />
-          {items.leght > 0 && <span>( {items.length} )</span>}
+      <Link href={'/cart'}>
+        <a className={s.cart}>
+          <Image className={s.cart} src={cart} alt="cart" />
+          {items > '0' && <span>( {items.length} )</span>}
         </a>
       </Link>
 
@@ -210,56 +210,6 @@ export default function MobHeader() {
           </div>
         </div>
       </div>
-
-      {/* <div
-        className={
-          menu ? [s.menuWrapper, s.menuWrapperActive].join(' ') : s.menuWrapper
-        }>
-        <button onClick={closeMenu} className={s.close} type="button">
-          <Image src={close} alt="close" />
-        </button>
-        <Link onClick={closeMenu} href="/" className={setActive}>
-          <span>01</span>
-          home
-        </Link>
-        <Link onClick={closeMenu} href="/about-us" className={setActive}>
-          <span>02</span>
-          about us
-        </Link>
-        <div className={s.scollectionWrapper}>
-          <Link
-            onClick={closeMenu}
-            href="/collection"
-            className={s.collectionsLink}>
-            <span>03</span>
-            collections
-          </Link>
-          <Image onClick={() => setItems(!items)} src={arrov} alt="Image" />
-        </div>
-        {items && (
-          <div className={s.items}>
-            <Link onClick={closeMenu} className={setActiveItem} href="/twirl">
-              twirl
-            </Link>
-            <Link
-              onClick={closeMenu}
-              className={setActiveItem}
-              href="/treasure">
-              treasure
-            </Link>
-            <Link
-              onClick={closeMenu}
-              className={setActiveItem}
-              href="/seduction">
-              seduction
-            </Link>
-          </div>
-        )}
-        <Link onClick={closeMenu} href="/contacts" className={setActive}>
-          <span>04</span>
-          contacts
-        </Link>
-      </div> */}
     </header>
   );
 }
