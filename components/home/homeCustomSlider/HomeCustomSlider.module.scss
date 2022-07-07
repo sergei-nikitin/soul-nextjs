@@ -1,0 +1,359 @@
+@import "../../../scss/variables";
+
+.imagesContainer {
+  position: relative;
+  width: 200px;
+  height: 300px;
+
+  @media (min-width: $mob-XL) {
+    width: 177px;
+    height: 261px;
+  }
+  @media (min-width: $tablet-L) {
+    width: 317px;
+    height: 470px;
+  }
+  @media (min-width: $descktop-XL) {
+    width: 398px;
+    height: 590px;
+  }
+}
+#img {
+  // will-change: opacity;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.8s, transform 0.8s cubic-bezier(0.94, 0.19, 0.25, 0.47);
+  // width: 200px;
+  // height: 300px;
+
+  // @media (min-width: $mob-XL) {
+  //   width: 177px;
+  //   height: 261px;
+  // }
+  // @media (min-width: $tablet-L) {
+  //   width: 317px;
+  //   height: 470px;
+  // }
+  // @media (min-width: $descktop-XL) {
+  //   width: 398px;
+  //   height: 590px;
+  // }
+}
+.hidden {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: scale(0.3) translate(-150%, -150%);
+  opacity: 0;
+}
+.active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  width: 200px;
+  height: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  @media (min-width: $mob-XL) {
+    width: 177px;
+    height: 261px;
+  }
+  @media (min-width: $tablet-L) {
+    width: 317px;
+    height: 470px;
+  }
+  @media (min-width: $descktop-XL) {
+    width: 398px;
+    height: 590px;
+  }
+}
+
+.container {
+  position: relative;
+
+  width: 100%;
+  min-height: calc(100vh - 50px);
+  height: 100%;
+  padding-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: $mob-XL) {
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media (min-width: $tablet-S) {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  @media (min-width: $tablet-L) {
+    height: calc(100vh - 80px);
+    padding-left: 120px;
+    padding-right: 120px;
+  }
+  @media (min-width: $descktop-S) {
+    padding-left: 190px;
+    padding-right: 190px;
+    justify-content: space-between;
+  }
+  @media (min-width: $descktop-L) {
+    padding-left: 220px;
+    padding-right: 220px;
+    // justify-content: space-around;
+  }
+  @media (min-width: $descktop-XL) {
+    justify-content: space-around;
+  }
+}
+// .containerForCanvas {
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   z-index: 1;
+// }
+// nameProduct
+.brandName {
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 60px;
+  color: $gold;
+
+  &::before {
+    content: "SOUL OF MINE";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    font-size: 60px;
+    font-weight: 400;
+    -webkit-text-stroke: 1px $gold;
+    color: transparent;
+  }
+  @media (min-width: $mob-XL) {
+    display: none;
+  }
+}
+.brandNameDesk {
+  display: none;
+
+  text-transform: uppercase;
+  text-align: left;
+  font-size: 60px;
+  color: $gold;
+
+  flex-direction: column;
+
+  @media (min-width: $tablet-S) {
+    font-size: 64px;
+  }
+  @media (min-width: $tablet-L) {
+    font-size: 120px;
+  }
+  .soul {
+    position: relative;
+    &::before {
+      content: "SOUL";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      font-size: 60px;
+      font-weight: 400;
+      -webkit-text-stroke: 1px $gold;
+      color: transparent;
+
+      @media (min-width: $tablet-S) {
+        font-size: 64px;
+      }
+      @media (min-width: $tablet-L) {
+        font-size: 120px;
+      }
+    }
+  }
+  .ofMine {
+    position: relative;
+    &::before {
+      content: "OF MINE";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      font-size: 60px;
+      font-weight: 400;
+      -webkit-text-stroke: 1px $gold;
+      color: transparent;
+
+      @media (min-width: $tablet-S) {
+        font-size: 64px;
+      }
+      @media (min-width: $tablet-L) {
+        font-size: 120px;
+      }
+    }
+  }
+
+  @media (min-width: $mob-XL) {
+    display: flex;
+  }
+}
+
+// imgContainer
+.imgContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+// .img {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   display: block;
+//   width: 200px;
+//   height: 300px;
+//   margin-right: auto;
+//   margin-left: auto;
+//   @media (min-width: $mob-XL) {
+//     width: 177px;
+//     height: 261px;
+//   }
+//   @media (min-width: $tablet-L) {
+//     width: 317px;
+//     height: 470px;
+//   }
+//   @media (min-width: $descktop-XL) {
+//     width: 398px;
+//     height: 590px;
+//   }
+// }
+
+.navPoints {
+  // outline: $outline;
+  position: relative;
+  z-index: 2;
+  width: 150px;
+  margin-top: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: $descktop-S) {
+    margin-top: 20px;
+  }
+}
+.point,
+.pointActive {
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+
+  border: 1px solid $gold;
+  border-radius: 50%;
+
+  @media (min-width: $tablet-S) {
+    width: 13px;
+    height: 13px;
+  }
+}
+.pointActive {
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(78.06deg, #e6ba40 5.04%, #f9de93 28.84%, #e6ba40 55.79%, #f0d17a 78.25%, #e6ba40 91.27%);
+  box-shadow: 0px 1px 4px rgba(142, 127, 59, 0.4);
+}
+.prevBtn,
+.nextBtn {
+  // outline: $outline;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 15px;
+    height: 25px;
+  }
+}
+.prevBtn {
+  left: 0;
+  transform: rotate(180deg) translateY(50%);
+}
+.nextBtn {
+  right: 0;
+}
+
+// infocontainer
+.textWrapper {
+  position: relative;
+  z-index: 2;
+  @media (min-width: $mob-XL) {
+    width: 300px;
+  }
+  @media (min-width: $tablet-L) {
+    width: 400px;
+  }
+  @media (min-width: $descktop-S) {
+    width: 500px;
+  }
+}
+.productName {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 30px;
+  color: $gold;
+  margin-top: 20px;
+
+  @media (min-width: $mob-XL) {
+    text-align-last: left;
+  }
+  @media (min-width: $tablet-L) {
+    font-size: 64px;
+  }
+}
+.textProduct {
+  text-align: center;
+  font-size: 12px;
+  line-height: 16px;
+  color: $gray;
+
+  width: 70%;
+  margin: 15px auto 20px auto;
+  @media (min-width: $mob-XL) {
+    text-align: left;
+    font-size: 14px;
+    line-height: 22px;
+    margin: 20px 0 40px 0;
+  }
+  @media (min-width: $tablet-L) {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.linkWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    margin-left: 0;
+  }
+
+  @media (min-width: $mob-XL) {
+    justify-content: start;
+  }
+}

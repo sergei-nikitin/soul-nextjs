@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainLayout } from '../components/MainLayout';
-import { Main } from '../components/home/Main';
+import HomeCustomSlider from '../components/home/homeCustomSlider/HomeCustomSlider';
 import About from '../components/home/about/About';
 import Twirl from '../components/home/twirl/Twirl';
 import Treasure from '../components/home/treasure/Treasure';
@@ -15,7 +15,7 @@ export default function Home() {
   }, []);
   return (
     <MainLayout>
-      <Main />
+      <HomeCustomSlider />
       <About />
       <Twirl />
       <Seduction />

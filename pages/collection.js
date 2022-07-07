@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainLayout } from '../components/MainLayout';
-import { SliderCollection } from '../components/pageCollection/SliderCollection';
+import { CollectionCustomSlider } from '../components/pageCollection/collectionCustomSlider/CollectionCustomSlider';
 
 export default function Collection() {
   React.useEffect(() => {
@@ -8,7 +8,7 @@ export default function Collection() {
   }, []);
   return (
     <MainLayout title="Collection">
-      <SliderCollection />
+      <CollectionCustomSlider />
     </MainLayout>
   );
 }

@@ -11,7 +11,6 @@ import TwiterIcon from '../icons/TwiterIcon';
 import InstaIcon from '../icons/InstaIcon';
 import FaceBookIcon from '../icons/FaceBookIcon';
 
-import letter from '../../assets/images/Vector-1.png';
 import contur from '../../assets/images/Vector.png';
 import cart from '../../assets/images/icons/cart.svg';
 import arrov from '../../assets/images/icons/collection-arrov.svg';
@@ -40,9 +39,11 @@ export default function MobHeader() {
 
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
-      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+      if (window.scrollY > lastScrollY) {
+        // if scroll down hide the navbar
         setShow(false);
       } else {
+        // if scroll up show the navbar
         setShow(true);
       }
 
@@ -54,7 +55,6 @@ export default function MobHeader() {
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', controlNavbar);
-
       // cleanup function
       return () => {
         window.removeEventListener('scroll', controlNavbar);

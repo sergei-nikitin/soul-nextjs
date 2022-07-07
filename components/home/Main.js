@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import { Mousewheel, Keyboard } from 'swiper';
+import { Mousewheel, Keyboard, Navigation, EffectFade } from 'swiper';
 
 import { SeductionSlide } from './sliderItems/SeductionSlide';
 import { TreasureSlide } from './sliderItems/TreasureSlide';
@@ -11,37 +11,6 @@ import icon from '../../assets/images/icons/sliderArrow.svg';
 import s from './Main.module.scss';
 
 export const Main = () => {
-  // const itemsInfo = [
-  //   {
-  //     id: '1',
-  //     img: `${redButle}`,
-
-  //     linkPath: '/seduction',
-  //     name: 'seduction',
-  //     text: 'seduction - is smells like seduce is smells like seduce',
-  //     descr:
-  //       'These are emotions, who consider a person to adulthood, feelings, wings that lift us when it seems tenderness of touch new thoughts about familiar things.',
-  //   },
-  //   {
-  //     id: '2',
-  //     img: `${blueButle}`,
-
-  //     linkPath: '/treasure',
-  //     name: 'trasure',
-  //     text: 'trasure - is smells like seduce is smells like seduce',
-  //     descr:
-  //       'These are emotions, who consider a person to adulthood, feelings, wings that lift us when it seems tenderness of touch new thoughts about familiar things.',
-  //   },
-  //   {
-  //     id: '3',
-  //     img: `${goldButle}`,
-  //     linkPath: '/twirl',
-  //     name: 'twirl',
-  //     text: 'twirl - is smells like seduce is smells like seduce',
-  //     descr:
-  //       'These are emotions, who consider a person to adulthood, feelings, wings that lift us when it seems tenderness of touch new thoughts about familiar things.',
-  //   },
-  // ];
   function SlideNextButton() {
     const swiper = useSwiper();
     return (
@@ -64,7 +33,9 @@ export const Main = () => {
         cssMode={true}
         mousewheel={true}
         keyboard={true}
-        modules={[Mousewheel, Keyboard]}
+        effect="fade"
+        navigation={true}
+        modules={[Mousewheel, Keyboard, Navigation, EffectFade]}
         className={s.swiperMain}>
         <SwiperSlide>
           <SeductionSlide NextBtn={SlideNextButton} PrevBtn={SlidePrevButton} />
