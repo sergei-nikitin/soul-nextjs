@@ -53,7 +53,10 @@ export default function Header() {
   return (
     // <header className={[s.header, s.conatainer].join(' ')}>
     <>
-      <header ref={header} className={show ? 'header' : 'headerHidden'}>
+      <header
+        ref={header}
+        className={show ? `${s.header}` : `${s.headerHidden}`}>
+        {/* <header ref={header} className={show ? 'header' : 'headerHidden'}> */}
         {/* {cart && <Cart closeCart={closeCart} />} */}
 
         <div className={s.wrapper}>
@@ -86,7 +89,39 @@ export default function Header() {
               </a>
             </Link>
             <div className={s.select}>
-              <div className={s.span}></div>
+              <div className={s.span}>
+                <Link href={'/treasure'}>
+                  <a
+                    className={
+                      router.pathname == '/treasure'
+                        ? [s.navLink, s.activeLink].join(' ')
+                        : s.navLink
+                    }>
+                    treasure
+                  </a>
+                </Link>
+                <Link href={'/seduction'}>
+                  <a
+                    className={
+                      router.pathname == '/seduction'
+                        ? [s.navLink, s.activeLink].join(' ')
+                        : s.navLink
+                    }>
+                    seduction
+                  </a>
+                </Link>
+                <Link href={'/twirl'}>
+                  <a
+                    className={
+                      router.pathname == '/twirl'
+                        ? [s.navLink, s.activeLink].join(' ')
+                        : s.navLink
+                    }>
+                    twirl
+                  </a>
+                </Link>
+              </div>
+
               <Link href={'/collection'}>
                 <a
                   className={
@@ -95,37 +130,9 @@ export default function Header() {
                       : s.navLink
                   }>
                   collection
-                  <Image className={s.navArrov} src={arrov} alt="hover" />
-                </a>
-              </Link>
-              <Link href={'/treasure'}>
-                <a
-                  className={
-                    router.pathname == '/treasure'
-                      ? [s.navLink, s.activeLink].join(' ')
-                      : s.navLink
-                  }>
-                  treasure
-                </a>
-              </Link>
-              <Link href={'/seduction'}>
-                <a
-                  className={
-                    router.pathname == '/seduction'
-                      ? [s.navLink, s.activeLink].join(' ')
-                      : s.navLink
-                  }>
-                  seduction
-                </a>
-              </Link>
-              <Link href={'/twirl'}>
-                <a
-                  className={
-                    router.pathname == '/twirl'
-                      ? [s.navLink, s.activeLink].join(' ')
-                      : s.navLink
-                  }>
-                  twirl
+                  <div className={s.navArrov}>
+                    <Image src={arrov} alt="hover" />
+                  </div>
                 </a>
               </Link>
             </div>

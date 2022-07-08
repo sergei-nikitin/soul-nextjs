@@ -1,41 +1,62 @@
 @import "../../scss/variables";
 
 .header {
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
-  max-width: 1920px;
   width: 100%;
-  height: 96px;
+  height: 80px;
   margin: $margin;
-  padding: 18px 185px;
 
   background: $roz;
   background-image: url(../../assets/images/bgHeader.png);
   background-repeat: no-repeat;
   background-size: cover;
-  // box-shadow: 0px 4px 6px rgba(175, 155, 137, 0.15);
+  box-shadow: 0px 4px 6px rgba(175, 155, 137, 0.15);
   z-index: 100;
 
   transition: $transition;
 
-  @media (min-width: $tablet-S) {
+  @media (min-width: $tablet-L) {
+    display: block;
+    padding: 15px 120px;
   }
 
-  // @media (max-width: $pre-max) {
-  //   height: 80px;
-  //   padding: 15px 150px;
-  // }
-  // @media (max-width: $medium) {
-  //   padding: 15px 120px;
-  // }
-  // @media (max-width: 1040px) {
-  // }
+  @media (min-width: $descktop-L) {
+    padding: 15px 150px;
+  }
 }
 .headerHidden {
-  // transform: translateX(100%);
+  display: none;
+  position: fixed;
   top: -96px;
+  left: 0;
+  width: 100%;
+  height: 96px;
+  margin: $margin;
+  padding: 18px 185px;
+  background: $roz;
+  background-image: url(/assets/images/bgHeader.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0px 4px 6px rgba(175, 155, 137, 0.15);
+  z-index: 100;
+
   transition: $transition;
+  @media (min-width: $tablet-L) {
+    display: block;
+  }
+
+  @media (max-width: $descktop-XL) {
+    top: -96px;
+    height: 80px;
+    padding: 15px 150px;
+  }
+
+  @media (max-width: $descktop-L) {
+    padding: 15px 120px;
+  }
 }
 
 .wrapper {
@@ -118,79 +139,49 @@
 }
 .navArrov {
   margin-left: 10px;
-  margin-top: -5px;
-}
-
-.navHoverSvg {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 10px;
+  margin-top: -3px;
+  transition: all 0.5s ease;
 }
 
 .select {
   position: relative;
   transition: all 0.5s ease;
   .span {
-    position: fixed;
-    top: 80px;
+    position: absolute;
+    top: 0;
     left: 0;
-    height: 0;
-    width: 100vw;
+    height: 115px;
+    opacity: 0;
+
+    width: 65%;
     background: $roz;
     background-image: url(../../assets/images/bgHeader.png);
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 0 0 80px 80px;
+    border-radius: 0 0 20px 20px;
     transition: all 0.5s ease;
-  }
 
-  a:nth-of-type(2) {
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    z-index: -1;
-    padding-top: 10px;
-  }
-  a:nth-of-type(3) {
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    z-index: -1;
-  }
-  a:nth-of-type(4) {
-    position: absolute;
-    top: 0;
-    opacity: 0;
-    z-index: -1;
+    a {
+      padding-top: 5px;
+      opacity: 0;
+      transition: all 0.5s ease;
+    }
   }
 
   &:hover {
     .span {
-      top: 79px;
-      height: 115px;
+      top: 39px;
+      opacity: 1;
       z-index: 101;
       box-shadow: 0px 4px 6px rgba(175, 155, 137, 0.15);
-    }
 
-    a:nth-of-type(2) {
-      position: absolute;
-      top: 90%;
-      opacity: 1;
-      z-index: 101;
+      a {
+        opacity: 1;
+      }
     }
-    a:nth-of-type(3) {
-      position: absolute;
-      top: 170%;
-      opacity: 1;
-      z-index: 101;
-    }
-    a:nth-of-type(4) {
-      position: absolute;
-      top: 250%;
-      opacity: 1;
-      z-index: 101;
+    .navArrov {
+      transition: all 0.5s ease;
+      transform: rotate(180deg);
     }
   }
 }
