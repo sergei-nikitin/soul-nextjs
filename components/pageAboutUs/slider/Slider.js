@@ -10,6 +10,7 @@ import red from '../../../assets/images/about-us/about-us-butle-red.jpg';
 import gold from '../../../assets/images/about-us/about-us-butle-gold.jpg';
 
 import s from './Slider.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
 
 export const Slider = () => {
   const [slider, setSlider] = React.useState(false);
@@ -43,24 +44,24 @@ export const Slider = () => {
       </div>
     );
   };
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
+  // const toTopAnimation = {
+  //   hidden: {
+  //     y: 100,
+  //     opacity: 0,
+  //   },
+  //   visible: (custom) => ({
+  //     y: 0,
+  //     opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
+  //     transition: { delay: custom * 0.2, duration: 0.3 },
+  //   }),
+  // };
 
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
         <motion.h2 custom={2} variants={toTopAnimation} className={s.mainTitle}>

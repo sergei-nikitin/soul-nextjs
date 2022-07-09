@@ -5,51 +5,53 @@ import { motion } from 'framer-motion';
 import roze from '../../../assets/images/seduction/roze.png';
 import f1 from '../../../assets/images/seduction/1.png';
 import f2 from '../../../assets/images/seduction/2.png';
-
+import { toTopAnimation } from '../../../assets/functions/toTop';
+import { leftAnimation } from '../../../assets/functions/fromLeft';
+import { rightAnimation } from '../../../assets/functions/fromRight';
 import s from './Descr.module.scss';
 
 export const Descr = () => {
-  const leftAnimation = {
-    hidden: {
-      x: -100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
+  // const leftAnimation = {
+  //   hidden: {
+  //     x: -100,
+  //     opacity: 0,
+  //   },
+  //   visible: (custom) => ({
+  //     x: 0,
+  //     opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const rightAnimation = {
-    hidden: {
-      x: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
+  //     transition: { delay: custom * 0.2, duration: 0.3 },
+  //   }),
+  // };
+  // const rightAnimation = {
+  //   hidden: {
+  //     x: 100,
+  //     opacity: 0,
+  //   },
+  //   visible: (custom) => ({
+  //     x: 0,
+  //     opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
+  //     transition: { delay: custom * 0.2, duration: 0.3 },
+  //   }),
+  // };
+  // const toTopAnimation = {
+  //   hidden: {
+  //     y: 100,
+  //     opacity: 0,
+  //   },
+  //   visible: (custom) => ({
+  //     y: 0,
+  //     opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
+  //     transition: { delay: custom * 0.2, duration: 0.3 },
+  //   }),
+  // };
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      viewport={{ amount: 0.2 }}
       className={s.section}>
       <div className={s.container}>
         <motion.h2 custom={1} variants={toTopAnimation} className={s.title}>

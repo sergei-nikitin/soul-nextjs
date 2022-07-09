@@ -78,6 +78,11 @@
 }
 
 .butleWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   @media (max-width: calc($mob-XL - 1px)) {
     position: absolute;
 
@@ -85,6 +90,7 @@
     bottom: -403px;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
   }
   @media (max-width: calc($mob-L - 1px)) {
     bottom: -347px;
@@ -97,12 +103,21 @@
   }
 }
 
-.butle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.butleTop {
   width: 215px;
   height: 317px;
+
+  span {
+    overflow: visible !important;
+  }
+
+  img {
+    transform: translateY(-40%);
+    transition: all 1s;
+    @media (min-width: $mob-XL) {
+      transform: translateY(0);
+    }
+  }
 
   @media (min-width: $mob-L) {
     width: 253px;
@@ -135,12 +150,47 @@
     margin-left: -20%;
   }
 }
-// .butle * {
-//   outline: $outline;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
+.butleDown {
+  width: 215px;
+  height: 317px;
 
-//   width: 100% !important;
-//   height: 100% !important;
-// }
+  span {
+    overflow: visible !important;
+  }
+
+  img {
+    transform: translateY(0);
+    transition: all 1s;
+  }
+
+  @media (min-width: $mob-L) {
+    width: 253px;
+    height: 372px;
+  }
+  @media (min-width: $mob-XL) {
+    width: 176px;
+    height: 261px;
+  }
+  @media (min-width: $tablet-S) {
+    width: 235px;
+    height: 348px;
+  }
+  @media (min-width: $tablet-L) {
+    width: 312px;
+    height: 462px;
+  }
+  @media (min-width: $descktop-S) {
+    width: 281px;
+    height: 416px;
+  }
+  @media (min-width: $descktop-L) {
+    width: 332px;
+    height: 492px;
+    margin-left: -10%;
+  }
+  @media (min-width: $descktop-XL) {
+    width: 398px;
+    height: 589px;
+    margin-left: -20%;
+  }
+}

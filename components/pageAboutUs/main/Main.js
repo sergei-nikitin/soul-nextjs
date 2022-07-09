@@ -6,39 +6,42 @@ import img1 from '../../../assets/images/about-us/about-us-1.jpg';
 import img2 from '../../../assets/images/about-us/about-us-2.jpg';
 import img3 from '../../../assets/images/about-us/about-us-3.jpg';
 import s from './Main.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
+import { leftAnimation } from '../../../assets/functions/fromLeft';
+import { rightAnimation } from '../../../assets/functions/fromRight';
 
 export const Main = () => {
-  const fotoAnimation = {
-    hidden: {
-      y: 50,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
+  // const fotoAnimation = {
+  //   hidden: {
+  //     y: 50,
+  //     opacity: 0,
+  //   },
+  //   visible: (custom) => ({
+  //     y: 0,
+  //     opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
+  //     transition: { delay: custom * 0.2, duration: 0.3 },
+  //   }),
+  // };
 
-  const leftAnimation = {
-    hidden: {
-      x: -100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
+  // const leftAnimation = {
+  //   hidden: {
+  //     x: -100,
+  //     opacity: 0,
+  //   },
+  //   visible: (custom) => ({
+  //     x: 0,
+  //     opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
+  //     transition: { delay: custom * 0.2, duration: 0.3 },
+  //   }),
+  // };
 
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
         <motion.h1 custom={1} variants={leftAnimation} className={s.title1}>
@@ -47,34 +50,34 @@ export const Main = () => {
         <motion.h2 custom={1.5} variants={leftAnimation} className={s.title2}>
           in great love...
         </motion.h2>
-        <p className="text">
+        <motion.p custom={1} variants={rightAnimation} className="text">
           These are emotions, who consider a person to adulthood, feelings,
           wings that lift us when it seems tenderness of touch new thoughts
           about familiar things, the highest category of owners, Freedom of
           choice, inserts and desires.
-        </p>
-        <p className="text">
+        </motion.p>
+        <motion.p custom={1} variants={rightAnimation} className="text">
           These are emotions, who consider a person to adulthood, feelings,
           wings that lift us when it.
-        </p>
+        </motion.p>
       </div>
       <motion.div
         custom={2}
-        variants={fotoAnimation}
+        variants={toTopAnimation}
         className={s.image1Wrapper}>
         <Image className={s.img1} src={img1} alt="img" />
       </motion.div>
 
       <motion.div
         custom={3}
-        variants={fotoAnimation}
+        variants={toTopAnimation}
         className={s.image2Wrapper}>
         <Image className={s.img2} src={img2} alt="img" />
       </motion.div>
 
       <motion.div
         custom={2}
-        variants={fotoAnimation}
+        variants={toTopAnimation}
         className={s.image3Wrapper}>
         <Image className={s.img3} src={img3} alt="img" />
       </motion.div>

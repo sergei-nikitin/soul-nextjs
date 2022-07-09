@@ -8,37 +8,15 @@ import foto2 from '../../../assets/images/home/aboutUS.png';
 import foto3 from '../../../assets/images/home/brand.png';
 
 import s from './History.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
+import { rightAnimation } from '../../../assets/functions/fromRight';
 
 export const History = () => {
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const rightAnimation = {
-    hidden: {
-      x: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
         <motion.h2 custom={1} variants={toTopAnimation} className={s.title}>

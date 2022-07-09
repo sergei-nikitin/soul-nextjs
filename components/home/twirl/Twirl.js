@@ -5,10 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LinkTo from '../../link/LinkTo';
 import { addItem } from '../../../redux/slices/cartSlice';
+// import { toTopAnimation } from '../../../assets/functions/toTop';
 
 import ButtonAdd from '../../buttonAdd/ButtonAdd';
 import flak from '../../../public/images/butles/white.png';
 import s from './Twirl.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
+import { leftAnimation } from '../../../assets/functions/fromLeft';
+import { rightAnimation } from '../../../assets/functions/fromRight';
 
 const Twirl = () => {
   const dispatch = useDispatch();
@@ -23,48 +27,10 @@ const Twirl = () => {
     dispatch(addItem(item));
   };
 
-  const leftAnimation = {
-    hidden: {
-      x: -100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const rightAnimation = {
-    hidden: {
-      x: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <motion.div custom={2} variants={rightAnimation} className={s.bgWrapper}>
         <span>TWIRL</span>

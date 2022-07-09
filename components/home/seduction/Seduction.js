@@ -7,9 +7,11 @@ import { addItem } from '../../../redux/slices/cartSlice';
 
 import ButtonAdd from '../../buttonAdd/ButtonAdd';
 import LinkTo from '../../link/LinkTo';
-// import bg from '../../../assets/images/home/seduction-bg.png';
 import flak from '../../../assets/images/butles/red.png';
 import s from './Seduction.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
+import { rightAnimation } from '../../../assets/functions/fromRight';
+import { leftAnimation } from '../../../assets/functions/fromLeft';
 
 const Seduction = () => {
   const dispatch = useDispatch();
@@ -22,47 +24,12 @@ const Seduction = () => {
     };
     dispatch(addItem(item));
   };
-  const leftAnimation = {
-    hidden: {
-      x: -100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const rightAnimation = {
-    hidden: {
-      x: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <motion.div custom={2} variants={leftAnimation} className={s.bgWrapper}>
         <span>SEDUCTION</span>

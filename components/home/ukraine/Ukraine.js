@@ -6,11 +6,9 @@ import { useDispatch } from 'react-redux';
 import { addItem } from '../../../redux/slices/cartSlice';
 
 import img from '../../../assets/images/home/soul-of-ukraine.png';
-// import { ReactComponent as Icon } from '../../../assets/images/icons/cart.svg';
-// import bg from '../../../assets/images/home/ukraine-bg.png';
 import btl from '../../../assets/images/home/ukraine-btl.png';
-// import svg from '../../../assets/images/home/ukraine-svg.svg';
 import s from './Ukraine.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
 
 const Ukraine = () => {
   const dispatch = useDispatch();
@@ -27,23 +25,23 @@ const Ukraine = () => {
     dispatch(addItem(item));
   };
 
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
+  // const toTopAnimation = {
+  //   hidden: {
+  //     y: 100,
+  //     opacity: 0,
+  //   },
+  //   visible: (custom) => ({
+  //     y: 0,
+  //     opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
+  //     transition: { delay: custom * 0.2, duration: 0.3 },
+  //   }),
+  // };
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <motion.div custom={2} variants={toTopAnimation} className={s.container}>
         <p className={s.title}>Soul of Ukraine</p>

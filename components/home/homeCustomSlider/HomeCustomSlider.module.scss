@@ -19,28 +19,15 @@
   }
 }
 #img {
-  // will-change: opacity;
   width: 100%;
   height: 100%;
-  transition: opacity 0.8s, transform 0.8s cubic-bezier(0.94, 0.19, 0.25, 0.47);
-  // width: 200px;
-  // height: 300px;
-
-  // @media (min-width: $mob-XL) {
-  //   width: 177px;
-  //   height: 261px;
-  // }
-  // @media (min-width: $tablet-L) {
-  //   width: 317px;
-  //   height: 470px;
-  // }
-  // @media (min-width: $descktop-XL) {
-  //   width: 398px;
-  //   height: 590px;
-  // }
+  transition: all 0.8s linear;
 }
 .hidden {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 50%;
   left: 50%;
   transform: scale(0.3) translate(-150%, -150%);
@@ -48,6 +35,9 @@
 }
 .active {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -112,14 +102,7 @@
     justify-content: space-around;
   }
 }
-// .containerForCanvas {
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   width: 100%;
-//   height: 100%;
-//   z-index: 1;
-// }
+
 // nameProduct
 .brandName {
   position: relative;
@@ -211,29 +194,6 @@
   flex-direction: column;
   justify-content: center;
 }
-// .img {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   display: block;
-//   width: 200px;
-//   height: 300px;
-//   margin-right: auto;
-//   margin-left: auto;
-//   @media (min-width: $mob-XL) {
-//     width: 177px;
-//     height: 261px;
-//   }
-//   @media (min-width: $tablet-L) {
-//     width: 317px;
-//     height: 470px;
-//   }
-//   @media (min-width: $descktop-XL) {
-//     width: 398px;
-//     height: 590px;
-//   }
-// }
 
 .navPoints {
   // outline: $outline;
@@ -282,11 +242,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  img {
-    width: 15px;
-    height: 25px;
-  }
 }
 .prevBtn {
   left: 0;
@@ -294,6 +249,11 @@
 }
 .nextBtn {
   right: 0;
+  top: 55%;
+}
+.iconWrapper img {
+  width: 13px !important;
+  height: 20px !important;
 }
 
 // infocontainer
@@ -310,37 +270,112 @@
     width: 500px;
   }
 }
-.productName {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 30px;
-  color: $gold;
+.nameWrapper {
+  // outline: $outline;
+  position: relative;
+  height: 30px;
   margin-top: 20px;
 
-  @media (min-width: $mob-XL) {
-    text-align-last: left;
-  }
+  display: flex;
+  align-items: center;
+
   @media (min-width: $tablet-L) {
-    font-size: 64px;
+    height: 64px;
+  }
+
+  p {
+    position: absolute;
+    opacity: 0;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    text-transform: uppercase;
+    font-size: 30px;
+    color: $gold;
+
+    transition: all 0.8s;
+    @media (min-width: $mob-XL) {
+      left: 0;
+      transform: translateX(0);
+    }
+    @media (min-width: $tablet-L) {
+      font-size: 64px;
+    }
   }
 }
-.textProduct {
-  text-align: center;
-  font-size: 12px;
-  line-height: 16px;
-  color: $gray;
 
-  width: 70%;
-  margin: 15px auto 20px auto;
+.activeName {
+  top: 0 !important;
+  opacity: 1 !important;
+}
+
+.descrWrapper {
+  // outline: $outline;
+  position: relative;
+  margin-top: 15px;
   @media (min-width: $mob-XL) {
-    text-align: left;
-    font-size: 14px;
-    line-height: 22px;
-    margin: 20px 0 40px 0;
+    margin-top: 20px;
   }
-  @media (min-width: $tablet-L) {
-    font-size: 18px;
-    line-height: 28px;
+  .hiddenSpan h5 {
+    opacity: 0;
+    font-family: "inter";
+    font-size: 12px;
+    line-height: 16px;
+    width: 70%;
+    margin: 15px auto 20px auto;
+
+    @media (min-width: $mob-XL) {
+      text-align: left;
+      font-size: 14px;
+      line-height: 22px;
+      margin: 20px 0 40px 0;
+    }
+    @media (min-width: $tablet-L) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+  p {
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    text-align: center;
+    font-family: "inter";
+    font-size: 12px;
+    line-height: 16px;
+    color: $gray;
+
+    width: 70%;
+    margin: 0 auto 20px auto;
+    transition: all 0.8s;
+    @media (min-width: $mob-XL) {
+      text-align: left;
+      font-size: 14px;
+      line-height: 22px;
+      margin: 0 0 40px 0;
+    }
+    @media (min-width: $tablet-L) {
+      font-size: 18px;
+      line-height: 28px;
+    }
+  }
+  .activeTextWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    transition: all 0.8s;
+  }
+  .hiddenTextWrapper {
+    opacity: 0;
+    position: absolute;
+    // top: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: all 0.8s;
   }
 }
 

@@ -1,36 +1,59 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { animateScroll as scroll } from 'react-scroll';
 
 import butle from '../../../assets/images/butles/red.png';
 import s from './Main.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
 
 export const Main = () => {
-  const toTopAnimation = {
+  const butleContainer = React.useRef();
+  const [buttlePosition, setButlePosition] = React.useState(false);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        setButlePosition(true);
+      } else {
+        setButlePosition(false);
+      }
+    });
+    observer.observe(butleContainer.current);
+  }, []);
+
+  const titleAnimation = {
     hidden: {
-      y: 100,
+      scale: 6,
       opacity: 0,
     },
     visible: (custom) => ({
-      y: 0,
+      scale: 1,
       opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.3 },
+      transition: { delay: custom * 0.2, duration: 0.8 },
     }),
   };
+
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
         <div className={s.butleWrapper}>
-          <motion.div custom={2} variants={toTopAnimation} className={s.butle}>
+          <motion.div
+            ref={butleContainer}
+            custom={2}
+            variants={toTopAnimation}
+            className={buttlePosition ? s.butleDown : s.butleTop}>
             <Image src={butle} alt="foto" />
           </motion.div>
         </div>
-        <motion.h1 custom={1} variants={toTopAnimation} className={s.title}>
+
+        <motion.h1 custom={1} variants={titleAnimation} className={s.title}>
           Seduction
         </motion.h1>
       </div>

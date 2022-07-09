@@ -11,25 +11,14 @@ import FacebookIcon from '../../icons/FaceBookIcon';
 import TwiterIcon from '../../icons/TwiterIcon';
 
 import s from './FormSection.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
 
 const FormSection = () => {
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
         <motion.div

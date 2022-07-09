@@ -5,37 +5,15 @@ import { motion } from 'framer-motion';
 import LinkTo from '../../link/LinkTo';
 import img from '../../../assets/images/home/soul.jpg';
 import s from './Soul.module.scss';
+import { toTopAnimation } from '../../../assets/functions/toTop';
+import { leftAnimation } from '../../../assets/functions/fromLeft';
 
 export const Soul = () => {
-  const leftAnimation = {
-    hidden: {
-      x: -100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      x: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.2, duration: 0.3 },
-    }),
-  };
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
         <motion.div custom={2} variants={leftAnimation} className={s.descr}>

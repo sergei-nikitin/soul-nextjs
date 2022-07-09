@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../redux/slices/cartSlice';
 
+import { nameSwitch } from '../../../assets/functions/nameSwitch';
 import { SeductionMini } from '../miniProducts/SeductionMini';
 import { TreasureMini } from '../miniProducts/TreasureMini';
 import { TwirlMini } from '../miniProducts/TwirlMini';
@@ -78,37 +79,14 @@ export const CollectionCustomSlider = () => {
       setActiveNum(activeNum + 1);
     }
   };
-  const nameSwitch = (param) => {
-    switch (param) {
-      case 0:
-        return 'seduction';
-      case 1:
-        return 'treasure';
-      case 2:
-        return 'twirl';
-      default:
-        return 'seduction';
-    }
-  };
-  const textSwitch = (param) => {
-    switch (param) {
-      case 0:
-        return 'seduction seduction seduction seduction seduction';
-      case 1:
-        return ' treasure treasure treasure treasure treasure treasure';
-      case 2:
-        return 'twirl twirl twirl twirl twirl twirl twirl';
-      default:
-        return 'seduction twirl treasure seduction twirl treasure seduction twirl';
-    }
-  };
+
   const addSwitch = (param) => {
     switch (param) {
-      case 0:
-        return onSeductionAdd;
       case 1:
-        return onTreasureAdd;
+        return onSeductionAdd;
       case 2:
+        return onTreasureAdd;
+      case 3:
         return onTwirlAdd;
       default:
         return onSeductionAdd;
@@ -148,7 +126,14 @@ export const CollectionCustomSlider = () => {
   return (
     <section className={s.container}>
       <div className={s.slideNum}>
-        <span className={s.mainNum}>0{activeNum + 1}</span>
+        <p className={s.mainNum}>0 </p>
+        <div className={s.numWrapper}>
+          <p className={activeNum === 0 ? s.activeNumber : s.hiddenNumber}>1</p>
+          <p className={activeNum === 1 ? s.activeNumber : s.hiddenNumber}>2</p>
+          <p className={activeNum === 2 ? s.activeNumber : s.hiddenNumber}>3</p>
+        </div>
+
+        {/* <span className={s.mainNum}>0{activeNum + 1}</span> */}
         <span className={s.totalNum}>/ 03</span>
       </div>
 
@@ -199,10 +184,29 @@ export const CollectionCustomSlider = () => {
           {/* найти более простое решение с добавлением кружку активного класса  */}
         </div>
         <div className={s.infocontainer}>
-          <p className={s.nameProduct}>{nameSwitch(activeNum)}</p>
+          <div className={s.nameWrapper}>
+            <p className={activeNum === 0 ? s.activeName : ''}>seduction</p>
+            <p className={activeNum === 1 ? s.activeName : ''}>treasure</p>
+            <p className={activeNum === 2 ? s.activeName : ''}>twirl</p>
+          </div>
+
           <p className={s.priceProduct}>＄ 200.00</p>
-          <p className={s.textProduct}>{textSwitch(activeNum)}</p>
-          <p className="text">{textSwitch(activeNum)}</p>
+
+          <div className={s.textWrapper}>
+            <p className={activeNum === 0 ? s.textProduct : ''}>seduction</p>
+            <p className={activeNum === 1 ? s.textProduct : ''}>treasure</p>
+            <p className={activeNum === 2 ? s.textProduct : ''}>twirl</p>
+          </div>
+
+          <div className={s.descrWrapper}>
+            <p className={activeNum === 0 ? s.descrProduct : ''}>
+              seduction seduction
+            </p>
+            <p className={activeNum === 1 ? s.descrProduct : ''}>
+              treasure treasure
+            </p>
+            <p className={activeNum === 2 ? s.descrProduct : ''}>twirl twirl</p>
+          </div>
 
           <div className={s.btnsWrapper}>
             <LinkTo path={`/${nameSwitch(activeNum)}`} />

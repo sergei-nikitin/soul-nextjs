@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 
+import { toTop } from '../../../assets/functions/toTop';
+import { nameSwitch } from '../../../assets/functions/nameSwitch';
 import LinkTo from '../../link/LinkTo';
 import red from '../../../assets/images/butles/red.png';
 import blue from '../../../assets/images/butles/blue.png';
@@ -33,42 +35,22 @@ const HomeCustomSlider = () => {
   const NextBtn = () => {
     return (
       <button onClick={onClickNext} className={s.nextBtn}>
-        <Image src={icon} alt="icon" />
+        <div className={s.iconWrapper}>
+          <Image src={icon} alt="icon" />
+        </div>
       </button>
     );
   };
   const PrevBtn = () => {
     return (
       <button onClick={onClickPrev} className={s.prevBtn}>
-        <Image src={icon} alt="icon" />
+        <div className={s.iconWrapper}>
+          <Image src={icon} alt="icon" />
+        </div>
       </button>
     );
   };
 
-  const nameSwitch = (param) => {
-    switch (param) {
-      case 0:
-        return 'seduction';
-      case 1:
-        return 'treasure';
-      case 2:
-        return 'twirl';
-      default:
-        return 'seduction';
-    }
-  };
-  const textSwitch = (param) => {
-    switch (param) {
-      case 0:
-        return 'seduction seduction seduction seduction seduction';
-      case 1:
-        return ' treasure treasure treasure treasure treasure treasure';
-      case 2:
-        return 'twirl twirl twirl twirl twirl twirl twirl';
-      default:
-        return 'seduction twirl treasure seduction twirl treasure seduction twirl';
-    }
-  };
   let direction = '';
   const sliderRef = React.useRef();
 
@@ -101,6 +83,20 @@ const HomeCustomSlider = () => {
     x1 = null;
     y1 = null;
   };
+
+  const toTopAnimation = {
+    hidden: {
+      y: 100,
+      opacity: 0,
+    },
+    visible: (custom) => ({
+      y: 0,
+      opacity: 1,
+
+      transition: { delay: custom * 0.3, duration: 0.5 },
+    }),
+  };
+
   return (
     <section className={s.section}>
       <div
@@ -141,9 +137,47 @@ const HomeCustomSlider = () => {
             <span className={s.soul}> soul</span>
             <span className={s.ofMine}>of mine</span>
           </p>
-          <p className={s.productName}>{nameSwitch(activeNum)}</p>
+          <div className={s.nameWrapper}>
+            <p className={activeNum === 0 ? s.activeName : ''}>seduction</p>
+            <p className={activeNum === 1 ? s.activeName : ''}>treasure</p>
+            <p className={activeNum === 2 ? s.activeName : ''}>twirl</p>
+          </div>
 
-          <p className={s.textProduct}>{textSwitch(activeNum)}</p>
+          <div className={s.descrWrapper}>
+            <span className={s.hiddenSpan}>
+              <h5>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </h5>
+            </span>
+            <div
+              className={
+                activeNum === 0 ? s.activeTextWrapper : s.hiddenTextWrapper
+              }>
+              <p>
+                of the printing and typesetting industry. Lorem Ipsum is simply
+                dummy text
+              </p>
+            </div>
+            <div
+              className={
+                activeNum === 1 ? s.activeTextWrapper : s.hiddenTextWrapper
+              }>
+              <p>
+                Ipsum Lorem and typesetting industry. is simply dummy text of
+                the printing
+              </p>
+            </div>
+            <div
+              className={
+                activeNum === 2 ? s.activeTextWrapper : s.hiddenTextWrapper
+              }>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
+          </div>
 
           <div className={s.linkWrapper}>
             <LinkTo path={`/${nameSwitch(activeNum)}`} />

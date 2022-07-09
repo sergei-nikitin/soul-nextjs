@@ -68,7 +68,8 @@
   }
 }
 
-.foto1 {
+.fotoLeftWrapper {
+  position: relative;
   width: 252px;
   height: 392px;
 
@@ -90,6 +91,40 @@
   @media (min-width: $descktop-S) {
     margin-left: 0;
     border-radius: 20px;
+  }
+}
+.fotoLeft {
+  opacity: 0;
+  transition: all 0.8s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+
+  span {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  img {
+    object-fit: cover;
+  }
+}
+.fotoLeftVisible {
+  opacity: 1 !important;
+  transition: all 0.8s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+
+  span {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  img {
+    object-fit: cover;
   }
 }
 .foto2 {
@@ -122,6 +157,7 @@
   }
 }
 .listItem {
+  position: relative;
   padding: 20px;
   width: 100%;
   height: 105px;
@@ -134,6 +170,13 @@
   }
   @media (min-width: $descktop-S) {
     padding-right: 250px;
+  }
+
+  * {
+    transition: all 0.8s;
+  }
+  &:hover * {
+    opacity: 1;
   }
 }
 .title {
@@ -165,5 +208,41 @@
   }
   @media (min-width: $tablet-L) {
     font-size: 16px;
+  }
+}
+
+.fotoRight {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -150px;
+  width: 180px;
+  height: 130px;
+  border-radius: 15px;
+  overflow: hidden;
+  @media (min-width: $mob-L) {
+    right: -120px;
+  }
+  @media (min-width: $tablet-S) {
+    right: 0;
+  }
+  @media (min-width: $tablet-L) {
+    right: -20px;
+
+    width: 296px;
+    height: 209px;
+  }
+  @media (min-width: $descktop-S) {
+    right: 0;
+  }
+
+  span {
+    width: 100% !important;
+    height: 100% !important;
+
+    img {
+      object-fit: cover;
+    }
   }
 }
