@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { toTop } from '../../../assets/functions/toTop';
 import { nameSwitch } from '../../../assets/functions/nameSwitch';
 import LinkTo from '../../link/LinkTo';
 import red from '../../../assets/images/butles/red.png';
@@ -12,6 +11,7 @@ import s from './HomeCustomSlider.module.scss';
 
 const HomeCustomSlider = () => {
   const [activeNum, setActiveNum] = React.useState(0);
+  const sliderRef = React.useRef();
 
   const onClickNext = () => {
     if (activeNum === 2) return;
@@ -31,7 +31,6 @@ const HomeCustomSlider = () => {
       setActiveNum(activeNum + 1);
     }
   };
-
   const NextBtn = () => {
     return (
       <button onClick={onClickNext} className={s.nextBtn}>
@@ -52,8 +51,6 @@ const HomeCustomSlider = () => {
   };
 
   let direction = '';
-  const sliderRef = React.useRef();
-
   let x1 = null;
   let y1 = null;
 
@@ -61,7 +58,6 @@ const HomeCustomSlider = () => {
     x1 = event.touches[0].clientX;
     y1 = event.touches[0].clientY;
   };
-
   const sliderTuchMove = (event) => {
     let x2 = event.touches[0].clientX;
     let y2 = event.touches[0].clientY;
@@ -82,19 +78,6 @@ const HomeCustomSlider = () => {
     }
     x1 = null;
     y1 = null;
-  };
-
-  const toTopAnimation = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-    },
-    visible: (custom) => ({
-      y: 0,
-      opacity: 1,
-
-      transition: { delay: custom * 0.3, duration: 0.5 },
-    }),
   };
 
   return (
