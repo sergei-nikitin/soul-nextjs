@@ -38,6 +38,10 @@ main {
   flex: 1 1 auto;
 }
 
+section {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }

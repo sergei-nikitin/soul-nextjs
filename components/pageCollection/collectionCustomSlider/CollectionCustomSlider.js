@@ -82,11 +82,11 @@ export const CollectionCustomSlider = () => {
 
   const addSwitch = (param) => {
     switch (param) {
-      case 1:
+      case 0:
         return onSeductionAdd;
-      case 2:
+      case 1:
         return onTreasureAdd;
-      case 3:
+      case 2:
         return onTwirlAdd;
       default:
         return onSeductionAdd;
