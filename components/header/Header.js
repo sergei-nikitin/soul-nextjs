@@ -51,19 +51,14 @@ export default function Header() {
   }, [lastScrollY]);
 
   return (
-    // <header className={[s.header, s.conatainer].join(' ')}>
     <>
       <header
         ref={header}
         className={show ? `${s.header}` : `${s.headerHidden}`}>
-        {/* <header ref={header} className={show ? 'header' : 'headerHidden'}> */}
-        {/* {cart && <Cart closeCart={closeCart} />} */}
-
         <div className={s.wrapper}>
           <Link href={'/'}>
             <a className={s.logoWrapper}>
               <Image className={s.contur} src={contur} alt="logo" />
-              {/* <Image className={s.letter} src={letter} alt="logo" /> */}
             </a>
           </Link>
 

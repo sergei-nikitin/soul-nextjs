@@ -9,7 +9,7 @@
   width: 100%;
   height: calc(100vh - 60px);
 
-  padding: 60vh 15px 0 15px;
+  padding: 50vh 15px 0 15px;
   margin-bottom: 347px;
 
   background: url(../../../assets/images/seduction/bg.jpg) no-repeat right;
@@ -112,7 +112,7 @@
   }
 
   img {
-    transform: translateY(-40%);
+    transform: translateY(-55%);
     transition: all 1s;
     @media (min-width: $mob-XL) {
       transform: translateY(0);

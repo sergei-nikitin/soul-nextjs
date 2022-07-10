@@ -39,6 +39,7 @@ export const Main = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
+      viewport={{ once: true }}
       // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
