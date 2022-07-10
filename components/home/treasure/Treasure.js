@@ -15,15 +15,12 @@ import { leftAnimation } from '../../../assets/functions/fromLeft';
 
 const Treasure = () => {
   const dispatch = useDispatch();
-  const [activeSize, setActiveSize] = React.useState(0);
-  const sizes = [50, 75, 100];
   const onClickAdd = () => {
     const item = {
       id: 3,
       name: 'treasure',
       price: 100,
       imageUrl: flak,
-      size: sizes[activeSize],
     };
     dispatch(addItem(item));
   };

@@ -12,7 +12,7 @@ export const EmptyCart = () => {
         <Image src={img} alt="img" />
       </div>
 
-      <div>
+      <div className={s.infoWrapper}>
         <p className={s.text}>No perfumes in your cart</p>
         <Link href="/">
           <a className={s.link}> CONTINUE SHOPPING</a>

@@ -2,10 +2,16 @@
 
 .wrapper {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 330px);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  padding-bottom: 30px;
+
+  @media (min-width: $tablet-S) {
+    flex-direction: row;
+  }
 }
 .img {
   width: 227px;
@@ -14,14 +20,25 @@
   display: flex;
   align-items: center;
 }
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: $tablet-S) {
+    padding-left: 20px;
+    align-items: flex-start;
+  }
+}
 .text {
   text-transform: uppercase;
+  text-align: center;
   font-size: 32px;
   color: $dark-gray;
-  margin-bottom: 40px;
-  margin-left: 15px;
+  margin-bottom: 30px;
+  @media (min-width: $tablet-S) {
+    text-align: start;
+  }
 }
-@import "../../scss/variables";
 
 .link {
   display: inline-block;
@@ -38,8 +55,9 @@
   line-height: 16px;
   letter-spacing: 0.05em;
 
-  margin-left: 15px;
   transition: $transition;
+  margin-left: 0 !important;
+  margin-top: 15px;
 
   &:hover {
     background: #bb7813;

@@ -42,7 +42,7 @@
 .slideNum {
   display: flex;
   align-items: flex-end;
-  outline: $outline;
+  // outline: $outline;
 
   position: absolute;
   top: 20px;
@@ -161,10 +161,11 @@
   transition: all 0.5s linear;
 }
 .hidden {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   position: absolute;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -175,9 +176,9 @@
 }
 .active {
   // outline: $outline;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 0;
   left: 0;

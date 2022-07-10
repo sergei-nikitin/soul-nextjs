@@ -24,8 +24,8 @@ export const CollectionCustomSlider = () => {
     const item = {
       id: 1,
       name: 'seduction',
-      price: '100',
-      imageUrl: `${red}`,
+      price: 100,
+      imageUrl: red,
     };
     dispatch(addItem(item));
   };
@@ -33,8 +33,8 @@ export const CollectionCustomSlider = () => {
     const item = {
       id: 2,
       name: 'treasure',
-      price: '100',
-      imageUrl: `${blue}`,
+      price: 100,
+      imageUrl: blue,
     };
     dispatch(addItem(item));
   };
@@ -42,8 +42,8 @@ export const CollectionCustomSlider = () => {
     const item = {
       id: 3,
       name: 'twirl',
-      price: '100',
-      imageUrl: `${gold}`,
+      price: 100,
+      imageUrl: gold,
     };
     dispatch(addItem(item));
   };
