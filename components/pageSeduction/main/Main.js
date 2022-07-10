@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { animateScroll as scroll } from 'react-scroll';
 
 import butle from '../../../assets/images/butles/red.png';
 import s from './Main.module.scss';
