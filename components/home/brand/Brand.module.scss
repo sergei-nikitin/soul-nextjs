@@ -5,6 +5,7 @@
   max-width: $section-width;
   width: 100%;
   padding-bottom: 140px;
+  overflow: hidden;
   @media (max-width: $max) {
     padding-bottom: 100px;
   }
