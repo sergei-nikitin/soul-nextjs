@@ -6,6 +6,7 @@
   width: 100%;
   margin: 0 auto;
 }
+
 .container {
   position: relative;
 
@@ -18,6 +19,36 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  .videoContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    video {
+      position: absolute;
+      left: 0;
+      top: 0;
+      //bottom: 100%;
+      //height: 100%;
+      height: 100%;
+      transition: all 1s ease;
+      object-fit: scale-down;
+      &.videoHidden {
+        visibility: hidden;
+        opacity: 0;
+        //display: none;
+      }
+
+      &.videoVisible {
+        visibility: visible;
+        opacity: 1;
+        //display: block;
+      }
+    }
+  }
 
   @media (min-width: $mob-XL) {
     flex-direction: row-reverse;
@@ -67,11 +98,13 @@
     height: 590px;
   }
 }
+
 #img {
   width: 100%;
   height: 100%;
   transition: all 0.8s linear;
 }
+
 .hidden {
   position: absolute;
   display: flex;
@@ -82,6 +115,7 @@
   transform: scale(0.3) translate(-150%, -150%);
   opacity: 0;
 }
+
 .active {
   position: absolute;
   display: flex;
@@ -127,10 +161,12 @@
     -webkit-text-stroke: 1px $gold;
     color: transparent;
   }
+
   @media (min-width: $mob-XL) {
     display: none;
   }
 }
+
 .brandNameDesk {
   display: none;
 
@@ -147,8 +183,10 @@
   @media (min-width: $tablet-L) {
     font-size: 120px;
   }
+
   .soul {
     position: relative;
+
     &::before {
       content: "SOUL";
       position: absolute;
@@ -167,8 +205,10 @@
       }
     }
   }
+
   .ofMine {
     position: relative;
+
     &::before {
       content: "OF MINE";
       position: absolute;
@@ -216,6 +256,7 @@
     margin-top: 20px;
   }
 }
+
 .point,
 .pointActive {
   width: 10px;
@@ -230,12 +271,14 @@
     height: 13px;
   }
 }
+
 .pointActive {
   width: 18px;
   height: 18px;
   background: linear-gradient(78.06deg, #e6ba40 5.04%, #f9de93 28.84%, #e6ba40 55.79%, #f0d17a 78.25%, #e6ba40 91.27%);
   box-shadow: 0px 1px 4px rgba(142, 127, 59, 0.4);
 }
+
 .prevBtn,
 .nextBtn {
   // outline: $outline;
@@ -249,14 +292,17 @@
   align-items: center;
   justify-content: center;
 }
+
 .prevBtn {
   left: 0;
   transform: rotate(180deg) translateY(50%);
 }
+
 .nextBtn {
   right: 0;
   top: 55%;
 }
+
 .iconWrapper img {
   width: 13px !important;
   height: 20px !important;
@@ -276,6 +322,7 @@
     width: 500px;
   }
 }
+
 .nameWrapper {
   // outline: $outline;
   position: relative;
@@ -323,6 +370,7 @@
   @media (min-width: $mob-XL) {
     margin-top: 20px;
   }
+
   .hiddenSpan h5 {
     opacity: 0;
     font-family: "inter";
@@ -342,6 +390,7 @@
       line-height: 28px;
     }
   }
+
   p {
     // position: absolute;
     // top: 0;
@@ -366,6 +415,7 @@
       line-height: 28px;
     }
   }
+
   .activeTextWrapper {
     position: absolute;
     top: 0;
@@ -374,6 +424,7 @@
     opacity: 1;
     transition: all 0.8s;
   }
+
   .hiddenTextWrapper {
     opacity: 0;
     position: absolute;

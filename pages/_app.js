@@ -6,6 +6,7 @@ import 'swiper/scss';
 import 'swiper/css/effect-fade';
 
 export default function MyApp({ Component, pageProps }) {
+  console.log('pageProps==================', pageProps)
   return (
     <Provider store={store}>
       <>
