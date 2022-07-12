@@ -108,8 +108,6 @@ const HomeCustomSlider = () => {
             muted
             playsInline
             src={redVideo}
-            // height={videoContainerHeight}
-            // width={1.8 * videoContainerHeight}
           />
           <video
             className={activeNum === 1 ? s.videoVisible : s.videoHidden}
@@ -119,8 +117,6 @@ const HomeCustomSlider = () => {
             muted
             playsInline
             src={goldVideo}
-            // height={1080}
-            // width={1920}
           />
           <video
             className={activeNum === 2 ? s.videoVisible : s.videoHidden}
@@ -130,8 +126,6 @@ const HomeCustomSlider = () => {
             muted
             playsInline
             src={blueVideo}
-            // height={videoContainerHeight}
-            // width={1.8 * videoContainerHeight}
           />
         </div>
         <div className={s.imgContainer}>
