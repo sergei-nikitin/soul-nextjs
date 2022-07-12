@@ -2,16 +2,22 @@ import React from 'react';
 import Image from 'next/image';
 import shortid from 'shortid';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import arrow from '../../assets/images/icons/grayArrow.svg';
 import s from './FormCart.module.scss';
+import {clearItems} from "../../redux/slices/cartSlice";
 
 export const FormCart = () => {
+
   const { totalPrice, items } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const onSubmit = () => {
+    dispatch(clearItems());
+  }
   return (
     <>
-      <form className={s.cartForm}>
+      <form className={s.cartForm} onSubmit={onSubmit}>
         <div className={s.formField}>
           <input
             className={s.input}
