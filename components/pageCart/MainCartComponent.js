@@ -14,8 +14,6 @@ import s from './MainCartComponent.module.scss';
 export const MainCartComponent = () => {
   const dispatch = useDispatch();
   const { totalPrice, items } = useSelector((state) => state.cart);
-  // totalPrice = 200
-  // console.log('totalPrice', totalPrice)
 
   const onClickClear = () => {
     if (window.confirm('Are you sure you want to remove?'))
