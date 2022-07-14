@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MainLayout } from '../components/MainLayout';
 
@@ -52,6 +52,7 @@ export default function Seduction() {
     };
     dispatch(minusItem(item.id));
   };
+
   return (
     <MainLayout title="Seduction">
       <Main />

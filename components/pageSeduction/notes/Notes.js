@@ -69,6 +69,7 @@ export const Notes = () => {
             onMouseLeave={handleHiddenF3}
             className={s.listItem}>
             <p className={s.title}>heart notes</p>
+            <p className={s.descr}>Geranium, neroli, orange bolossom, rose</p>
             <div className={s.fotoRight}>
               <Image src={f4} alt="foto" />
             </div>
@@ -78,6 +79,7 @@ export const Notes = () => {
             onMouseLeave={handleHiddenF5}
             className={s.listItem}>
             <p className={s.title}>base notes</p>
+            <p className={s.descr}>Sandal, patchoudi, musks, amber, vanilla</p>
             <div className={s.fotoRight}>
               <Image src={f6} alt="foto" />
             </div>

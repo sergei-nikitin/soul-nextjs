@@ -1,34 +1,44 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
-import { rightAnimation } from '../../../assets/functions/fromRight';
-import { toTopAnimation } from '../../../assets/functions/toTop';
+import { rightAnimation } from '../../../assets/functions/motionAnimations';
 import ButtonAdd from '../../buttonAdd/ButtonAdd';
 import foto from '../../../assets/images/seduction/butle.png';
 import s from './AddCart.module.scss';
 
 export const AddCart = ({ onClickAdd, onClickPlus, onClickMinus, count }) => {
+  const refSection = useRef();
+  const [clientHeight, setClientHeight] = useState();
+
+  useEffect(() => {
+    if (refSection) {
+      setClientHeight(refSection.current.offsetTop - 100);
+    }
+  }, []);
+
+  const { scrollY } = useViewportScroll();
+  const scale = useTransform(scrollY, [0, `${clientHeight}`], [0.5, 1]);
+
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      // viewport={{ amount: 0.2, once: true }}
-      className={s.section}>
+    <section ref={refSection} className={s.section}>
       <div className={s.container}>
         {/* foto */}
         <div className={s.fotoBlock}>
           <div className={s.butleWrapper}>
-            <motion.div custom={2} variants={toTopAnimation} className={s.foto}>
-              <Image src={foto} alt="foto" />
-            </motion.div>
+            <div className={s.foto}>
+              <motion.div
+                className={s.motionFotoWrapper}
+                style={{
+                  scale,
+                }}>
+                <Image src={foto} alt="foto" />
+              </motion.div>
+            </div>
           </div>
         </div>
         {/* count and info */}
-        <motion.div
-          custom={2}
-          variants={rightAnimation}
-          className={s.infoWrapper}>
+        <div custom={2} variants={rightAnimation} className={s.infoWrapper}>
           <div className={s.nameAndPrice}>
             <p>seduction</p>
             <p>$ 100.00</p>
@@ -49,7 +59,12 @@ export const AddCart = ({ onClickAdd, onClickPlus, onClickMinus, count }) => {
                 +
               </button>
             </div>
-            <ButtonAdd onClickAdd={onClickAdd} />
+            <motion.div
+              style={{
+                scale,
+              }}>
+              <ButtonAdd onClickAdd={onClickAdd} />
+            </motion.div>
           </div>
           <p className={s.text}>
             For girls who want to create the perfect romantic image, for those
@@ -57,8 +72,8 @@ export const AddCart = ({ onClickAdd, onClickPlus, onClickMinus, count }) => {
             resurrected along with the aroma. Delicate poetry. Always gorgeous,
             always free and frank.
           </p>
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };

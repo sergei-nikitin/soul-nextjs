@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -7,10 +7,10 @@ import s from './Main.module.scss';
 import { toTopAnimation } from '../../../assets/functions/toTop';
 
 export const Main = () => {
-  const butleContainer = React.useRef();
-  const [buttlePosition, setButlePosition] = React.useState(false);
+  const butleContainer = useRef();
+  const [buttlePosition, setButlePosition] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (entry.isIntersecting) {

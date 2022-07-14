@@ -3,6 +3,10 @@ import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../redux/slices/cartSlice';
 
+import { RED } from '../../../cnstants';
+import { BLUE } from '../../../cnstants';
+import { GOLD } from '../../../cnstants';
+
 import { nameSwitch } from '../../../assets/functions/nameSwitch';
 import { SeductionMini } from '../miniProducts/SeductionMini';
 import { TreasureMini } from '../miniProducts/TreasureMini';
@@ -20,6 +24,7 @@ export const CollectionCustomSlider = () => {
   const [activeNum, setActiveNum] = React.useState(0);
   const sliderRef = React.useRef();
   const dispatch = useDispatch();
+
   const onSeductionAdd = () => {
     const item = {
       id: 1,
@@ -48,11 +53,11 @@ export const CollectionCustomSlider = () => {
     dispatch(addItem(item));
   };
   const onClickNext = () => {
-    if (activeNum === 2) return;
+    if (activeNum === GOLD) return;
     setActiveNum(activeNum + 1);
   };
   const onClickPrev = () => {
-    if (activeNum === 0) return;
+    if (activeNum === RED) return;
     setActiveNum(activeNum - 1);
   };
   const NextBtn = () => {
@@ -70,23 +75,23 @@ export const CollectionCustomSlider = () => {
     );
   };
   const onSwipeLeft = () => {
-    if (direction === 'left' && activeNum !== 0) {
+    if (direction === 'left' && activeNum !== RED) {
       setActiveNum(activeNum - 1);
     }
   };
   const onSwipeRight = () => {
-    if (direction === 'right' && activeNum !== 2) {
+    if (direction === 'right' && activeNum !== GOLD) {
       setActiveNum(activeNum + 1);
     }
   };
 
   const addSwitch = (param) => {
     switch (param) {
-      case 0:
+      case RED:
         return onSeductionAdd;
-      case 1:
+      case BLUE:
         return onTreasureAdd;
-      case 2:
+      case GOLD:
         return onTwirlAdd;
       default:
         return onSeductionAdd;
@@ -128,9 +133,15 @@ export const CollectionCustomSlider = () => {
       <div className={s.slideNum}>
         <p className={s.mainNum}>0 </p>
         <div className={s.numWrapper}>
-          <p className={activeNum === 0 ? s.activeNumber : s.hiddenNumber}>1</p>
-          <p className={activeNum === 1 ? s.activeNumber : s.hiddenNumber}>2</p>
-          <p className={activeNum === 2 ? s.activeNumber : s.hiddenNumber}>3</p>
+          <p className={activeNum === RED ? s.activeNumber : s.hiddenNumber}>
+            1
+          </p>
+          <p className={activeNum === BLUE ? s.activeNumber : s.hiddenNumber}>
+            2
+          </p>
+          <p className={activeNum === GOLD ? s.activeNumber : s.hiddenNumber}>
+            3
+          </p>
         </div>
 
         {/* <span className={s.mainNum}>0{activeNum + 1}</span> */}
@@ -144,17 +155,17 @@ export const CollectionCustomSlider = () => {
         className={s.mainContent}>
         <div className={s.imgBlockContainer}>
           <div className={s.imageWrapper}>
-            <div className={activeNum === 0 ? s.active : s.hidden}>
+            <div className={activeNum === RED ? s.active : s.hidden}>
               <Image id={s.img} src={red} alt="foto" />
             </div>
-            <div className={activeNum === 1 ? s.active : s.hidden}>
+            <div className={activeNum === BLUE ? s.active : s.hidden}>
               <Image id={s.img} src={blue} alt="foto" />
             </div>
-            <div className={activeNum === 2 ? s.active : s.hidden}>
+            <div className={activeNum === GOLD ? s.active : s.hidden}>
               <Image id={s.img} src={gold} alt="foto" />
             </div>
 
-            {activeNum === 0 && (
+            {activeNum === RED && (
               <div className={s.navPoints}>
                 <span className={s.pointActive}></span>
                 <span className={s.point}></span>
@@ -162,7 +173,7 @@ export const CollectionCustomSlider = () => {
                 <NextBtn />
               </div>
             )}
-            {activeNum === 1 && (
+            {activeNum === BLUE && (
               <div className={s.navPoints}>
                 <PrevBtn />
                 <span className={s.point}></span>
@@ -171,7 +182,7 @@ export const CollectionCustomSlider = () => {
                 <NextBtn />
               </div>
             )}
-            {activeNum === 2 && (
+            {activeNum === GOLD && (
               <div className={s.navPoints}>
                 <PrevBtn />
                 <span className={s.point}></span>
@@ -185,27 +196,29 @@ export const CollectionCustomSlider = () => {
         </div>
         <div className={s.infocontainer}>
           <div className={s.nameWrapper}>
-            <p className={activeNum === 0 ? s.activeName : ''}>seduction</p>
-            <p className={activeNum === 1 ? s.activeName : ''}>treasure</p>
-            <p className={activeNum === 2 ? s.activeName : ''}>twirl</p>
+            <p className={activeNum === RED ? s.activeName : ''}>seduction</p>
+            <p className={activeNum === BLUE ? s.activeName : ''}>treasure</p>
+            <p className={activeNum === GOLD ? s.activeName : ''}>twirl</p>
           </div>
 
           <p className={s.priceProduct}>＄ 200.00</p>
 
           <div className={s.textWrapper}>
-            <p className={activeNum === 0 ? s.textProduct : ''}>seduction</p>
-            <p className={activeNum === 1 ? s.textProduct : ''}>treasure</p>
-            <p className={activeNum === 2 ? s.textProduct : ''}>twirl</p>
+            <p className={activeNum === RED ? s.textProduct : ''}>seduction</p>
+            <p className={activeNum === BLUE ? s.textProduct : ''}>treasure</p>
+            <p className={activeNum === GOLD ? s.textProduct : ''}>twirl</p>
           </div>
 
           <div className={s.descrWrapper}>
-            <p className={activeNum === 0 ? s.descrProduct : ''}>
+            <p className={activeNum === RED ? s.descrProduct : ''}>
               seduction seduction
             </p>
-            <p className={activeNum === 1 ? s.descrProduct : ''}>
+            <p className={activeNum === BLUE ? s.descrProduct : ''}>
               treasure treasure
             </p>
-            <p className={activeNum === 2 ? s.descrProduct : ''}>twirl twirl</p>
+            <p className={activeNum === GOLD ? s.descrProduct : ''}>
+              twirl twirl
+            </p>
           </div>
 
           <div className={s.btnsWrapper}>
@@ -216,19 +229,19 @@ export const CollectionCustomSlider = () => {
       </div>
 
       {/* mini products от 569px */}
-      {activeNum === 0 && (
+      {activeNum === RED && (
         <div className={s.miniProducts}>
           <TreasureMini />
           <TwirlMini />
         </div>
       )}
-      {activeNum === 1 && (
+      {activeNum === BLUE && (
         <div className={s.miniProducts}>
           <SeductionMini />
           <TwirlMini />
         </div>
       )}
-      {activeNum === 2 && (
+      {activeNum === GOLD && (
         <div className={s.miniProducts}>
           <SeductionMini />
           <TreasureMini />
