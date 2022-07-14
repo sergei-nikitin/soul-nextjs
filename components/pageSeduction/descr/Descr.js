@@ -9,70 +9,43 @@ import { toTopAnimation } from '../../../assets/functions/toTop';
 // import { leftAnimation } from '../../../assets/functions/fromLeft';
 // import { rightAnimation } from '../../../assets/functions/fromRight';
 import s from './Descr.module.scss';
-
-// const useAdaptiveAnimation = (fn) => {};
-
-// вынести в отд
-const DEFAULT_WINDOW_DESK_WIDTH = 1280;
-const DEFAULT_WINDOW_TABL_WIDTH = 1024;
-const DEFAULT_WINDOW_MOB_WIDTH = 428;
+import {
+  DEFAULT_WINDOW_DESKTOP_WIDTH,
+  DEFAULT_WINDOW_MOBILE_WIDTH,
+  DEFAULT_WINDOW_TABLET_WIDTH
+} from "../../../config/windowWidth";
+import { getValueBasedOnDeviceWidth } from "../../../utils/getValueBasedOnDeviceWidth";
+import useDeviceWidth from "../../../hooks/useDeviceWidth";
 
 const widthMap = {
-  [DEFAULT_WINDOW_DESK_WIDTH]: 700,
-  [DEFAULT_WINDOW_TABL_WIDTH]: 300,
-  [DEFAULT_WINDOW_MOB_WIDTH]: 300,
+  [DEFAULT_WINDOW_DESKTOP_WIDTH]: 700,
+  [DEFAULT_WINDOW_TABLET_WIDTH]: 300,
+  [DEFAULT_WINDOW_MOBILE_WIDTH]: 300,
 };
-
-const getValueBaseOnDeviseWidth = (width, widthMap) => {
-  console.log('width -----', width);
-  if (width >= DEFAULT_WINDOW_DESK_WIDTH) {
-    return widthMap[DEFAULT_WINDOW_DESK_WIDTH];
-  }
-  if (width >= DEFAULT_WINDOW_TABL_WIDTH) {
-    return widthMap[DEFAULT_WINDOW_TABL_WIDTH];
-  }
-
-  return widthMap[DEFAULT_WINDOW_DESK_WIDTH];
-};
-
-const document = null;
 
 export const Descr = () => {
-  const [windowWidth, setWindowWidth] = useState(DEFAULT_WINDOW_DESK_WIDTH);
+  const windowWidth = useDeviceWidth();
   const { scrollY } = useViewportScroll();
   const left = useTransform(
     scrollY,
-    [0, getValueBaseOnDeviseWidth(1200, widthMap)],
+    [0, getValueBasedOnDeviceWidth(windowWidth, widthMap)],
     [-200, 0],
   );
   const right = useTransform(
     scrollY,
-    [0, getValueBaseOnDeviseWidth(1200, widthMap)],
+    [0, getValueBasedOnDeviceWidth(windowWidth, widthMap)],
     [-200, 0],
   );
   // const top = useTransform(scrollY, [0, 400], [100, 0]);
   const opacity = useTransform(
     scrollY,
-    [0, getValueBaseOnDeviseWidth(1200, widthMap)],
+    [0, getValueBasedOnDeviceWidth(windowWidth, widthMap)],
     [0, 1],
   );
 
-  // useEffect(() => {
-  //   if (document) {
-  //     const sincWinth = () => {
-  //       setWindowWidth(document.body.offsetWidth);
-  //       console.log(windowWidth);
-  //     };
-  //     const listener = document.addEventListener('resize', sincWinth);
-  //     return () => {
-  //       document.removeEventListener('resize', listener);
-  //     };
-  //   }
-  // }, [document]);
-
-  // console.log(document && document.body.offsetWidth);
-
-  // console.log(getValueBaseOnDeviseWidth(windowWidth, widthMap));
+  if (process.browser && window) {
+    console.log();
+  }
 
   return (
     <motion.section
