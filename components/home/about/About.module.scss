@@ -13,6 +13,7 @@
   }
 }
 .container {
+  position: relative;
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
@@ -48,6 +49,7 @@
   }
 }
 .fotoWrapper {
+  position: relative;
   width: 228px;
   height: 280px;
   margin-right: auto;
@@ -76,8 +78,6 @@
   }
 }
 .imageWrapper {
-  // outline: $outline;
-  transform: $img-rotate;
   position: relative;
   display: block;
   margin: 0 auto;
@@ -103,86 +103,93 @@
     height: 570px;
   }
 
-  &::before {
-    content: "IT`S ABOUT";
-    position: absolute;
-    left: -20%;
-    top: -40px;
-    transform: rotate(-8deg);
-    -webkit-text-stroke: 1px rgba(165, 46, 8, 0.4);
-    color: transparent;
-    font-size: 60px;
-    font-family: "Advent Pro";
-
-    @media (min-width: $mob-XL) {
-      width: 260px;
-      left: 85%;
-      top: -50px;
-    }
-    @media (min-width: $tablet-L) {
-      width: 590px;
-      font-size: 130px;
-      top: -90px;
-      left: 90%;
-    }
-    @media (min-width: $descktop-L) {
-      left: 100%;
-      top: -30%;
-    }
-    @media (min-width: $descktop-XL) {
-      left: 130%;
-    }
-  }
-  &::after {
-    content: "LOVE";
-    position: absolute;
-    right: -15%;
-    bottom: -30px;
-    transform: rotate(-8deg);
-    -webkit-text-stroke: 1px rgba(165, 46, 8, 0.4);
-    color: transparent;
-    font-size: 60px;
-    font-family: "Advent Pro";
-    z-index: -1;
-    @media (min-width: $mob-S) {
-      right: -20%;
-    }
-    @media (min-width: $mob-L) {
-      right: -25%;
-    }
-    @media (min-width: $mob-XL) {
-      bottom: 70%;
-    }
-    @media (min-width: $tablet-S) {
-      right: -50%;
-    }
-    @media (min-width: $tablet-L) {
-      font-size: 130px;
-      bottom: 0;
-      right: -100%;
-    }
-    @media (min-width: $descktop-L) {
-      right: -65%;
-      bottom: 80%;
-    }
-  }
-
   span {
+    transform: $img-rotate;
     width: 100% !important;
     height: 100% !important;
   }
 }
-.aboutImg {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 20px;
-  @media (min-width: $descktop-XL) {
-    border-radius: 25px;
+
+.itsAbout {
+  width: 650px !important;
+  position: absolute;
+  left: -20%;
+  top: -40px;
+  -webkit-text-stroke: 1px rgba(165, 46, 8, 0.4);
+  color: transparent;
+  font-size: 60px;
+  font-family: "Advent Pro";
+
+  @media (min-width: $mob-XL) {
+    width: 260px;
+    left: 85%;
+    top: -50px;
   }
-  // @media (min-width: $descktop-XL) {
-  //   width: 550px;
-  //   height: 570px;
-  // }
+  @media (min-width: $tablet-L) {
+    width: 590px;
+    font-size: 130px;
+    top: -90px;
+    left: 75%;
+  }
+  @media (min-width: $descktop-L) {
+    left: 100%;
+    top: -30%;
+  }
+  @media (min-width: $descktop-XL) {
+    left: 130%;
+  }
+
+  p {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}
+.love {
+  width: 100px !important;
+
+  position: absolute;
+  right: 0;
+  bottom: -30px;
+  -webkit-text-stroke: 1px rgba(165, 46, 8, 0.4);
+  color: transparent;
+  font-size: 60px;
+  font-family: "Advent Pro";
+  z-index: -1;
+
+  p {
+    // outline: 0.5px solid red;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    text-align: right;
+  }
+  @media (min-width: $mob-S) {
+    right: -20%;
+  }
+  @media (min-width: $mob-L) {
+    right: -50%;
+  }
+  @media (min-width: $mob-XL) {
+    right: -40%;
+    bottom: 60%;
+  }
+  @media (min-width: $tablet-S) {
+    // right: -0%;
+  }
+  @media (min-width: $tablet-L) {
+    font-size: 130px;
+    bottom: 40%;
+    right: -100%;
+  }
+  @media (min-width: $descktop-S) {
+    bottom: 80%;
+    right: -30%;
+  }
+  @media (min-width: $descktop-L) {
+    right: -65%;
+    bottom: 100%;
+  }
 }
 
 .descrWrapper {
@@ -197,7 +204,7 @@
   }
   @media (min-width: $tablet-L) {
     width: calc(100% - 435px);
-    padding-top: 100px;
+    padding-top: 70px;
   }
   @media (min-width: $descktop-L) {
     width: calc(100% - 480px);

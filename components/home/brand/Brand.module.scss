@@ -43,7 +43,20 @@
     padding-right: 300px;
   }
 }
+.mobTitleWrapper {
+  position: relative;
+  height: 140px;
+  width: 100%;
+  @media (min-width: 429px) {
+    height: 80px;
+  }
+  @media (min-width: $tablet-S) {
+    display: none;
+  }
+}
 .titleMob {
+  width: 100%;
+  position: absolute;
   text-transform: uppercase;
   font-size: 28px;
   line-height: 44px;
@@ -64,22 +77,28 @@
   @media (min-width: $mob-XL) {
     margin-left: 0;
   }
+}
+.titleWrapper {
+  position: relative;
+  display: none;
   @media (min-width: $tablet-S) {
-    display: none;
+    display: block;
+    height: 200px;
+  }
+  @media (min-width: 1250px) {
+    display: block;
+    height: 130px;
   }
 }
 .title {
-  display: none;
+  position: absolute;
   text-transform: uppercase;
   font-size: 44px;
   line-height: 57px;
   letter-spacing: $letter-spacing;
   font-weight: 400;
   color: $gold;
-  @media (min-width: $tablet-S) {
-    display: block;
-    // width: 40%;
-  }
+
   @media (min-width: $tablet-L) {
     font-size: 64px;
     line-height: 84px;
@@ -132,6 +151,7 @@
   }
 }
 .imageWrapper {
+  position: relative;
   width: 228px;
   height: 233px;
   margin: $margin;
@@ -155,4 +175,9 @@
     width: 550px;
     height: 560px;
   }
+}
+.motionImageWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
