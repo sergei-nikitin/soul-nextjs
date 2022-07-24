@@ -27,18 +27,18 @@ export const CollectionCustomSlider = () => {
 
   const onSeductionAdd = () => {
     const item = {
-      id: 1,
+      id: 2,
       name: 'seduction',
-      price: 100,
+      price: 132,
       imageUrl: red,
     };
     dispatch(addItem(item));
   };
   const onTreasureAdd = () => {
     const item = {
-      id: 2,
+      id: 1,
       name: 'treasure',
-      price: 100,
+      price: 132,
       imageUrl: blue,
     };
     dispatch(addItem(item));
@@ -47,7 +47,7 @@ export const CollectionCustomSlider = () => {
     const item = {
       id: 3,
       name: 'twirl',
-      price: 100,
+      price: 132,
       imageUrl: gold,
     };
     dispatch(addItem(item));

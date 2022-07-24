@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import { useDispatch } from 'react-redux';
 
 import { addItem } from '../../../redux/slices/cartSlice';
@@ -12,39 +12,45 @@ import { toTopAnimation } from '../../../assets/functions/toTop';
 
 const Ukraine = () => {
   const dispatch = useDispatch();
-  const [activeSize, setActiveSize] = React.useState(0);
-  const sizes = [50, 75, 100];
+  const refSection = useRef();
+  const [clientHeight, setClientHeight] = useState();
+
   const onClickAdd = () => {
     const item = {
       id: 4,
       name: 'soul of ukraine',
       price: 100,
       imageUrl: btl,
-      size: sizes[activeSize],
     };
     dispatch(addItem(item));
   };
 
-  // const toTopAnimation = {
-  //   hidden: {
-  //     y: 100,
-  //     opacity: 0,
-  //   },
-  //   visible: (custom) => ({
-  //     y: 0,
-  //     opacity: 1,
+  const startAnimationPosition = clientHeight - 300;
 
-  //     transition: { delay: custom * 0.2, duration: 0.3 },
-  //   }),
-  // };
+  useEffect(() => {
+    if (refSection) {
+      setClientHeight(refSection.current.offsetTop - 200);
+    }
+  }, []);
+
+  const { scrollY } = useViewportScroll();
+  const opacity = useTransform(
+    scrollY,
+    [startAnimationPosition, clientHeight],
+    [0, 1],
+  );
+  const scale = useTransform(
+    scrollY,
+    [startAnimationPosition, clientHeight],
+    [0, 1],
+  );
+
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      // viewport={{ amount: 0.2, once: true }}
-      className={s.section}>
-      <motion.div custom={2} variants={toTopAnimation} className={s.container}>
-        <p className={s.title}>Soul of Ukraine</p>
+    <section ref={refSection} className={s.section}>
+      <div className={s.container}>
+        <motion.p style={{ scale, opacity }} className={s.title}>
+          Soul of Ukraine
+        </motion.p>
         <div className={s.imageWrapper}>
           <Image className={s.img} src={img} alt="foto" />
         </div>
@@ -85,8 +91,8 @@ const Ukraine = () => {
             </span>
           </div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 export default Ukraine;

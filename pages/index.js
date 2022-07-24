@@ -13,6 +13,19 @@ export default function Home() {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // const num = [1, 2, 3, 4, 5];
+  // const fn = (array, i) => {
+  //   array.reduce((acc, current) => {
+  //     if (current !== i) {
+  //       acc += current;
+  //       console.log(array);
+  //     }
+  //   });
+  // };
+
+  // fn(num, 2);
+
   return (
     <MainLayout>
       <HomeCustomSlider />

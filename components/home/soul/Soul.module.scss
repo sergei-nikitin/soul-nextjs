@@ -1,7 +1,7 @@
 @import "../../../scss/variables";
 
 .section {
-  outline: $outline;
+  // outline: $outline;
   max-width: $section-width;
   width: 100%;
   margin-bottom: 100px;
@@ -51,7 +51,7 @@
   }
 }
 .descr {
-  outline: $outline;
+  // outline: $outline;
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
@@ -111,6 +111,7 @@
 }
 
 .imageWrapper {
+  position: relative;
   width: 100%;
   height: 230px;
   margin: 0 auto;
@@ -137,5 +138,15 @@
   @media (min-width: $descktop-S) {
     width: 430px;
     height: 356px;
+  }
+}
+.motionFotoWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  span {
+    width: 100%;
+    height: 100%;
   }
 }

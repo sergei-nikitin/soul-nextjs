@@ -4,16 +4,16 @@ import { MainLayout } from '../components/MainLayout';
 
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
-import { Main } from '../components/pageSeduction/main/Main';
-import { Descr } from '../components/pageSeduction/descr/Descr';
-import { Notes } from '../components/pageSeduction/notes/Notes';
-import { AddCart } from '../components/pageSeduction/addCart/AddCart';
+import { SeductionMain } from '../components/pageProduct/main/SeductionMain';
+import { SeductionDescr } from '../components/pageProduct/descr/SeductionDescr';
+import { SeductionNotes } from '../components/pageProduct/notes/SeductionNotes';
+import { SeductionAddCart } from '../components/pageProduct/addCart/SeductionAddCart';
 import { Soul } from '../components/home/soul/Soul';
 
 import flak from '../assets/images/butles/red.png';
 
 export default function Seduction() {
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export default function Seduction() {
     const item = {
       id: 2,
       name: 'seduction',
-      price: 100,
+      price: 132,
       imageUrl: flak,
     };
     dispatch(addItem(item));
@@ -37,7 +37,7 @@ export default function Seduction() {
     const item = {
       id: 2,
       name: 'seduction',
-      price: 100,
+      price: 132,
       imageUrl: flak,
     };
     dispatch(addItem(item));
@@ -47,7 +47,7 @@ export default function Seduction() {
     const item = {
       id: 2,
       name: 'seduction',
-      price: 100,
+      price: 132,
       imageUrl: flak,
     };
     dispatch(minusItem(item.id));
@@ -55,10 +55,10 @@ export default function Seduction() {
 
   return (
     <MainLayout title="Seduction">
-      <Main />
-      <Descr />
-      <Notes />
-      <AddCart
+      <SeductionMain />
+      <SeductionDescr />
+      <SeductionNotes />
+      <SeductionAddCart
         count={countItem}
         onClickAdd={onClickAdd}
         onClickPlus={onClickPlus}

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 import LinkTo from '../../link/LinkTo';
 import img from '../../../assets/images/home/brand.png';
@@ -9,22 +9,46 @@ import { toTopAnimation } from '../../../assets/functions/toTop';
 import { leftAnimation } from '../../../assets/functions/fromLeft';
 
 const Brand = () => {
+  const refSection = useRef();
+  const [clientHeight, setClientHeight] = useState();
+
+  const startAnimationPosition = clientHeight - 300;
+
+  useEffect(() => {
+    if (refSection) {
+      setClientHeight(refSection.current.offsetTop - 200);
+    }
+  }, []);
+
+  const { scrollY } = useViewportScroll();
+  const top = useTransform(
+    scrollY,
+    [startAnimationPosition, clientHeight],
+    [150, 0],
+  );
+  const opacity = useTransform(
+    scrollY,
+    [startAnimationPosition, clientHeight],
+    [0, 1],
+  );
   return (
-    <motion.section
-      initial="hidden"
-      whileInView="visible"
-      // viewport={{ amount: 0.2, once: true }}
-      className={s.section}>
+    <section ref={refSection} className={s.section}>
       <div className={s.container}>
-        <motion.h2 custom={2} variants={leftAnimation} className={s.titleMob}>
-          <span> This brand</span> <br />
-          <span>was born in</span> <br />
-          <span> great love...</span>
-        </motion.h2>
-        <motion.h2 custom={2} variants={leftAnimation} className={s.title}>
-          This brand was born <br />
-          in great love...
-        </motion.h2>
+        <span className={s.mobTitleWrapper}>
+          <motion.h2 style={{ top, opacity }} className={s.titleMob}>
+            <span> This brand</span> <br />
+            <span>was born in</span> <br />
+            <span> great love...</span>
+          </motion.h2>
+        </span>
+
+        <span className={s.titleWrapper}>
+          <motion.h2 style={{ top, opacity }} className={s.title}>
+            This brand was born <br />
+            in great love...
+          </motion.h2>
+        </span>
+
         <div className={s.content}>
           <div className={s.descr}>
             <p className="text">
@@ -33,17 +57,22 @@ const Brand = () => {
               about familiar things, the highest category of owners, Freedom of
               choice, inserts and desires.
             </p>
-
-            <LinkTo path={'/about-us'} />
+            <motion.div style={{ opacity }}>
+              <LinkTo path={'/about-us'} />
+            </motion.div>
           </div>
-          <motion.div custom={3} variants={toTopAnimation}>
+          <div>
             <div className={s.imageWrapper}>
-              <Image className={s.img} src={img} alt="foto" />
+              <motion.div
+                style={{ top, opacity }}
+                className={s.motionImageWrapper}>
+                <Image className={s.img} src={img} alt="foto" />
+              </motion.div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

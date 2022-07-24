@@ -5,20 +5,31 @@ import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import LinkTo from '../../link/LinkTo';
 import img from '../../../assets/images/home/soul.jpg';
 import s from './Soul.module.scss';
-import { toTopAnimation } from '../../../assets/functions/toTop';
-import { leftAnimation } from '../../../assets/functions/fromLeft';
+import {
+  DEFAULT_WINDOW_DESKTOP_WIDTH,
+  DEFAULT_WINDOW_MOBILE_WIDTH,
+  DEFAULT_WINDOW_TABLET_WIDTH,
+  DEFAULT_WINDOW_MINI_TABLET_WIDTH,
+} from '../../../config/windowWidth';
+import { getValueBasedOnDeviceWidth } from '../../../utils/getValueBasedOnDeviceWidth';
+import useDeviceWidth from '../../../hooks/useDeviceWidth';
 
 export const Soul = () => {
+  const windowWidth = useDeviceWidth();
   const refSection = useRef();
   const [clientHeight, setClientHeight] = useState();
 
+  const widthMap = {
+    [DEFAULT_WINDOW_DESKTOP_WIDTH]: clientHeight - 100,
+    [DEFAULT_WINDOW_TABLET_WIDTH]: clientHeight - 400,
+    [DEFAULT_WINDOW_MINI_TABLET_WIDTH]: clientHeight - 100,
+    [DEFAULT_WINDOW_MOBILE_WIDTH]: clientHeight - 100,
+  };
   // число px с которых нужно запускать анимацию
-  const startAnimationHeight = clientHeight - 150;
-  // const startAnimationHeight = clientHeight - 50;
+  const startAnimationPosition = clientHeight - 300;
 
   useEffect(() => {
     if (refSection) {
-      // setClientHeight(refSection.current.offsetTop);
       setClientHeight(refSection.current.offsetTop - 500);
     }
   }, []);
@@ -26,16 +37,16 @@ export const Soul = () => {
   const { scrollY } = useViewportScroll();
   const top = useTransform(
     scrollY,
-    [`${startAnimationHeight}`, `${clientHeight}`],
+    [startAnimationPosition, clientHeight],
     [100, 0],
   );
+
   const opacity = useTransform(
     scrollY,
-    [`${startAnimationHeight}`, `${clientHeight}`],
+    [startAnimationPosition, clientHeight],
     [0, 1],
   );
 
-  // console.log(startAnimationHeight);
   return (
     <section ref={refSection} className={s.section}>
       <div className={s.container}>
@@ -55,7 +66,14 @@ export const Soul = () => {
         </div>
         <div>
           <div className={s.imageWrapper}>
-            <Image className={s.img} src={img} alt="img" />
+            <motion.div
+              style={{
+                top,
+                opacity,
+              }}
+              className={s.motionFotoWrapper}>
+              <Image className={s.img} src={img} alt="img" />
+            </motion.div>
           </div>
         </div>
       </div>

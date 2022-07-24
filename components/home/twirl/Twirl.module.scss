@@ -19,9 +19,6 @@
   right: 0;
   width: 65%;
   height: 230px;
-  border-radius: 15px;
-  background: url(../../../assets/images/home/twirl-bg.png) center no-repeat;
-  background-size: cover;
 
   @media (min-width: $mob-XL) {
     height: 190px;
@@ -45,6 +42,15 @@
     border-radius: 15px;
     object-fit: cover;
   }
+}
+.motionBgWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  border-radius: 15px;
+  background: url(../../../assets/images/home/twirl-bg.png) center no-repeat;
+  background-size: cover;
 
   &::after {
     content: "";
@@ -57,7 +63,6 @@
     background-size: cover;
     border-radius: 20px;
   }
-
   span {
     position: absolute;
     top: 20px;
@@ -82,9 +87,6 @@
   right: 0;
   width: 65%;
   height: 230px;
-  border-radius: 15px;
-  background: url(../../../assets/images/home/treasure-bg.png) center no-repeat;
-  background-size: cover;
 
   @media (min-width: $mob-XL) {
     height: 190px;
@@ -108,6 +110,14 @@
     border-radius: 15px;
     object-fit: cover;
   }
+}
+.motionBgWrapperTreasure {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: url(../../../assets/images/home/treasure-bg.png) center no-repeat;
+  background-size: cover;
 
   &::after {
     content: "";
@@ -141,7 +151,6 @@
 }
 .container {
   width: 100%;
-
   padding: 0 20px 20px 20px;
 
   display: flex;
@@ -162,9 +171,33 @@
 }
 
 .textWtapper {
+  position: relative;
   width: 80%;
+  height: 180px;
   margin-left: auto;
   margin-top: 20px;
+
+  @media (min-width: $mob-XL) {
+    height: 300px;
+    width: 100%;
+  }
+  @media (min-width: $tablet-S) {
+    height: 310px;
+    width: 60%;
+  }
+
+  @media (min-width: $tablet-L) {
+    width: 45%;
+    height: 470px;
+  }
+  @media (min-width: $descktop-L) {
+    height: 500px;
+  }
+}
+.motionTextWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
   p {
     text-align: right;
@@ -180,16 +213,6 @@
       margin-left: 0;
       margin-right: auto;
     }
-  }
-
-  @media (min-width: $mob-XL) {
-    width: 100%;
-  }
-  @media (min-width: $tablet-S) {
-    width: 60%;
-  }
-  @media (min-width: $tablet-L) {
-    width: 45%;
   }
 }
 .title {
@@ -212,19 +235,17 @@
 
   display: flex;
   align-items: center;
-  justify-content: felx-end;
+  justify-content: flex-end;
   @media (min-width: $mob-XL) {
     width: 100%;
     margin-left: 0;
   }
   @media (min-width: $tablet-S) {
-    justify-content: felx-start;
+    justify-content: flex-start;
   }
 }
 
 .imgWrapper {
-  // display: block;
-  // position: relative;
   z-index: 2;
   margin-right: auto;
   margin-top: -30px;
@@ -244,25 +265,9 @@
     margin-right: 20%;
     margin-top: 100px;
   }
-
-  // ------
-  // width: 230px;
-  // height: 320px;
-  // @media (min-width: $mob-XL) {
-  //   width: 190px;
-  //   height: 280px;
-  // }
-  // @media (min-width: $tablet-L) {
-  //   width: 320px;
-  //   height: 470px;
-  // }
-  // @media (min-width: $descktop-L) {
-  //   width: 342px;
-  //   height: 500px;
-  // }
 }
-
 .imageWrapper {
+  position: relative;
   width: 230px;
   height: 320px;
   margin-right: auto;
@@ -280,21 +285,8 @@
     height: 500px;
   }
 }
-// .flak {
-//   width: 230px;
-//   height: 320px;
-//   margin-right: auto;
-//   margin-left: -20px;
-//   @media (min-width: $mob-XL) {
-//     width: 190px;
-//     height: 280px;
-//   }
-//   @media (min-width: $tablet-L) {
-//     width: 320px;
-//     height: 470px;
-//   }
-//   @media (min-width: $descktop-L) {
-//     width: 342px;
-//     height: 500px;
-//   }
-// }
+.motionImageWrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
