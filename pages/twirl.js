@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MainLayout } from '../components/MainLayout';
+import { MainLayout } from '../components/mainLayout/MainLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 

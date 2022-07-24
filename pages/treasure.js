@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { MainLayout } from '../components/MainLayout';
+import { MainLayout } from '../components/mainLayout/MainLayout';
 
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
