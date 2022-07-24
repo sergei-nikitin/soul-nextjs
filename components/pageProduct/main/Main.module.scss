@@ -105,7 +105,8 @@
   align-items: center;
   justify-content: center;
 
-  @media (max-width: calc($mob-XL - 1px)) {
+  //@media (max-width: calc($mob-XL - 1px)) {
+  @media (max-width: $mob-XL) {
     position: absolute;
 
     bottom: -403px;
@@ -113,7 +114,8 @@
     transform: translateX(-50%);
     width: 100%;
   }
-  @media (max-width: calc($mob-L - 1px)) {
+  //@media (max-width: calc($mob-L - 1px)) {
+  @media (max-width: $mob-L) {
     bottom: -347px;
   }
   @media (min-width: $tablet-S) {
