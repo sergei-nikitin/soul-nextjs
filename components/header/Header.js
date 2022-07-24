@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-// import { Link,hrefink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addHeaderHeight } from '../../redux/slices/heightSlice';
 
@@ -13,10 +12,10 @@ import s from './Header.module.scss';
 
 export default function Header() {
   const router = useRouter();
-  const header = React.useRef();
+  const header = useRef();
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const headerHeight = header.current.clientHeight;
     dispatch(addHeaderHeight(headerHeight));
   }, []);

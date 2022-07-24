@@ -61,6 +61,8 @@ const About = () => {
     [startAnimationPosition, clientHeight],
     [-200, 0],
   );
+  //TODO: fix opacity. Now - its NaN
+  console.log('opacity', opacity)
 
   return (
     <section ref={refSection} className={s.section}>

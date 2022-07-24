@@ -11,7 +11,7 @@ import FacebookIcon from '../../icons/FaceBookIcon';
 import TwiterIcon from '../../icons/TwiterIcon';
 
 import s from './FormSection.module.scss';
-import { toTopAnimation } from '../../../assets/functions/toTop';
+import {toTopAnimation} from '../../../assets/functions/toTop';
 
 const FormSection = () => {
   return (

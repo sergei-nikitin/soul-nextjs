@@ -1,9 +1,9 @@
-import React from 'react';
-import { MainLayout } from '../components/MainLayout';
+import React, {useEffect} from 'react';
+import { MainLayout } from '../components/mainLayout/MainLayout';
 import { CollectionCustomSlider } from '../components/pageCollection/collectionCustomSlider/CollectionCustomSlider';
 
 export default function Collection() {
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
