@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { MainLayout } from '../components/MainLayout';
 
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
@@ -11,6 +10,7 @@ import { TreasureAddCart } from '../components/pageProduct/addCart/TreasureAddCa
 import { Soul } from '../components/home/soul/Soul';
 
 import flak from '../assets/images/butles/blue.png';
+import {MainLayout} from "../components/mainLayout/MainLayout";
 
 export default function Treasure() {
   useEffect(() => {

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { MainLayout } from '../components/MainLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
@@ -9,6 +8,7 @@ import { TwirlNotes } from '../components/pageProduct/notes/TwirlNotes';
 import { TwirlAddCart } from '../components/pageProduct/addCart/TwirlAddCart';
 import { Soul } from '../components/home/soul/Soul';
 import flak from '../assets/images/butles/white.png';
+import {MainLayout} from "../components/mainLayout/MainLayout";
 
 export default function Twirl() {
   useEffect(() => {
