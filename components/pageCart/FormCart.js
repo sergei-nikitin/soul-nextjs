@@ -58,23 +58,24 @@ export const FormCart = () => {
         {/* </div> */}
 
         {/* items */}
-        {items.map(({ name, count, price }) => (
-          <textarea
-            id="textarea"
-            className="visuallyHidden"
-            key={shortid.generate()}
-            defaulvalue={[
-              'name: ',
-              name,
-              ' ',
-              'count: ',
-              count,
-              ' ',
-              'price: ',
-              `${price * count}`,
-            ].join(' ')}
-          />
-        ))}
+        {items.lenght > 0 &&
+          items.map(({ name, count, price }) => (
+            <textarea
+              id="textarea"
+              className="visuallyHidden"
+              key={shortid.generate()}
+              defaulvalue={[
+                'name: ',
+                name,
+                ' ',
+                'count: ',
+                count,
+                ' ',
+                'price: ',
+                `${price * count}`,
+              ].join(' ')}
+            />
+          ))}
         <div className={s.actions}>
           <Link href="/">
             <a className={s.link}>

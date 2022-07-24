@@ -1,7 +1,11 @@
 import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 
-import {nameSwitch} from '../../../assets/functions/nameSwitch';
+import { RED } from '../../../cnstants';
+import { BLUE } from '../../../cnstants';
+import { GOLD } from '../../../cnstants';
+
+import { nameSwitch } from '../../../assets/functions/nameSwitch';
 import LinkTo from '../../link/LinkTo';
 import red from '../../../assets/images/butles/red.png';
 import blue from '../../../assets/images/butles/blue.png';
@@ -162,25 +166,32 @@ const HomeCustomSlider = ({aboutUsRef}) => {
         </div>
         <div className={s.imgContainer}>
           <div className={s.imagesContainer}>
-            <div id={s.img} className={activeNum === 0 ? s.active : s.hidden}>
-              <Image src={red} alt="foto"/>
+            <div id={s.img} className={activeNum === RED ? s.active : s.hidden}>
+              <Image src={red} alt="foto" />
             </div>
 
-            <div id={s.img} className={activeNum === 1 ? s.active : s.hidden}>
-              <Image src={blue} alt="foto"/>
+            <div
+              id={s.img}
+              className={activeNum === BLUE ? s.active : s.hidden}>
+              <Image src={blue} alt="foto" />
             </div>
 
-            <div id={s.img} className={activeNum === 2 ? s.active : s.hidden}>
-              <Image src={gold} alt="foto"/>
+            <div
+              id={s.img}
+              className={activeNum === GOLD ? s.active : s.hidden}>
+              <Image src={gold} alt="foto" />
             </div>
           </div>
 
           <div className={s.navPoints}>
-            {activeNum === 0 ? '' : <PrevBtn/>}
-            <span className={activeNum === 0 ? s.pointActive : s.point}/>
-            <span className={activeNum === 1 ? s.pointActive : s.point}/>
-            <span className={activeNum === 2 ? s.pointActive : s.point}/>
-            {activeNum === 2 ? '' : <NextBtn/>}
+            {activeNum === RED ? '' : <PrevBtn />}
+            <span
+              className={activeNum === RED ? s.pointActive : s.point}/>
+            <span
+              className={activeNum === BLUE ? s.pointActive : s.point}/>
+            <span
+              className={activeNum === GOLD ? s.pointActive : s.point}/>
+            {activeNum === 2 ? '' : <NextBtn />}
           </div>
         </div>
 
@@ -190,9 +201,9 @@ const HomeCustomSlider = ({aboutUsRef}) => {
             <span className={s.ofMine}>of mine</span>
           </p>
           <div className={s.nameWrapper}>
-            <p className={activeNum === 0 ? s.activeName : ''}>seduction</p>
-            <p className={activeNum === 1 ? s.activeName : ''}>treasure</p>
-            <p className={activeNum === 2 ? s.activeName : ''}>twirl</p>
+            <p className={activeNum === RED ? s.activeName : ''}>seduction</p>
+            <p className={activeNum === BLUE ? s.activeName : ''}>treasure</p>
+            <p className={activeNum === GOLD ? s.activeName : ''}>twirl</p>
           </div>
 
           <div className={s.descrWrapper}>
@@ -204,7 +215,7 @@ const HomeCustomSlider = ({aboutUsRef}) => {
             </span>
             <div
               className={
-                activeNum === 0 ? s.activeTextWrapper : s.hiddenTextWrapper
+                activeNum === RED ? s.activeTextWrapper : s.hiddenTextWrapper
               }>
               <p>
                 of the printing and typesetting industry. Lorem Ipsum is simply
@@ -213,7 +224,7 @@ const HomeCustomSlider = ({aboutUsRef}) => {
             </div>
             <div
               className={
-                activeNum === 1 ? s.activeTextWrapper : s.hiddenTextWrapper
+                activeNum === BLUE ? s.activeTextWrapper : s.hiddenTextWrapper
               }>
               <p>
                 Ipsum Lorem and typesetting industry. is simply dummy text of
@@ -222,7 +233,7 @@ const HomeCustomSlider = ({aboutUsRef}) => {
             </div>
             <div
               className={
-                activeNum === 2 ? s.activeTextWrapper : s.hiddenTextWrapper
+                activeNum === GOLD ? s.activeTextWrapper : s.hiddenTextWrapper
               }>
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
