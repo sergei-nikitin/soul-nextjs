@@ -6,7 +6,7 @@ import { MainLayout } from '../components/mainLayout/MainLayout';
 import img from '../assets/images/cartFlower.png';
 import s from '../components/pageCart/EmptyCart.module.scss';
 
-export default function success() {
+export default function Success() {
   return (
     <MainLayout>
       <div className={s.wrapper}>
