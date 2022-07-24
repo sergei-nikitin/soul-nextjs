@@ -2,7 +2,7 @@
 
 const withVideos = require('next-videos')
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
 };
 
 module.exports = withVideos(nextConfig);

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { MainLayout } from '../components/MainLayout';
+import { MainLayout } from '../components/mainLayout/MainLayout';
 
 import img from '../assets/images/defaultButle.png';
 import s from '../components/pageCart/EmptyCart.module.scss';

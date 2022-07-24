@@ -1,10 +1,10 @@
-import React from 'react';
-import { MainLayout } from '../components/MainLayout';
+import React, {useEffect} from 'react';
+import { MainLayout } from '../components/mainLayout/MainLayout';
 
 import { MainCartComponent } from '../components/pageCart/MainCartComponent';
 
 export default function Cart() {
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { MainLayout } from '../components/MainLayout';
+import { MainLayout } from '../components/mainLayout/MainLayout';
 
 import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
@@ -13,7 +13,7 @@ import { Soul } from '../components/home/soul/Soul';
 import flak from '../assets/images/butles/red.png';
 
 export default function Seduction() {
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const dispatch = useDispatch();

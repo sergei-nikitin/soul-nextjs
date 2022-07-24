@@ -1,5 +1,5 @@
-import React from 'react';
-import {MainLayout} from '../components/MainLayout';
+import React, {useState} from 'react';
+import {MainLayout} from '../components/mainLayout/MainLayout';
 import HomeCustomSlider from '../components/home/homeCustomSlider/HomeCustomSlider';
 import About from '../components/home/about/About';
 import Twirl from '../components/home/twirl/Twirl';
@@ -8,17 +8,18 @@ import Seduction from '../components/home/seduction/Seduction';
 import Brand from '../components/home/brand/Brand';
 import Ukraine from '../components/home/ukraine/Ukraine';
 import {Soul} from '../components/home/soul/Soul';
-import {useEffect} from "react";
+import {useEffect, useRef} from "react";
 
 export default function Home() {
+  const aboutUsRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <MainLayout>
-      <HomeCustomSlider/>
-      <About/>
+      <HomeCustomSlider aboutUsRef={aboutUsRef}/>
+      <About aboutUsRef={aboutUsRef}/>
       <Twirl/>
       <Seduction/>
       <Treasure/>

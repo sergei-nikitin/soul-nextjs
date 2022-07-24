@@ -9,14 +9,13 @@ import { toTopAnimation } from '../../../assets/functions/toTop';
 import { rightAnimation } from '../../../assets/functions/fromRight';
 import { leftAnimation } from '../../../assets/functions/fromLeft';
 
-const About = () => {
+const About = ({aboutUsRef}) => {
   return (
     <motion.section
       initial="hidden"
       whileInView="visible"
-      // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
-      <div className={s.container}>
+      <div className={s.container} ref={aboutUsRef}>
         <motion.h2 custom={1} variants={leftAnimation} className={s.title}>
           ABOUT US
         </motion.h2>

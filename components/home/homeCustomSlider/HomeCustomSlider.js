@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 
 import {nameSwitch} from '../../../assets/functions/nameSwitch';
@@ -8,18 +8,49 @@ import blue from '../../../assets/images/butles/blue.png';
 import gold from '../../../assets/images/butles/white.png';
 import icon from '../../../assets/images/icons/sliderArrow.svg';
 import s from './HomeCustomSlider.module.scss';
-import redVideo from '../../../assets/red.mp4';
+import redVideo from '../../../assets/0001-0592.mp4';
 import goldVideo from '../../../assets/gold.mp4';
 import blueVideo from '../../../assets/blue.mp4';
 
-const HomeCustomSlider = () => {
-  const [activeNum, setActiveNum] = React.useState(0);
-  const [videoContainerHeight, setVideoContainerHeight] = React.useState(0);
-  const sliderRef = React.useRef();
-  const vidContainerRef = React.useRef();
-  useEffect(() => {
-    setVideoContainerHeight(vidContainerRef.current.clientHeight)
-  })
+const HomeCustomSlider = ({aboutUsRef}) => {
+
+  const [activeNum, setActiveNum] = useState(0);
+  const sliderRef = useRef(null);
+  const isNeededToScroll = useRef(true);
+
+
+  const [offsetY, setOffsetY] = useState(0);
+
+  const scrollToRef = useCallback((e) => {
+    if (!sliderRef.current) return
+    e.preventDefault();
+    e.stopPropagation();
+
+    isNeededToScroll.current = false
+    window.scrollTo({
+      // 90 - approximate header height
+      top: sliderRef.current.clientHeight + 90,
+      behavior: "smooth"
+    })
+  },[sliderRef, aboutUsRef])
+
+  const handleScroll = (e) => {
+    const offsetY = +window.scrollY.toFixed(0)
+    if (offsetY < 50) isNeededToScroll.current = true
+    if (offsetY > 50 && isNeededToScroll.current) {
+      scrollToRef(e)
+    }
+    setOffsetY(offsetY)
+  }
+
+  useLayoutEffect(() => {
+    window.addEventListener("scroll", (e) => handleScroll(e));
+    window.addEventListener("touchmove", (e) => handleScroll(e));
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("touchmove", handleScroll);
+    }
+  }, []);
 
   const onClickNext = () => {
     if (activeNum === 2) return;
@@ -89,7 +120,9 @@ const HomeCustomSlider = () => {
   };
 
   return (
-    <section className={s.section}>
+    <section className={s.section}
+             style={{opacity: `${1 - (offsetY / 1000)}`}}
+    >
       <div
         ref={sliderRef}
         className={s.container}
@@ -99,15 +132,14 @@ const HomeCustomSlider = () => {
           soul
           <br/> of mine
         </p>
-        <div className={s.videoContainer} ref={vidContainerRef}>
-          <video
-            className={activeNum === 0 ? s.videoVisible : s.videoHidden}
-            preload="auto"
-            autoPlay
-            loop
-            muted
-            playsInline
-            src={redVideo}
+        <div className={s.videoContainer}>
+          <video className={activeNum === 0 ? s.videoVisible : s.videoHidden}
+                 preload="auto"
+                 autoPlay
+                 loop
+                 muted
+                 playsInline
+                 src={redVideo}
           />
           <video
             className={activeNum === 1 ? s.videoVisible : s.videoHidden}
@@ -145,9 +177,9 @@ const HomeCustomSlider = () => {
 
           <div className={s.navPoints}>
             {activeNum === 0 ? '' : <PrevBtn/>}
-            <span className={activeNum === 0 ? s.pointActive : s.point}></span>
-            <span className={activeNum === 1 ? s.pointActive : s.point}></span>
-            <span className={activeNum === 2 ? s.pointActive : s.point}></span>
+            <span className={activeNum === 0 ? s.pointActive : s.point}/>
+            <span className={activeNum === 1 ? s.pointActive : s.point}/>
+            <span className={activeNum === 2 ? s.pointActive : s.point}/>
             {activeNum === 2 ? '' : <NextBtn/>}
           </div>
         </div>
