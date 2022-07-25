@@ -9,6 +9,89 @@ import Brand from '../components/home/brand/Brand';
 import Ukraine from '../components/home/ukraine/Ukraine';
 import {Soul} from '../components/home/soul/Soul';
 import {useEffect, useRef} from "react";
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+
+const DynamicHomeCustomSlider = dynamic(() => import('../components/home/homeCustomSlider/HomeCustomSlider'), {
+  suspense: true,
+})
+function SuspenseDynamicHomeCustomSlider() {
+  return (
+    <Suspense>
+      <DynamicHomeCustomSlider />
+    </Suspense>
+  )
+}
+const DynamicAbout = dynamic(() => import('../components/home/about/About'), {
+  suspense: true,
+})
+function SuspenseDynamicAbout() {
+  return (
+    <Suspense>
+      <DynamicAbout />
+    </Suspense>
+  )
+}
+const DynamicTwirl = dynamic(() => import('../components/home/twirl/Twirl'), {
+  suspense: true,
+})
+function SuspenseDynamicTwirl() {
+  return (
+    <Suspense>
+      <DynamicTwirl />
+    </Suspense>
+  )
+}
+const DynamicSeduction = dynamic(() => import('../components/home/seduction/Seduction'), {
+  suspense: true,
+})
+function SuspenseDynamicSeduction() {
+  return (
+    <Suspense>
+      <DynamicSeduction />
+    </Suspense>
+  )
+}
+const DynamicTreasure = dynamic(() => import('../components/home/treasure/Treasure'), {
+  suspense: true,
+})
+function SuspenseDynamicTreasure() {
+  return (
+    <Suspense>
+      <DynamicTreasure />
+    </Suspense>
+  )
+}
+const DynamicBrand = dynamic(() => import('../components/home/brand/Brand'), {
+  suspense: true,
+})
+function SuspenseDynamicBrand() {
+  return (
+    <Suspense>
+      <DynamicBrand />
+    </Suspense>
+  )
+}
+const DynamicUkraine = dynamic(() => import('../components/home/ukraine/Ukraine'), {
+  suspense: true,
+})
+function SuspenseDynamicUkraine() {
+  return (
+    <Suspense>
+      <DynamicUkraine />
+    </Suspense>
+  )
+}
+const DynamicSoul = dynamic(() => import('../components/home/soul/Soul'), {
+  suspense: true,
+})
+function SuspenseDynamicSoul() {
+  return (
+    <Suspense>
+      <DynamicSoul />
+    </Suspense>
+  )
+}
 
 export default function Home() {
   const aboutUsRef = useRef(null);
@@ -31,14 +114,14 @@ export default function Home() {
 
   return (
     <MainLayout>
-      <HomeCustomSlider aboutUsRef={aboutUsRef}/>
-      <About aboutUsRef={aboutUsRef}/>
-      <Twirl/>
-      <Seduction/>
-      <Treasure/>
-      <Brand/>
-      <Ukraine/>
-      <Soul/>
+      <SuspenseDynamicHomeCustomSlider aboutUsRef={aboutUsRef}/>
+      <SuspenseDynamicAbout aboutUsRef={aboutUsRef}/>
+      <SuspenseDynamicTwirl/>
+      <SuspenseDynamicSeduction/>
+      <SuspenseDynamicTreasure/>
+      <SuspenseDynamicBrand/>
+      <SuspenseDynamicUkraine/>
+      <SuspenseDynamicSoul/>
     </MainLayout>
   );
 }
