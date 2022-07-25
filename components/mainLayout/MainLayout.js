@@ -19,9 +19,8 @@ export function MainLayout({ children, title = 'Soul Of Mine' }) {
       <Footer />
       <video
         className={s.fixedBackgroundVideo}
-        preload="auto"
         autoPlay
-        loop
+        // loop
         muted
         playsInline
         src={redVideo}
