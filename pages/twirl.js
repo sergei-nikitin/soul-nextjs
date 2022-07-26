@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { MainLayout } from '../components/mainLayout/MainLayout';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
+import { addItem, minusItem } from '../redux/slices/cartSlice';
 
 import { TwirlMain } from '../components/pageProduct/main/TwirlMain';
 import { TwirlDescr } from '../components/pageProduct/descr/TwirlDescr';
 import { TwirlNotes } from '../components/pageProduct/notes/TwirlNotes';
 import { TwirlAddCart } from '../components/pageProduct/addCart/TwirlAddCart';
-import { Soul } from '../components/home/soul/Soul';
+import Soul from '../components/home/soul/Soul';
 import flak from '../assets/images/butles/white.png';
 
 export default function Twirl() {
