@@ -11,7 +11,6 @@ const Brand = dynamic(() => import('../components/home/brand/Brand'))
 const Ukraine = dynamic(() => import('../components/home/ukraine/Ukraine'))
 const Soul = dynamic(() => import('../components/home/soul/Soul'))
 import {useEffect, useRef} from "react";
-// import {AppearWrapper} from "../components/appearWrapper/AppearWrapper";
 
 
 export default function Home() {
@@ -34,18 +33,17 @@ export default function Home() {
   // fn(num, 2);
 
   return (
-
-    <MainLayout>
-      <Suspense>
-        <HomeCustomSlider aboutUsRef={aboutUsRef}/>
-        <About aboutUsRef={aboutUsRef}/>
-        <Twirl/>
-        <Seduction/>
-        <Treasure/>
-        <Brand/>
-        <Ukraine/>
-        <Soul/>
-      </Suspense>
-    </MainLayout>
+      <MainLayout>
+        <Suspense>
+          <HomeCustomSlider aboutUsRef={aboutUsRef}/>
+          <About aboutUsRef={aboutUsRef}/>
+          <Twirl/>
+          <Seduction/>
+          <Treasure/>
+          <Brand/>
+          <Ukraine/>
+          <Soul/>
+        </Suspense>
+      </MainLayout>
   );
 }

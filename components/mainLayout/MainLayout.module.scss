@@ -1,12 +1,44 @@
 .appWrapper {
   position: relative;
-  .fixedBackgroundVideo {
+
+  .mainContent {
+    transition: all 0.35s ease;
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.invisible {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+  }
+
+  .mainVideos {
     position: fixed;
     top: 0;
     bottom: 0;
     height: 100%;
     width: 100%;
-    z-index: -3;
     object-fit: cover;
+  }
+
+  .fixedBackgroundVideo {
+    z-index: -3;
+  }
+
+  .startVideo {
+    transition: all 0.5s ease;
+    z-index: 999;
+
+    &.disappeared {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &.invisible {
+      display: none;
+    }
   }
 }
