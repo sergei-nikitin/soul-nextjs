@@ -1,18 +1,14 @@
-import React, {Suspense} from 'react';
+import React, {useState} from 'react';
 import {MainLayout} from '../components/mainLayout/MainLayout';
-import dynamic from "next/dynamic";
-
-const HomeCustomSlider = dynamic(() => import('../components/home/homeCustomSlider/HomeCustomSlider'))
-const About = dynamic(() => import('../components/home/about/About'))
-const Twirl = dynamic(() => import('../components/home/twirl/Twirl'))
-const Treasure = dynamic(() => import('../components/home/treasure/Treasure'))
-const Seduction = dynamic(() => import('../components/home/seduction/Seduction'))
-const Brand = dynamic(() => import('../components/home/brand/Brand'))
-const Ukraine = dynamic(() => import('../components/home/ukraine/Ukraine'))
-const Soul = dynamic(() => import('../components/home/soul/Soul'))
+import HomeCustomSlider from '../components/home/homeCustomSlider/HomeCustomSlider';
+import About from '../components/home/about/About';
+import Twirl from '../components/home/twirl/Twirl';
+import Treasure from '../components/home/treasure/Treasure';
+import Seduction from '../components/home/seduction/Seduction';
+import Brand from '../components/home/brand/Brand';
+import Ukraine from '../components/home/ukraine/Ukraine';
+import {Soul} from '../components/home/soul/Soul';
 import {useEffect, useRef} from "react";
-// import {AppearWrapper} from "../components/appearWrapper/AppearWrapper";
-
 
 export default function Home() {
   const aboutUsRef = useRef(null);
@@ -34,18 +30,15 @@ export default function Home() {
   // fn(num, 2);
 
   return (
-
     <MainLayout>
-      <Suspense>
-        <HomeCustomSlider aboutUsRef={aboutUsRef}/>
-        <About aboutUsRef={aboutUsRef}/>
-        <Twirl/>
-        <Seduction/>
-        <Treasure/>
-        <Brand/>
-        <Ukraine/>
-        <Soul/>
-      </Suspense>
+      <HomeCustomSlider aboutUsRef={aboutUsRef}/>
+      <About aboutUsRef={aboutUsRef}/>
+      <Twirl/>
+      <Seduction/>
+      <Treasure/>
+      <Brand/>
+      <Ukraine/>
+      <Soul/>
     </MainLayout>
   );
 }

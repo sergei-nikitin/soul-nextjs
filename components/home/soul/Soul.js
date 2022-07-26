@@ -1,6 +1,6 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import {motion, useViewportScroll, useTransform} from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 import LinkTo from '../../link/LinkTo';
 import img from '../../../assets/images/home/soul.jpg';
@@ -11,10 +11,10 @@ import {
   DEFAULT_WINDOW_TABLET_WIDTH,
   DEFAULT_WINDOW_MINI_TABLET_WIDTH,
 } from '../../../config/windowWidth';
-import {getValueBasedOnDeviceWidth} from '../../../utils/getValueBasedOnDeviceWidth';
+import { getValueBasedOnDeviceWidth } from '../../../utils/getValueBasedOnDeviceWidth';
 import useDeviceWidth from '../../../hooks/useDeviceWidth';
 
-const Soul = () => {
+export const Soul = () => {
   const windowWidth = useDeviceWidth();
   const refSection = useRef();
   const [clientHeight, setClientHeight] = useState();
@@ -34,7 +34,7 @@ const Soul = () => {
     }
   }, []);
 
-  const {scrollY} = useViewportScroll();
+  const { scrollY } = useViewportScroll();
   const top = useTransform(
     scrollY,
     [startAnimationPosition, clientHeight],
@@ -61,7 +61,7 @@ const Soul = () => {
             <p className="text">
               Is carried in over 100 stores across 18 countries.
             </p>
-            <LinkTo path={'/collection'}/>
+            <LinkTo path={'/collection'} />
           </motion.div>
         </div>
         <div>
@@ -72,7 +72,7 @@ const Soul = () => {
                 opacity,
               }}
               className={s.motionFotoWrapper}>
-              <Image className={s.img} src={img} alt="img"/>
+              <Image className={s.img} src={img} alt="img" />
             </motion.div>
           </div>
         </div>
@@ -80,4 +80,3 @@ const Soul = () => {
     </section>
   );
 };
-export default Soul

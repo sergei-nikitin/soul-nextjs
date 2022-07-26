@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MainLayout } from '../components/mainLayout/MainLayout';
 
-import { addItem, minusItem } from '../redux/slices/cartSlice';
+import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
 import { TreasureMain } from '../components/pageProduct/main/TreasureMain';
 import { TreasureDescr } from '../components/pageProduct/descr/TreasureDescr';
 import { TreasureNotes } from '../components/pageProduct/notes/TreasureNotes';
 import { TreasureAddCart } from '../components/pageProduct/addCart/TreasureAddCart';
-import Soul from '../components/home/soul/Soul';
+import { Soul } from '../components/home/soul/Soul';
 
 import flak from '../assets/images/butles/blue.png';
 

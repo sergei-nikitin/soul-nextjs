@@ -2,13 +2,13 @@ import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { MainLayout } from '../components/mainLayout/MainLayout';
 
-import { addItem, minusItem } from '../redux/slices/cartSlice';
+import { addItem, minusItem, removeItem } from '../redux/slices/cartSlice';
 
 import { SeductionMain } from '../components/pageProduct/main/SeductionMain';
 import { SeductionDescr } from '../components/pageProduct/descr/SeductionDescr';
 import { SeductionNotes } from '../components/pageProduct/notes/SeductionNotes';
 import { SeductionAddCart } from '../components/pageProduct/addCart/SeductionAddCart';
-import Soul from '../components/home/soul/Soul';
+import { Soul } from '../components/home/soul/Soul';
 
 import flak from '../assets/images/butles/red.png';
 
