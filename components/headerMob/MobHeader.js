@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
-import { useRouter } from 'next/router';
+import React, {useEffect, useRef, useState} from 'react';
+import {useRouter} from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 
-import BurgerIcon from '../icons/BurgerIcon';
-import CloseIcon from '../icons/CloseIcon';
+// import BurgerIcon from '../icons/BurgerIcon';
+// import CloseIcon from '../icons/CloseIcon';
 import BallIcon from '../icons/BallIcon';
 import TwiterIcon from '../icons/TwiterIcon';
 import InstaIcon from '../icons/InstaIcon';
@@ -18,11 +18,11 @@ import s from './MobHeader.module.scss';
 
 export default function MobHeader() {
   const router = useRouter();
-  const mobHeader = React.useRef();
-  const { items, totalPrice } = useSelector((state) => state.cart);
-  const [menu, setMenu] = React.useState(false);
-  const [rotate, setRotate] = React.useState(false);
-  const [selectItems, setSelectItems] = React.useState(false);
+  const mobHeader = useRef();
+  const {items} = useSelector((state) => state.cart);
+  const [menu, setMenu] = useState(false);
+  const [rotate, setRotate] = useState(false);
+  const [selectItems, setSelectItems] = useState(false);
 
   const closeMenu = () => {
     setMenu(!menu);
@@ -34,8 +34,8 @@ export default function MobHeader() {
     setSelectItems(!selectItems);
   };
 
-  const [show, setShow] = React.useState(true);
-  const [lastScrollY, setLastScrollY] = React.useState(0);
+  const [show, setShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const controlNavbar = () => {
     if (typeof window !== 'undefined') {
@@ -64,21 +64,29 @@ export default function MobHeader() {
 
   return (
     <header ref={mobHeader} className={show ? 'mobHeader' : 'mobHeaderHidden'}>
-      {menu ? (
-        <CloseIcon onClick={closeMenu} />
-      ) : (
-        <BurgerIcon onClick={closeMenu} />
-      )}
+      {/*{menu ? (*/}
+      {/*  <CloseIcon onClick={closeMenu} />*/}
+      {/*) : (*/}
+      {/*  <BurgerIcon onClick={closeMenu} />*/}
+      {/*)}*/}
+      <div
+        onClick={closeMenu}
+        className={`${s.toggle} ${menu ? s.active : ''}`}
+      >
+        <span/>
+        <span/>
+        <span/>
+      </div>
 
       <Link href={'/'}>
         <a className={s.logoWrapper}>
-          <Image className={s.contur} src={contur} alt="logo" />
+          <Image className={s.contur} src={contur} alt="logo"/>
         </a>
       </Link>
 
       <Link href={'/cart'}>
         <a className={s.cart}>
-          <Image className={s.cart} src={cart} alt="cart" />
+          <Image className={s.cart} src={cart} alt="cart"/>
           {items > '0' && <span>( {items.length} )</span>}
         </a>
       </Link>
@@ -196,16 +204,16 @@ export default function MobHeader() {
           </a>
           <div className={s.socLinks}>
             <a className={s.socialIcon} href="#">
-              <BallIcon />
+              <BallIcon/>
             </a>
             <a className={s.socialIcon} href="#">
-              <InstaIcon />
+              <InstaIcon/>
             </a>
             <a className={s.socialIcon} href="#">
-              <TwiterIcon />
+              <TwiterIcon/>
             </a>
             <a className={s.socialIcon} href="#">
-              <FaceBookIcon />
+              <FaceBookIcon/>
             </a>
           </div>
         </div>

@@ -23,11 +23,13 @@
     height: 100%;
     animation: rotateLogo 10s linear infinite;
   }
+
   @keyframes rotateLogo {
     0% {
       transform: rotate(-360deg);
     }
   }
+
   .letter {
     position: absolute;
     top: 50%;
@@ -68,13 +70,14 @@
   background: url(../../assets/images/mob-menu-bg.png) no-repeat center;
   z-index: 100;
   background-size: cover;
-  z-index: 100;
 
   transition: $transition;
 }
+
 .menuWrapperActive {
   left: 0;
 }
+
 .linksWrapper {
   display: flex;
   flex-direction: column;
@@ -86,24 +89,29 @@
     align-items: center;
   }
 }
+
 .collectionWrapper {
   display: flex;
   align-items: center;
 }
+
 .arrowBtn {
   width: 50px;
   height: 40px;
 }
+
 .arrov {
   width: 100px !important;
   margin-top: -5px;
   margin-left: 10px;
   transition: $transition;
 }
+
 .rotate {
   width: 100px;
   transform: rotate(90deg);
 }
+
 .navLink {
   text-transform: uppercase;
   font-size: 40px;
@@ -115,9 +123,11 @@
     color: $black;
   }
 }
+
 .activeLink {
   color: $black;
 }
+
 .list {
   display: flex;
   flex-direction: column;
@@ -137,13 +147,95 @@
 
 .socLinks {
   margin-top: 20px;
+
   a {
     margin: 10px;
   }
 }
+
 .socialIcon {
   transition: $transition;
+
   &:hover * {
     fill: $gold;
+  }
+}
+
+.toggle {
+  cursor: pointer;
+  position: relative;
+
+  span {
+    position: relative;
+    width: 25px;
+    height: 2px;
+    background: #BDB7B7;
+    display: block;
+    margin-bottom: 6px;
+    transition: .5s;
+
+    &:nth-child(1) {
+      transform-origin: left;
+    }
+
+    &:nth-child(2) {
+      transform-origin: center;
+    }
+
+    &:nth-child(3) {
+      transform-origin: left;
+    }
+  }
+
+  &.active {
+    span {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        left: 3px
+      }
+
+      &:nth-child(2) {
+        transform: rotate(315deg);
+        right: 1px;
+        top: 1px;
+      }
+
+      &:nth-child(3) {
+        transform: scale(0);
+      }
+    }
+  }
+
+
+  .hamburger {
+    width: 40px;
+    height: 6px;
+    background: #fff;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    Left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    transition: .5s;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 6px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+      transition: .5s;
+    }
+
+    &:after {
+      top: -16px;
+    }
+
+    &:before {
+      top: 16px;
+    }
   }
 }
