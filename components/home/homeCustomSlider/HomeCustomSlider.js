@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 
-import { RED } from '../../../cnstants';
-import { BLUE } from '../../../cnstants';
-import { GOLD } from '../../../cnstants';
+import {RED} from '../../../cnstants';
+import {BLUE} from '../../../cnstants';
+import {GOLD} from '../../../cnstants';
 
-import { nameSwitch } from '../../../assets/functions/nameSwitch';
+import {nameSwitch} from '../../../assets/functions/nameSwitch';
 import LinkTo from '../../link/LinkTo';
 import red from '../../../assets/images/butles/red.png';
 import blue from '../../../assets/images/butles/blue.png';
@@ -16,7 +16,7 @@ import redVideo from '../../../assets/0001-0592.mp4';
 import goldVideo from '../../../assets/gold.mp4';
 import blueVideo from '../../../assets/blue.mp4';
 
-const HomeCustomSlider = ({aboutUsRef}) => {
+const HomeCustomSlider = () => {
 
   const [activeNum, setActiveNum] = useState(0);
   const sliderRef = useRef(null);
@@ -25,27 +25,44 @@ const HomeCustomSlider = ({aboutUsRef}) => {
 
   const [offsetY, setOffsetY] = useState(0);
 
-  const scrollToRef = useCallback((e) => {
+  const scrollTo = useCallback((direction, e = undefined) => {
+    // 90 - approximate header height
     if (!sliderRef.current) return
-    e.preventDefault();
-    e.stopPropagation();
-
-    isNeededToScroll.current = false
+    const scrollValue = direction === 'top' ? 0 : sliderRef.current.clientHeight + 90
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      isNeededToScroll.current = false
+    }
     window.scrollTo({
-      // 90 - approximate header height
-      top: sliderRef.current.clientHeight + 90,
+      top: scrollValue,
       behavior: "smooth"
     })
-  },[sliderRef, aboutUsRef])
+  }, [sliderRef])
 
   const handleScroll = (e) => {
     const offsetY = +window.scrollY.toFixed(0)
     if (offsetY < 50) isNeededToScroll.current = true
     if (offsetY > 50 && isNeededToScroll.current) {
-      scrollToRef(e)
+      scrollTo('bottom', e)
     }
     setOffsetY(offsetY)
   }
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting && entry.boundingClientRect.top < 0) {
+        scrollTo('top');
+      }
+    });
+    if (sliderRef.current) observer.observe(sliderRef.current);
+    return () => {
+      if (sliderRef.current) {
+        observer.unobserve(sliderRef.current)
+        sliderRef.current = undefined
+      }
+    }
+  }, []);
 
   useLayoutEffect(() => {
     window.addEventListener("scroll", (e) => handleScroll(e));
@@ -167,31 +184,31 @@ const HomeCustomSlider = ({aboutUsRef}) => {
         <div className={s.imgContainer}>
           <div className={s.imagesContainer}>
             <div id={s.img} className={activeNum === RED ? s.active : s.hidden}>
-              <Image src={red} alt="foto" />
+              <Image src={red} alt="foto"/>
             </div>
 
             <div
               id={s.img}
               className={activeNum === BLUE ? s.active : s.hidden}>
-              <Image src={blue} alt="foto" />
+              <Image src={blue} alt="foto"/>
             </div>
 
             <div
               id={s.img}
               className={activeNum === GOLD ? s.active : s.hidden}>
-              <Image src={gold} alt="foto" />
+              <Image src={gold} alt="foto"/>
             </div>
           </div>
 
           <div className={s.navPoints}>
-            {activeNum === RED ? '' : <PrevBtn />}
+            {activeNum === RED ? '' : <PrevBtn/>}
             <span
               className={activeNum === RED ? s.pointActive : s.point}/>
             <span
               className={activeNum === BLUE ? s.pointActive : s.point}/>
             <span
               className={activeNum === GOLD ? s.pointActive : s.point}/>
-            {activeNum === 2 ? '' : <NextBtn />}
+            {activeNum === 2 ? '' : <NextBtn/>}
           </div>
         </div>
 

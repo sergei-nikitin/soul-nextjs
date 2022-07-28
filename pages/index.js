@@ -10,11 +10,10 @@ const Seduction = dynamic(() => import('../components/home/seduction/Seduction')
 const Brand = dynamic(() => import('../components/home/brand/Brand'))
 const Ukraine = dynamic(() => import('../components/home/ukraine/Ukraine'))
 const Soul = dynamic(() => import('../components/home/soul/Soul'))
-import {useEffect, useRef} from "react";
+import {useEffect} from "react";
 
 
 export default function Home() {
-  const aboutUsRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,8 +34,8 @@ export default function Home() {
   return (
       <MainLayout>
         <Suspense>
-          <HomeCustomSlider aboutUsRef={aboutUsRef}/>
-          <About aboutUsRef={aboutUsRef}/>
+          <HomeCustomSlider/>
+          <About/>
           <Twirl/>
           <Seduction/>
           <Treasure/>
