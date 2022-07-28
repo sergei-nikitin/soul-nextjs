@@ -3,7 +3,7 @@ import Header from '../header/Header';
 import MobHeader from '../headerMob/MobHeader';
 import Footer from '../footer/Footer';
 import s from './MainLayout.module.scss';
-import redVideo from "../../assets/0001-1620.mp4";
+import mainBackgroundVideo from "../../assets/videos/backGroundFog1_mg.mp4";
 import {useEffect, useState} from "react";
 import brushCompressed from "../../assets/videos/brush compress2.mp4";
 
@@ -40,7 +40,7 @@ export function MainLayout({ children, title = 'Soul Of Mine' }) {
         // loop
         muted
         playsInline
-        src={redVideo}
+        src={mainBackgroundVideo}
       />
       <video
         className={`${s.mainVideos} ${s.startVideo} ${showVideo ? '' : s.invisible} ${startVideoOpacityZero ? s.disappeared : ''}`}

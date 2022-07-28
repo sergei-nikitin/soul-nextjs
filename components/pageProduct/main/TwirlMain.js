@@ -6,8 +6,13 @@ import bg from '../../../assets/images/twirl/bg.jpg';
 import butle from '../../../assets/images/butles/white.png';
 import s from './Main.module.scss';
 import { toTopAnimation } from '../../../assets/functions/toTop';
+import gold_1920 from "../../../assets/videos/goldBottle/1920.mp4";
+import gold_1024 from "../../../assets/videos/goldBottle/1024.mp4";
+import gold_428 from "../../../assets/videos/goldBottle/428.mp4";
+import useCurrentWidth from "../../../hooks/useCurrentWidth";
 
 export const TwirlMain = () => {
+  const deviceWidth = useCurrentWidth();
   const butleContainer = useRef();
   const [buttlePosition, setButlePosition] = useState(false);
 
@@ -45,7 +50,25 @@ export const TwirlMain = () => {
       className={s.section}>
       <div className={s.container}>
         <div className={s.bg}>
-          <Image src={bg} alt="bg" />
+          {deviceWidth > 570 && deviceWidth < 1024 || deviceWidth > 1280 ? <video
+
+            className={s.bottleVideoDesktop}
+            autoPlay
+            preload="auto"
+            loop
+            muted
+            playsInline
+            src={gold_1920}
+            // style="pointer-events: none;"
+          /> : (deviceWidth > 1024 && deviceWidth < 1280) ? <video
+            className={`${s.bottleVideoDesktop} ${s.bottleVideoDesktop1024}`}
+            autoPlay
+            preload="auto"
+            loop
+            muted
+            playsInline
+            src={gold_1024}
+          /> : <Image src={bg} alt="bg"/>}
         </div>
 
         <div className={s.butleWrapper}>
@@ -53,9 +76,18 @@ export const TwirlMain = () => {
             ref={butleContainer}
             custom={2}
             variants={toTopAnimation}
-            className={buttlePosition ? s.butleDown : s.butleTop}>
+            className={`${deviceWidth > 570 ? s.displayNone : s.displayBlock} ${buttlePosition ? s.butleDown : s.butleTop}`}>
             <Image src={butle} alt="foto" />
           </motion.div>
+          <video
+            className={s.bottleVideo}
+            autoPlay
+            preload="auto"
+            loop
+            muted
+            playsInline
+            src={gold_428}
+          />
         </div>
 
         <motion.h1 custom={1} variants={titleAnimation} className={s.title}>

@@ -11,11 +11,8 @@ import {
   DEFAULT_WINDOW_TABLET_WIDTH,
   DEFAULT_WINDOW_MINI_TABLET_WIDTH,
 } from '../../../config/windowWidth';
-import {getValueBasedOnDeviceWidth} from '../../../utils/getValueBasedOnDeviceWidth';
-import useDeviceWidth from '../../../hooks/useDeviceWidth';
 
 const Soul = () => {
-  const windowWidth = useDeviceWidth();
   const refSection = useRef();
   const [clientHeight, setClientHeight] = useState();
 

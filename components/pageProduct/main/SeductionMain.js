@@ -1,13 +1,20 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import {motion} from 'framer-motion';
 
 import bg from '../../../assets/images/seduction/bg.jpg';
 import butle from '../../../assets/images/butles/red.png';
 import s from './Main.module.scss';
-import { toTopAnimation } from '../../../assets/functions/toTop';
+import {toTopAnimation} from '../../../assets/functions/toTop';
+import red_1920 from "../../../assets/videos/redBottle/19200001-0118_withBottle.mp4";
+import red_1024 from "../../../assets/videos/redBottle/10240001-0118_withbottle.mp4";
+import red_428 from "../../../assets/videos/redBottle/428.mp4";
+import useCurrentWidth from "../../../hooks/useCurrentWidth";
 
 export const SeductionMain = () => {
+  const deviceWidth = useCurrentWidth();
+  console.log('deviceWidth', deviceWidth)
+
   const butleContainer = useRef();
   const [buttlePosition, setButlePosition] = useState(false);
 
@@ -32,7 +39,7 @@ export const SeductionMain = () => {
       scale: 1,
       opacity: 1,
 
-      transition: { delay: custom * 0.2, duration: 0.8 },
+      transition: {delay: custom * 0.2, duration: 0.8},
     }),
   };
 
@@ -40,12 +47,30 @@ export const SeductionMain = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{once: true}}
       // viewport={{ amount: 0.2, once: true }}
       className={s.section}>
       <div className={s.container}>
         <div className={s.bg}>
-          <Image src={bg} alt="bg" />
+          {deviceWidth > 570 && deviceWidth < 1024 || deviceWidth > 1280 ? <video
+
+            className={s.bottleVideoDesktop}
+            autoPlay
+            preload="auto"
+            loop
+            muted
+            playsInline
+            src={red_1920}
+            // style="pointer-events: none;"
+          /> : (deviceWidth > 1024 && deviceWidth < 1280) ? <video
+            className={`${s.bottleVideoDesktop} ${s.bottleVideoDesktop1024}`}
+            autoPlay
+            preload="auto"
+            loop
+            muted
+            playsInline
+            src={red_1024}
+          /> : <Image src={bg} alt="bg"/>}
         </div>
 
         <div className={s.butleWrapper}>
@@ -53,9 +78,18 @@ export const SeductionMain = () => {
             ref={butleContainer}
             custom={2}
             variants={toTopAnimation}
-            className={buttlePosition ? s.butleDown : s.butleTop}>
-            <Image src={butle} alt="foto" />
+            className={`${deviceWidth > 570 ? s.displayNone : s.displayBlock} ${buttlePosition ? s.butleDown : s.butleTop}`}>
+            <Image src={butle} alt="foto"/>
           </motion.div>
+          <video
+            className={s.bottleVideo}
+            autoPlay
+            preload="auto"
+            loop
+            muted
+            playsInline
+            src={red_428}
+          />
         </div>
 
         <motion.h1 custom={1} variants={titleAnimation} className={s.title}>
