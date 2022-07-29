@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 import {motion} from 'framer-motion';
 
@@ -7,7 +7,6 @@ import butle from '../../../assets/images/butles/red.png';
 import s from './Main.module.scss';
 import {toTopAnimation} from '../../../assets/functions/toTop';
 import red_1920 from "../../../assets/videos/redBottle/19200001-0118_withBottle.mp4";
-import red_1024 from "../../../assets/videos/redBottle/10240001-0118_withbottle.mp4";
 import red_428 from "../../../assets/videos/redBottle/428.mp4";
 import useCurrentWidth from "../../../hooks/useCurrentWidth";
 
@@ -52,7 +51,7 @@ export const SeductionMain = () => {
       className={s.section}>
       <div className={s.container}>
         <div className={s.bg}>
-          {deviceWidth > 570 && deviceWidth < 1024 || deviceWidth > 1280 ? <video
+          {deviceWidth > 570 ? <video
 
             className={s.bottleVideoDesktop}
             autoPlay
@@ -62,14 +61,6 @@ export const SeductionMain = () => {
             playsInline
             src={red_1920}
             // style="pointer-events: none;"
-          /> : (deviceWidth > 1024 && deviceWidth < 1280) ? <video
-            className={`${s.bottleVideoDesktop} ${s.bottleVideoDesktop1024}`}
-            autoPlay
-            preload="auto"
-            loop
-            muted
-            playsInline
-            src={red_1024}
           /> : <Image src={bg} alt="bg"/>}
         </div>
 

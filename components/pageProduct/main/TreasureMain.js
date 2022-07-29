@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 import {motion} from 'framer-motion';
 
@@ -7,7 +7,6 @@ import butle from '../../../assets/images/butles/blue.png';
 import s from './Main.module.scss';
 import {toTopAnimation} from '../../../assets/functions/toTop';
 import blue_1920 from "../../../assets/videos/blueBotl/1920.mp4";
-import blue_1024 from "../../../assets/videos/blueBotl/1024.mp4";
 import blue_428 from "../../../assets/videos/blueBotl/428.mp4";
 import useCurrentWidth from "../../../hooks/useCurrentWidth";
 
@@ -50,7 +49,7 @@ export const TreasureMain = () => {
       className={s.section}>
       <div className={s.container}>
         <div className={s.bg}>
-          {deviceWidth > 570 && deviceWidth < 1024 || deviceWidth > 1280 ? <video
+          {deviceWidth > 570 ? <video
 
             className={s.bottleVideoDesktop}
             autoPlay
@@ -60,14 +59,6 @@ export const TreasureMain = () => {
             playsInline
             src={blue_1920}
             // style="pointer-events: none;"
-          /> : (deviceWidth > 1024 && deviceWidth < 1280) ? <video
-            className={`${s.bottleVideoDesktop} ${s.bottleVideoDesktop1024}`}
-            autoPlay
-            preload="auto"
-            loop
-            muted
-            playsInline
-            src={blue_1024}
           /> : <Image src={bg} alt="bg"/>}
         </div>
 
