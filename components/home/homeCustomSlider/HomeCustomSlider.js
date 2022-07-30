@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
 
 import {RED} from '../../../cnstants';
@@ -64,7 +64,7 @@ const HomeCustomSlider = () => {
     }
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.addEventListener("scroll", (e) => handleScroll(e));
     window.addEventListener("touchmove", (e) => handleScroll(e));
     return () => {

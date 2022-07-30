@@ -1,0 +1,82 @@
+@import "../../scss/variables";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    padding: 100px 100px;
+    font-family: "vegawanty", serif;
+    color: $gold;
+
+    h3 {
+      font-size: 64px;
+      text-transform: uppercase;
+      line-height: 79.36px;
+      margin-bottom: 36px;
+      font-weight: 400;
+
+    }
+
+    h4 {
+      line-height: 61.6px;
+      font-size: 40px;
+      font-weight: 400;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 36px;
+      color: $dark-gray;
+      font-size: 16px;
+      line-height: 24.64px;
+      font-family: "inter", serif;
+    }
+  }
+  @media (max-width: $mob-XL) {
+    .content {
+      padding: 40px 43px;
+
+      h3 {
+        font-size: 40px;
+        margin-bottom: 34px;
+        line-height: 62px;
+      }
+      h4 {
+        font-size: 34px;
+        line-height: 34px;
+        margin-bottom: 12px;
+      }
+      p {
+        font-size: 16px;
+        line-height: 21.56px;
+        margin-bottom: 38px;
+      }
+    }
+  }
+  @media (max-width: $mob-L) {
+    .content {
+      padding: 20px 42px;
+
+      h3 {
+        font-size: 34px;
+        margin-bottom: 10px;
+        line-height: 52.36px;
+      }
+      h4 {
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 21.56px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}
+

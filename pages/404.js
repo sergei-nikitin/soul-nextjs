@@ -1,38 +1,13 @@
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { MainLayout } from '../components/mainLayout/MainLayout';
+import {MainLayout} from '../components/mainLayout/MainLayout';
+import PageNotFound from "../components/404/PageNotFound";
 
-import img from '../assets/images/defaultButle.png';
-import s from '../components/pageCart/EmptyCart.module.scss';
-
-const notFoundPage = () => {
+const Page404 = () => {
   return (
-    <MainLayout title="Page not found">
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: 'calc(100vh - 50px)',
-          height: '100%',
-          background: 'rgba(255, 255, 255, 0.5)',
-        }}>
-        <div className={s.wrapper}>
-          <div className={s.img}>
-            <Image src={img} alt="img" />
-          </div>
-
-          <div>
-            <p className={s.text}>That page cannot be found</p>
-            <Link href="/">
-              <a className={s.link}> CONTINUE SHOPPING</a>
-            </Link>
-          </div>
-        </div>
-      </div>
+    <MainLayout title="404 Page not found">
+        <PageNotFound/>
     </MainLayout>
   );
 };
 
-export default notFoundPage;
+export default Page404;
